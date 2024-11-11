@@ -1,0 +1,40 @@
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--size-1);
+
+  user-select: none;
+  outline: none;
+
+  padding-inline: var(--size-1);
+  padding-block: var(--size-1);
+
+  color: hsl(var(--foreground));
+
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
+
+  &:focus {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &[data-state="open"] {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+}
+
+.caret-down {
+  position: relative;
+  transition: transform 250ms ease;
+
+  [data-state="open"] > & {
+    transform: rotate(-180deg);
+  }
+}

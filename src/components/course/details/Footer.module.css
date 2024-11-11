@@ -1,0 +1,12 @@
+.footer {
+  grid-area: ftr;
+  place-self: stretch center;
+
+  margin-block: var(--size-3) var(--size-6);
+  padding-inline: var(--size-4);
+  padding-block: var(--size-4);
+
+  color: hsl(var(--text-2));
+
+  text-align: center;
+}

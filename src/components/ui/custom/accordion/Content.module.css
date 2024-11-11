@@ -1,0 +1,23 @@
+.content {
+  overflow: clip;
+
+  & > article {
+    padding-inline: var(--size-3);
+    padding-block: var(--size-3);
+  }
+
+  &[data-state="open"] {
+    animation: slideDown 300ms ease;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(var(--radix-accordion-content-height));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

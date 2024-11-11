@@ -1,0 +1,65 @@
+.form-field {
+  inline-size: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-1);
+}
+
+.form-field > label {
+  color: hsl(var(--text-1));
+  padding-block: var(--size-4) var(--size-1);
+  font-size: var(--font-size-0);
+  font-weight: var(--font-weight-9);
+  text-transform: uppercase;
+  flex: none;
+}
+
+.form-field > input,
+.form-field > textarea,
+.form-field > select,
+.form-field > output {
+  inline-size: 100%;
+  flex: 1 1 auto;
+}
+
+.form-field-h {
+  inline-size: 100%;
+  margin-block-start: var(--size-4);
+
+  display: flex;
+  align-items: center;
+  gap: var(--size-2);
+}
+
+.form-field-h > label {
+  flex: 1 1 auto;
+
+  display: flex;
+  align-items: center;
+  gap: var(--size-2);
+}
+
+.form-field-h > input,
+.form-field-h > textarea,
+.form-field-h > select,
+.form-field-h > output {
+  flex: none;
+}
+
+.error-message {
+  font-size: var(--font-size-1);
+
+  padding-inline: var(--size-2);
+  padding-block: var(--size-1);
+  border-radius: var(--radius-3);
+
+  opacity: 0;
+  animation:
+    var(--animation-shake-y),
+    var(--animation-fade-in) forwards;
+
+  display: flex;
+  align-items: center;
+  gap: var(--size-2);
+}

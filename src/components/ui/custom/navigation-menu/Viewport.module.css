@@ -1,0 +1,65 @@
+.viewport-position {
+  inline-size: 100%;
+
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.viewport {
+  inline-size: 100%;
+  block-size: var(--radix-navigation-menu-viewport-height);
+
+  background: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+
+  position: relative;
+
+  margin-block-start: var(--size-3);
+  border-radius: var(--radius-drawn-1);
+  box-shadow: var(--shadow-6);
+
+  transform-origin: top center;
+  overflow: clip;
+
+  transition:
+    width 300ms ease,
+    height 300ms ease;
+
+  &[data-state="open"] {
+    animation: scaleIn 200ms ease;
+  }
+
+  &[data-state="closed"] {
+    animation: scaleOut 200ms ease;
+  }
+
+  @media screen and (min-width: 768px) {
+    inline-size: var(--radix-navigation-menu-viewport-width);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: rotateX(-30deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: rotateX(-10deg) scale(0.95);
+  }
+}

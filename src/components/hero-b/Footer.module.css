@@ -1,0 +1,39 @@
+.footer {
+  grid-area: ftr;
+
+  background-image: var(--gradient-2), var(--noise-4);
+  background-size: cover;
+
+  padding-block: var(--size-4);
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: var(--size-6);
+
+  grid-template-areas: "ft1 ft2 ft2";
+
+  .footer__footer1 {
+    grid-area: ft1;
+    place-self: center center;
+  }
+
+  .footer__footer2 {
+    grid-area: ft2;
+    place-self: center center;
+  }
+
+  /* Small to medium screens */
+  @media screen and (max-width: 1024px) {
+    background-image: unset;
+    background-size: unset;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+
+    grid-template-areas:
+      "ft2"
+      "ft1";
+  }
+}

@@ -1,0 +1,106 @@
+.blog {
+  inline-size: 100%;
+  max-inline-size: var(--size-content-3);
+
+  background-image: var(--gradient-1), var(--noise-4);
+  background-size: cover;
+
+  margin-block: var(--size-6) 0;
+  padding-inline: var(--size-4);
+  padding-block: var(--size-4);
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto auto;
+  gap: var(--size-3);
+
+  grid-template-areas:
+    "hdr"
+    "cnt"
+    "ftr";
+
+  transition-property: box-shadow, transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+
+  box-shadow: var(--shadow-1);
+
+  &:nth-child(even) {
+    background-image: var(--gradient-2), var(--noise-4);
+  }
+
+  &:focus,
+  &:hover {
+    box-shadow: var(--shadow-6);
+    transform: translateX(-8px) translateY(-8px);
+  }
+
+  & > h3 {
+    grid-area: hdr;
+    place-self: stretch center;
+
+    font-family: var(--font-geist-sans);
+    font-size: var(--font-size-4);
+
+    text-align: center;
+  }
+
+  & > article {
+    grid-area: cnt;
+
+    font-size: var(--font-size-1);
+    color: hsl(var(--text-2));
+
+    & > img {
+      inline-size: auto;
+      block-size: var(--size-content-1);
+
+      margin-inline: auto;
+      margin-block-end: var(--size-3);
+
+      border-start-start-radius: 25%;
+      border-start-end-radius: 25%;
+      border-end-start-radius: 25%;
+      border-end-end-radius: 25%;
+
+      /* Large screens */
+      @media screen and (min-width: 1024px) {
+        inline-size: 6em;
+        block-size: 6em;
+
+        float: inline-start;
+        border-start-start-radius: 50%;
+        border-start-end-radius: 50%;
+        border-end-start-radius: 50%;
+        border-end-end-radius: 50%;
+        shape-outside: circle(50%);
+
+        margin-inline: 0 1em;
+        margin-block: 1em 0;
+      }
+    }
+  }
+
+  & > footer {
+    grid-area: ftr;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: var(--size-6);
+
+    grid-template-areas: "ft1 ft2";
+
+    .footer__footer1 {
+      grid-area: ft1;
+      place-self: center center;
+    }
+
+    .footer__footer2 {
+      grid-area: ft2;
+      place-self: center center;
+    }
+  }
+}

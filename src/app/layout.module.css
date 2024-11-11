@@ -1,0 +1,25 @@
+.layout {
+  background-color: var(--gray-12);
+  background-image: var(--gradient-1), var(--noise-4);
+  background-size:
+    auto 200vh,
+    auto 200vh;
+  background-repeat: no-repeat;
+
+  min-block-size: 100vh;
+  min-block-size: 100svh;
+  min-block-size: 100dvh;
+  display: grid;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+
+  & > main {
+    grid-area: main;
+  }
+}

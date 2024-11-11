@@ -1,0 +1,28 @@
+.hero {
+  margin-inline: var(--size-10) var(--size-6);
+  margin-block: var(--size-10) var(--size-9);
+
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  gap: var(--size-6);
+
+  grid-template-areas:
+    "hdr ico"
+    "img ico"
+    "img cnt";
+
+  /* Small to medium screens */
+  @media screen and (max-width: 1024px) {
+    margin-inline: var(--size-6);
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+
+    grid-template-areas:
+      "hdr"
+      "img"
+      "cnt";
+  }
+}

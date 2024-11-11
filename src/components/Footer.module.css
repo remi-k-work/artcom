@@ -1,0 +1,13 @@
+.footer {
+  grid-area: footer;
+
+  font-family: var(--font-3);
+  text-transform: uppercase;
+
+  background-color: hsl(var(--stone-12-hsl) / 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  padding-inline: var(--size-2);
+  padding-block: var(--size-2);
+}

@@ -1,0 +1,22 @@
+.icon {
+  grid-area: ico;
+  place-self: stretch center;
+
+  inline-size: 100%;
+  max-inline-size: var(--size-content-2);
+
+  color: hsl(var(--primary));
+
+  /* Small to medium screens */
+  @media screen and (max-width: 1024px) {
+    grid-area: ct2;
+    place-self: center center;
+
+    max-inline-size: var(--size-content-3);
+
+    opacity: 0.25;
+    filter: blur(3px);
+
+    z-index: var(--layer-1);
+  }
+}

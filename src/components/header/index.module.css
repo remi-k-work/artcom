@@ -1,0 +1,38 @@
+.header {
+  grid-area: header;
+
+  font-family: var(--font-3);
+  text-transform: uppercase;
+
+  background-color: hsl(var(--stone-12-hsl) / 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  padding-inline: var(--size-2);
+  padding-block: var(--size-2);
+
+  position: sticky;
+  inset-block-start: 0;
+
+  z-index: var(--layer-important);
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: var(--size-3);
+
+  grid-template-areas:
+    "log thm"
+    "nav nav";
+
+  /* Large screens */
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto;
+
+    place-items: center center;
+
+    grid-template-areas: "log nav thm";
+  }
+}

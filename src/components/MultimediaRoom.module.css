@@ -1,0 +1,45 @@
+.multimedia-room {
+  inline-size: 100%;
+  max-inline-size: var(--size-content-3);
+
+  background-image: var(--gradient-2), var(--noise-4);
+  background-size: cover;
+
+  margin-block: var(--size-6) 0;
+  padding-inline: var(--size-4);
+  padding-block: var(--size-4);
+
+  display: grid;
+
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  gap: var(--size-3);
+
+  grid-template-areas:
+    "hdr img"
+    "cnt cnt";
+
+  & > h3 {
+    grid-area: hdr;
+    place-self: center start;
+
+    font-family: var(--font-geist-sans);
+    font-size: var(--font-size-4);
+  }
+
+  & > img {
+    grid-area: img;
+    place-self: center start;
+
+    inline-size: var(--size-11);
+    block-size: auto;
+    aspect-ratio: var(--ratio-landscape);
+  }
+
+  & > article {
+    grid-area: cnt;
+
+    font-size: var(--font-size-1);
+    color: hsl(var(--text-2));
+  }
+}

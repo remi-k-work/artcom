@@ -1,0 +1,37 @@
+.header {
+  grid-area: hdr;
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: auto minmax(var(--size-11), max-content);
+  gap: var(--size-3);
+
+  grid-template-areas:
+    "him"
+    "hdr";
+
+  .header__image {
+    grid-area: him;
+
+    inline-size: 100%;
+    block-size: var(--size-14);
+  }
+
+  & > h1 {
+    grid-area: hdr;
+    place-self: stretch center;
+
+    background: var(--gradient-3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    padding-inline: var(--size-6);
+
+    font-family: var(--font-geist-sans);
+    font-size: var(--font-size-5);
+    color: hsl(var(--text-1));
+
+    text-align: center;
+  }
+}

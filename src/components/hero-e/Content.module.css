@@ -1,0 +1,50 @@
+.content {
+  grid-area: cnt;
+  place-self: stretch start;
+
+  inline-size: 100%;
+  max-inline-size: var(--size-content-3);
+
+  color: hsl(var(--text-2));
+
+  & > img {
+    inline-size: auto;
+    block-size: var(--size-content-1);
+
+    margin-inline: auto;
+    margin-block-end: var(--size-3);
+
+    border-start-start-radius: 25%;
+    border-start-end-radius: 25%;
+    border-end-start-radius: 25%;
+    border-end-end-radius: 25%;
+
+    /* Large screens */
+    @media screen and (min-width: 1024px) {
+      inline-size: var(--size-content-1);
+      block-size: var(--size-content-1);
+
+      float: inline-start;
+      border-start-start-radius: 50%;
+      border-start-end-radius: 50%;
+      border-end-start-radius: 50%;
+      border-end-end-radius: 50%;
+      shape-outside: circle(50%);
+
+      margin-inline: 0 1em;
+      margin-block: 1em 0;
+    }
+  }
+
+  /* Small to medium screens */
+  @media screen and (max-width: 1024px) {
+    place-self: stretch center;
+
+    margin-inline: var(--size-6);
+    margin-block: var(--size-4);
+
+    z-index: var(--layer-2);
+
+    text-align: center;
+  }
+}

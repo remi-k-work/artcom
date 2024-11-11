@@ -1,0 +1,8 @@
+.form-submit {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: var(--size-4);
+  margin-block: var(--size-8) 0;
+}

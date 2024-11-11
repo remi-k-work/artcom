@@ -1,0 +1,38 @@
+.details {
+  display: grid;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto;
+  gap: var(--size-6);
+
+  grid-template-areas:
+    "hdr"
+    "ct1"
+    "ct2"
+    "ftr";
+
+  & h2 {
+    font-family: var(--font-geist-sans);
+    font-size: var(--font-size-4);
+    color: hsl(var(--text-2));
+  }
+
+  & > article + article {
+    margin-block-start: var(--size-3);
+  }
+
+  /* Large screens */
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+
+    grid-template-areas:
+      "hdr hdr"
+      "ct1 ct2"
+      "ftr ftr";
+
+    & > article + article {
+      margin-block-start: unset;
+    }
+  }
+}

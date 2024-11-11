@@ -1,0 +1,14 @@
+.content {
+  grid-area: cnt;
+  place-self: end center;
+
+  inline-size: 100%;
+  max-inline-size: var(--size-content-3);
+
+  /* Small to medium screens */
+  @media screen and (max-width: 1024px) {
+    place-self: center center;
+
+    z-index: var(--layer-2);
+  }
+}

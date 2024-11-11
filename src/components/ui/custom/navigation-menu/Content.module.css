@@ -1,0 +1,74 @@
+.content {
+  inline-size: 100%;
+
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+
+  animation-duration: 250ms;
+  animation-timing-function: ease;
+
+  &[data-motion="from-start"] {
+    animation-name: enterFromLeft;
+  }
+
+  &[data-motion="from-end"] {
+    animation-name: enterFromRight;
+  }
+
+  &[data-motion="to-start"] {
+    animation-name: exitToLeft;
+  }
+
+  &[data-motion="to-end"] {
+    animation-name: exitToRight;
+  }
+
+  @media screen and (min-width: 768px) {
+    inline-size: auto;
+  }
+}
+
+@keyframes enterFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes enterFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes exitToLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+}
+
+@keyframes exitToRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+}

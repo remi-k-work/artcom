@@ -1,0 +1,104 @@
+.toast {
+  min-inline-size: max-content;
+
+  padding-inline: var(--size-3);
+  padding-block: var(--size-3);
+
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-3);
+
+  white-space: nowrap;
+
+  border-radius: var(--radius-drawn-4);
+  box-shadow: var(--shadow-6);
+
+  z-index: var(--layer-important);
+
+  animation: toast-show 250ms ease-out forwards;
+}
+
+.toast--hide {
+  animation: toast-hide 250ms ease-out forwards;
+}
+
+.toast:where(.info) {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.toast:where(.success) {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.toast:where(.warning) {
+  background: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
+}
+
+.toast:where(.start) {
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+
+  --tw-translate-x: 0;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y));
+}
+.toast:where(.center) {
+  inset-inline-start: 50%;
+  inset-inline-end: 50%;
+
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y));
+}
+.toast:where(.end) {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+
+  --tw-translate-x: 0;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y));
+}
+.toast:where(.bottom) {
+  inset-block-start: auto;
+  inset-block-end: 0;
+
+  --tw-translate-y: 0;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y));
+}
+.toast:where(.middle) {
+  inset-block-start: 50%;
+  inset-block-end: auto;
+
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y));
+}
+.toast:where(.top) {
+  inset-block-start: 0;
+  inset-block-end: auto;
+
+  --tw-translate-y: 0;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y));
+}
+
+@keyframes toast-show {
+  0% {
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes toast-hide {
+  0% {
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) scale(0.7);
+    opacity: 0;
+  }
+}

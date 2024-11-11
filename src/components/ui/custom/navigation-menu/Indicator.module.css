@@ -1,0 +1,41 @@
+.indicator {
+  background: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+
+  display: flex;
+  justify-content: center;
+
+  border-radius: var(--radius-blob-5);
+
+  z-index: var(--layer-1);
+
+  transition:
+    width 250ms ease,
+    transform 250ms ease;
+
+  &[data-state="visible"] {
+    animation: fadeIn 200ms ease;
+  }
+
+  &[data-state="hidden"] {
+    animation: fadeOut 200ms ease;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

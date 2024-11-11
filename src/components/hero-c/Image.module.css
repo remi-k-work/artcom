@@ -1,0 +1,7 @@
+.image {
+  grid-area: img;
+  place-self: stretch center;
+
+  inline-size: auto;
+  block-size: 100%;
+}

@@ -1,0 +1,39 @@
+.secondary {
+  /* Large screens */
+  @media screen and (min-width: 1024px) {
+    margin-inline: var(--size-6);
+  }
+}
+
+.secondary__content {
+  background: hsl(var(--surface-4));
+
+  padding-inline: var(--size-4);
+  padding-block: var(--size-4);
+
+  & > h2 {
+    max-inline-size: none;
+
+    font-family: var(--font-geist-sans);
+    font-size: var(--font-size-5);
+    font-weight: var(--font-weight-6);
+
+    color: hsl(var(--surface-1));
+
+    text-align: center;
+
+    /* Large screens */
+    @media screen and (min-width: 1024px) {
+      text-align: unset;
+    }
+  }
+
+  & > article {
+    display: grid;
+    gap: var(--size-3);
+
+    place-items: stretch center;
+
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--size-content-3)), 1fr));
+  }
+}

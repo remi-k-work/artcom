@@ -1,0 +1,23 @@
+.content1 {
+  grid-area: ct1;
+}
+
+.content2 {
+  grid-area: ct2;
+
+  display: grid;
+  gap: var(--size-3);
+
+  place-items: stretch center;
+
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--size-content-3)), 1fr));
+
+  /* Small to medium screens */
+  @media screen and (max-width: 1024px) {
+    place-self: stretch center;
+
+    opacity: 0.85;
+
+    z-index: var(--layer-2);
+  }
+}

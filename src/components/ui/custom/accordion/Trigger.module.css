@@ -1,0 +1,25 @@
+.trigger {
+  flex: 1;
+
+  padding-block: var(--size-2);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-3);
+
+  text-align: start;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.caret-down {
+  flex-shrink: 0;
+  transition: transform 250ms ease;
+
+  [data-state="open"] > & {
+    transform: rotate(-180deg);
+  }
+}

@@ -1,0 +1,4 @@
+.theme {
+  grid-area: thm;
+  place-self: center end;
+}

@@ -1,0 +1,31 @@
+.link {
+  display: block;
+  text-decoration: none;
+  line-height: var(--font-lineheight-1);
+
+  user-select: none;
+  outline: none;
+
+  padding-inline: var(--size-1);
+  padding-block: var(--size-1);
+
+  color: hsl(var(--foreground));
+
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
+
+  &:focus {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &[data-active] {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+}

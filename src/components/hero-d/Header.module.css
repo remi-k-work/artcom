@@ -1,0 +1,8 @@
+.header {
+  grid-area: hdr;
+
+  & > h1 {
+    font-family: var(--font-geist-sans);
+    font-size: var(--font-size-5);
+  }
+}

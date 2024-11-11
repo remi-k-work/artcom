@@ -1,0 +1,27 @@
+.contact-form {
+  inline-size: 100%;
+  max-inline-size: var(--size-content-3);
+
+  background-image: var(--gradient-1), var(--noise-4);
+  background-size: cover;
+
+  margin-block: var(--size-6) 0;
+  padding-inline: var(--size-4);
+  padding-block: var(--size-4);
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: var(--size-3);
+
+  grid-template-areas: "cnt";
+
+  & > form {
+    grid-area: cnt;
+    place-self: center stretch;
+
+    font-size: var(--font-size-1);
+    color: hsl(var(--text-2));
+  }
+}

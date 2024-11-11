@@ -1,0 +1,13 @@
+.item {
+  overflow: clip;
+
+  border-block-end: var(--border-size-1) dotted hsl(var(--surface-1));
+
+  &:focus-within {
+    position: relative;
+
+    color: hsl(var(--text-1));
+
+    z-index: var(--layer-1);
+  }
+}

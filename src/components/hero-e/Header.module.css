@@ -1,0 +1,26 @@
+.header {
+  grid-area: hdr;
+
+  display: grid;
+  gap: var(--size-6);
+
+  & > h1 {
+    font-family: var(--font-geist-sans);
+    font-size: var(--font-size-5);
+  }
+
+  & > h2 {
+    max-inline-size: var(--size-content-3);
+
+    font-family: var(--font-geist-sans);
+    font-size: var(--font-size-3);
+    color: hsl(var(--text-2));
+  }
+
+  /* Small to medium screens */
+  @media screen and (max-width: 1024px) {
+    & > h2 {
+      font-size: var(--font-size-2);
+    }
+  }
+}
