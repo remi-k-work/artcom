@@ -10,7 +10,7 @@
   /* Small to medium screens */
   @media screen and (max-width: 1024px) {
     grid-area: cnt;
-    place-self: stretch center;
+    place-self: end center;
 
     max-inline-size: var(--size-content-2);
 

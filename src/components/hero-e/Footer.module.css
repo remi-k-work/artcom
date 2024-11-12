@@ -23,4 +23,14 @@
     grid-area: ft2;
     place-self: center center;
   }
+
+  /* Small to medium screens */
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+
+    grid-template-areas:
+      "ft2"
+      "ft1";
+  }
 }
