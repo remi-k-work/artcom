@@ -11,6 +11,9 @@ import "open-props/masks/corner-cuts";
 // component css styles
 import styles from "./layout.module.css";
 
+// react
+import { ReactNode } from "react";
+
 // next
 import type { Metadata } from "next";
 
@@ -21,6 +24,12 @@ import Footer from "@/components/Footer";
 // assets
 import { geistSans, geistMono, font3 } from "@/assets/fonts";
 
+// types
+interface LayoutProps {
+  formModal: ReactNode;
+  children: ReactNode;
+}
+
 export const metadata: Metadata = {
   title: "ArtCom Szkolenia Informatyczne i Kursy Językowe",
   description: "Od ponad 30 lat specjalizujemy się w szkoleniach informatycznych oraz kursach języków obcych. Prowadzimy egzaminy ECDL, VCC i TELC.",
@@ -29,13 +38,16 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
-export default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function Layout({ formModal, children }: LayoutProps) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${font3.variable} font-geistMono antialiased`}>
         <article className={styles["layout"]}>
           <Header />
-          <main>{children}</main>
+          <main>
+            {formModal}
+            {children}
+          </main>
           <Footer />
         </article>
       </body>

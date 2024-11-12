@@ -1,0 +1,59 @@
+.form-modal {
+  background-image: var(--gradient-1), var(--noise-4);
+  background-size: cover;
+
+  max-inline-size: 95vw;
+  max-block-size: min(95vh, 100%);
+  max-block-size: min(95dvb, 100%);
+  overflow: hidden;
+
+  margin: auto;
+  display: grid;
+
+  transition: opacity 1s var(--ease-3);
+}
+
+.form-modal[open] {
+  animation: var(--animation-slide-in-up) forwards;
+}
+
+.form-modal:not([open]) {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.form-modal::backdrop {
+  backdrop-filter: blur(25px);
+  transition: backdrop-filter 1s ease;
+}
+
+.form-modal > form {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: start;
+  max-block-size: 80vh;
+  max-block-size: 80dvb;
+}
+
+.form-modal > form > header {
+  padding-inline: var(--size-3);
+  padding-block: var(--size-2);
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-modal > form > article {
+  padding-inline: var(--size-3);
+  padding-block: var(--size-2);
+
+  overflow-y: auto;
+  max-block-size: 100%;
+  overscroll-behavior-y: contain;
+
+  display: grid;
+  justify-items: flex-start;
+
+  box-shadow: var(--shadow-2);
+  z-index: var(--layer-1);
+}
