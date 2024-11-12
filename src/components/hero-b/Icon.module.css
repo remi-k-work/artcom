@@ -9,8 +9,10 @@
 
   /* Small to medium screens */
   @media screen and (max-width: 1024px) {
-    grid-area: hdr;
-    place-self: center end;
+    grid-area: cnt;
+    place-self: center center;
+
+    max-inline-size: var(--size-content-2);
 
     opacity: 0.25;
     filter: blur(3px);

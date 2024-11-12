@@ -31,7 +31,7 @@ export default function References() {
       </section>
       <article>
         <Carousel className="m-auto w-[80%]" plugins={[Autoplay({ delay: 6000 })]}>
-          <CarouselContent className="items-center">
+          <CarouselContent>
             <CarouselItem>
               <div className={styles["reference"]}>
                 <span className="flex items-center justify-center gap-1 sm:justify-start">

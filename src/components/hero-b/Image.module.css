@@ -1,14 +1,4 @@
 .image {
   grid-area: img;
   place-self: start center;
-
-  /* Small to medium screens */
-  @media screen and (max-width: 1024px) {
-    grid-area: cnt;
-
-    opacity: 0.25;
-    filter: blur(3px);
-
-    z-index: var(--layer-1);
-  }
 }
