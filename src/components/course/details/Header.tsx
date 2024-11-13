@@ -19,7 +19,7 @@ interface HeaderProps {
 export default function Header({ imageSrc, children }: HeaderProps) {
   return (
     <header className={styles["header"]}>
-      <Image src={imageSrc} alt="" sizes="100vw" className={cn(styles["header__image"], "object-cover")} />
+      <Image src={imageSrc} alt="" sizes="100vw" className={cn(styles["header__image"], "object-cover")} priority />
       <h1>{children}</h1>
     </header>
   );

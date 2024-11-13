@@ -22,8 +22,8 @@ export default function Header({ image1Src, image2Src, children }: HeaderProps) 
     <header className={styles["header"]}>
       {image1Src && image2Src && (
         <>
-          <Image src={image1Src} alt="" sizes="(max-width: 1024px) 100vw, 50vw" className={cn(styles["header__image1"], "object-cover")} />
-          <Image src={image2Src} alt="" sizes="(max-width: 1024px) 100vw, 50vw" className={cn(styles["header__image2"], "object-cover")} />
+          <Image src={image1Src} alt="" sizes="(max-width: 1024px) 100vw, 50vw" className={cn(styles["header__image1"], "object-cover")} priority />
+          <Image src={image2Src} alt="" sizes="(max-width: 1024px) 100vw, 50vw" className={cn(styles["header__image2"], "object-cover")} priority />
         </>
       )}
       <h1>{children}</h1>

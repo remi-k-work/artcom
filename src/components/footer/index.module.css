@@ -5,21 +5,69 @@
   text-transform: uppercase;
 
   background-color: hsl(var(--stone-12-hsl) / 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 
   padding-inline: var(--size-2);
   padding-block: var(--size-2);
 
   display: grid;
+  place-items: stretch center;
 
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto auto;
-  gap: var(--size-3);
+  gap: var(--size-6);
 
   grid-template-areas:
     "add"
     "shr"
     "crs"
     "cnt";
+
+  & h4 {
+    color: hsl(var(--text-2));
+  }
+
+  & a {
+    display: block;
+    text-decoration: none;
+    line-height: var(--font-lineheight-1);
+
+    user-select: none;
+    outline: none;
+
+    padding-inline: var(--size-1);
+    padding-block: var(--size-1);
+
+    color: hsl(var(--foreground));
+
+    transition:
+      background-color 250ms ease,
+      color 250ms ease;
+
+    &:focus {
+      background-color: hsl(var(--accent));
+      color: hsl(var(--accent-foreground));
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  /* Medium screens */
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+
+    grid-template-areas:
+      "add shr"
+      "crs cnt";
+  }
+
+  /* 2XL screens */
+  @media screen and (min-width: 1536px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+
+    grid-template-areas: "add shr crs cnt";
+  }
 }

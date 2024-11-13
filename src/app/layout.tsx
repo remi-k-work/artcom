@@ -19,7 +19,7 @@ import type { Metadata } from "next";
 
 // components
 import Header from "@/components/header";
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer";
 
 // assets
 import { geistSans, geistMono, font3 } from "@/assets/fonts";
