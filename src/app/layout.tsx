@@ -26,7 +26,7 @@ import { geistSans, geistMono, font3 } from "@/assets/fonts";
 
 // types
 interface LayoutProps {
-  formModal: ReactNode;
+  contentModal: ReactNode;
   children: ReactNode;
 }
 
@@ -38,14 +38,14 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
-export default function Layout({ formModal, children }: LayoutProps) {
+export default function Layout({ contentModal, children }: LayoutProps) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${font3.variable} font-geistMono antialiased`}>
         <article className={styles["layout"]}>
           <Header />
           <main>
-            {formModal}
+            {contentModal}
             {children}
           </main>
           <Footer />

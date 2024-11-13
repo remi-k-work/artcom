@@ -1,7 +1,7 @@
 "use client";
 
 // component css styles
-import styles from "./FormModal.module.css";
+import styles from "./ContentModal.module.css";
 
 // react
 import { ReactNode, useEffect, useRef } from "react";
@@ -9,15 +9,18 @@ import { ReactNode, useEffect, useRef } from "react";
 // next
 import { useRouter } from "next/navigation";
 
+// components
+import { Button } from "@/components/ui/custom/button";
+
 // assets
 import { XCircleIcon } from "@heroicons/react/24/solid";
 
 // types
-interface FormModalProps {
+interface ContentModalProps {
   children: ReactNode;
 }
 
-export default function FormModal({ children }: FormModalProps) {
+export default function ContentModal({ children }: ContentModalProps) {
   // To be able to call showModal() method on the dialog
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -30,12 +33,12 @@ export default function FormModal({ children }: FormModalProps) {
   }, []);
 
   return (
-    <dialog ref={dialogRef} className={styles["form-modal"]} onClose={() => back()}>
+    <dialog ref={dialogRef} className={styles["content-modal"]} onClose={() => back()}>
       <form method="dialog">
         <header>
-          <button type="submit">
-            <XCircleIcon width={32} height={32} />
-          </button>
+          <Button type="submit" size="icon">
+            <XCircleIcon width={36} height={36} />
+          </Button>
         </header>
         <article>{children}</article>
       </form>

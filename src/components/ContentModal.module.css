@@ -1,4 +1,4 @@
-.form-modal {
+.content-modal {
   background-image: var(--gradient-1), var(--noise-4);
   background-size: cover;
 
@@ -13,21 +13,21 @@
   transition: opacity 1s var(--ease-3);
 }
 
-.form-modal[open] {
+.content-modal[open] {
   animation: var(--animation-slide-in-up) forwards;
 }
 
-.form-modal:not([open]) {
+.content-modal:not([open]) {
   pointer-events: none;
   opacity: 0;
 }
 
-.form-modal::backdrop {
+.content-modal::backdrop {
   backdrop-filter: blur(25px);
   transition: backdrop-filter 1s ease;
 }
 
-.form-modal > form {
+.content-modal > form {
   display: grid;
   grid-template-rows: auto 1fr;
   align-items: start;
@@ -35,7 +35,7 @@
   max-block-size: 80dvb;
 }
 
-.form-modal > form > header {
+.content-modal > form > header {
   padding-inline: var(--size-3);
   padding-block: var(--size-2);
 
@@ -43,7 +43,7 @@
   justify-content: flex-end;
 }
 
-.form-modal > form > article {
+.content-modal > form > article {
   padding-inline: var(--size-3);
   padding-block: var(--size-2);
 
