@@ -16,7 +16,7 @@
   gap: var(--size-3);
 
   grid-template-areas:
-    "hdr img"
+    "hdr ico"
     "cnt cnt";
 
   & > h3 {
@@ -33,15 +33,14 @@
     }
   }
 
-  & > section {
-    grid-area: img;
+  & > svg {
+    grid-area: ico;
     place-self: center start;
 
-    inline-size: var(--size-11);
-    block-size: auto;
-    aspect-ratio: var(--ratio-landscape);
+    inline-size: 100%;
+    max-inline-size: var(--size-11);
 
-    position: relative;
+    color: hsl(var(--primary));
 
     /* Small to medium screens */
     @media screen and (max-width: 1024px) {
@@ -62,7 +61,7 @@
     grid-template-rows: auto auto 1fr;
 
     grid-template-areas:
-      "img img"
+      "ico ico"
       "hdr hdr"
       "cnt cnt";
   }

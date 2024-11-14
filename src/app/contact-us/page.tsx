@@ -54,7 +54,11 @@ export default function Page() {
                     <td className="p-2">
                       <EnvelopeIcon width={24} height={24} />
                     </td>
-                    <td className="p-2">artcom.rzeszow@wp.pl</td>
+                    <td className="p-2">
+                      <a href="mailto:artcom.rzeszow@wp.pl" className="hover:underline">
+                        artcom.rzeszow@wp.pl
+                      </a>
+                    </td>
                   </tr>
                 </tbody>
               </table>

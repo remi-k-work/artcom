@@ -125,6 +125,7 @@ export default function Page() {
         </Hero.Content>
       </Hero>
       <Secondary header="Nasze Szkolenia i Kursy">
+        <h2 id="courses1">Kursy Informatyczne</h2>
         <Course detailsHref="/courses/a">
           <Course.Header imageSrc={courseHeaderImgA}>Grafika komputerowa - Corel Draw i Adobe Photoshop</Course.Header>
           <Course.Content>
@@ -167,6 +168,7 @@ export default function Page() {
             sieciowych aplikacji `biznesowych` oraz w analizie danych.
           </Course.Content>
         </Course>
+        <h2 id="courses2">Języki Obce</h2>
         <Course detailsHref="/courses/a">
           <Course.Header imageSrc={courseHeaderImgG}>Język angielski - indywidualnie lub grupowo</Course.Header>
           <Course.Content>
@@ -188,6 +190,7 @@ export default function Page() {
             aby zdobyć nową umiejętność. Nasi doświadczeni nauczyciele pomogą Ci osiągnąć mistrzostwo w mówieniu, czytaniu i rozumieniu hiszpańskiego.
           </Course.Content>
         </Course>
+        <h2 id="courses3">HR i Inne</h2>
         <Course detailsHref="/courses/a">
           <Course.Header imageSrc={courseHeaderImgJ}>Specjalista ds. sprzedaży</Course.Header>
           <Course.Content>

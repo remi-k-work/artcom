@@ -8,7 +8,7 @@ export default function Shortcut() {
   return (
     <section className={styles["shortcut"]}>
       <h4 className="max-w-none text-center md:text-start">Na Skróty</h4>
-      <ul className="grid text-center md:grid-cols-[1fr_1fr] md:text-start">
+      <ul className="grid gap-x-3 text-center md:grid-cols-[1fr_1fr] md:text-start">
         <li>
           <Link href="/">O Nas</Link>
         </li>

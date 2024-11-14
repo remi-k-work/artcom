@@ -1,25 +1,17 @@
 // component css styles
 import styles from "./Guarantees.module.css";
 
-// next
-import Image from "next/image";
-
 // components
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+
+// assets
+import { TrophyIcon } from "@heroicons/react/24/solid";
 
 export default function Guarantees() {
   return (
     <article className={styles["guarantees"]}>
       <h3>5 punktów GWARANCJI jakości naszych szkoleń</h3>
-      <section>
-        <Image
-          src="https://artcom.edu.pl/files/dynamicContent/sites/sqveb4/images/pl/webpage_20/ly2rc6c9/element_215/rwdMode_1/600x348/gwarancja-jakosci.webp"
-          alt=""
-          fill
-          sizes="33vw"
-          className="object-contain"
-        />
-      </section>
+      <TrophyIcon />
       <article>
         <Carousel className="m-auto w-[80%]">
           <CarouselContent className="items-center">
