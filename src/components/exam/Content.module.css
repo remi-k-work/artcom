@@ -1,0 +1,6 @@
+.content {
+  grid-area: cnt;
+
+  font-size: var(--font-size-1);
+  color: hsl(var(--text-2));
+}

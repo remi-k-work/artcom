@@ -10,7 +10,7 @@ import { ReactNode } from "react";
 import Link from "next/link";
 
 // other libraries
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 // components
 import { Button } from "@/components/ui/custom/button";

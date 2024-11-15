@@ -7,7 +7,7 @@ import styles from "./Icon.module.css";
 import { ReactNode } from "react";
 
 // other libraries
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 // components
 import RenderModel from "@/components/RenderModel";

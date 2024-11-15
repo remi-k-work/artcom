@@ -1,6 +1,6 @@
 .course {
   inline-size: 100%;
-  max-inline-size: var(--size-content-3);
+  max-inline-size: var(--size-content-2);
 
   background-image: var(--gradient-1), var(--noise-4);
   background-size: cover;
