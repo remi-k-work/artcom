@@ -15,7 +15,7 @@ interface ContactFormProviderProps {
 const ContactFormStoreContext = createContext<ContactFormStoreApi | undefined>(undefined);
 
 export const ContactFormStoreProvider = ({ children }: ContactFormProviderProps) => {
-  const storeRef = useRef<ContactFormStoreApi>();
+  const storeRef = useRef<ContactFormStoreApi>(undefined);
   if (!storeRef.current) storeRef.current = createContactFormStore();
 
   return <ContactFormStoreContext.Provider value={storeRef.current}>{children}</ContactFormStoreContext.Provider>;

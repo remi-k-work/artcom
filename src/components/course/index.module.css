@@ -12,11 +12,10 @@
   display: grid;
 
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto auto;
+  grid-template-rows: 1fr auto auto;
   gap: var(--size-3);
 
   grid-template-areas:
-    "img"
     "hdr"
     "cnt"
     "ftr";
@@ -37,33 +36,8 @@
     transform: translateX(-8px) translateY(-8px);
   }
 
-  & > h3 {
-    grid-area: hdr;
-    place-self: stretch center;
-
-    font-family: var(--font-geist-sans);
-    font-size: var(--font-size-4);
-
-    text-align: center;
-  }
-
-  & > article {
-    grid-area: cnt;
-
-    font-size: var(--font-size-1);
-    color: hsl(var(--text-2));
-  }
-
   & > footer {
     grid-area: ftr;
     place-self: stretch center;
   }
-}
-
-.header__image {
-  grid-area: img;
-
-  inline-size: 100%;
-  block-size: auto;
-  aspect-ratio: var(--ratio-landscape);
 }

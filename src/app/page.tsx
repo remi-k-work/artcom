@@ -11,8 +11,8 @@ import Secondary from "@/components/secondary";
 import Guarantees from "@/components/Guarantees";
 import References from "@/components/References";
 
-const Wizard = dynamic(() => import("@/components/models/Wizard"), { ssr: false });
-const Cursor = dynamic(() => import("@/components/models/Cursor"), { ssr: false });
+// const Wizard = dynamic(() => import("@/components/models/Wizard"), { ssr: false });
+// const Cursor = dynamic(() => import("@/components/models/Cursor"), { ssr: false });
 
 // assets
 import { UsersIcon } from "@heroicons/react/24/solid";

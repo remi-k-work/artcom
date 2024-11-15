@@ -1,0 +1,31 @@
+.header {
+  grid-area: hdr;
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: var(--size-3);
+
+  grid-template-areas:
+    "img"
+    "hdr";
+
+  & > img {
+    grid-area: img;
+
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: var(--ratio-landscape);
+  }
+
+  & > h3 {
+    grid-area: hdr;
+    place-self: stretch center;
+
+    font-family: var(--font-geist-sans);
+    font-size: var(--font-size-4);
+
+    text-align: center;
+  }
+}

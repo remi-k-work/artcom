@@ -1,3 +1,5 @@
+"use client";
+
 // component css styles
 import styles from "./index.module.css";
 
@@ -6,13 +8,14 @@ import { ReactNode } from "react";
 
 // next
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
 
 // other libraries
-import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
 
 // components
 import { Button } from "@/components/ui/custom/button";
+import Header from "./Header";
+import Content from "./Content";
 
 // assets
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
@@ -23,42 +26,20 @@ interface CourseProps {
   children: ReactNode;
 }
 
-interface CourseHeaderProps {
-  imageSrc: StaticImageData;
-  children: ReactNode;
-}
-
-interface CourseContentProps {
-  children: ReactNode;
-}
-
 export default function Course({ detailsHref, children }: CourseProps) {
   return (
-    <Link href={detailsHref} className={styles["course"]}>
-      {children}
-      <footer>
-        <Button type="button">
-          <InformationCircleIcon width={24} height={24} />
-          Czytaj więcej
-        </Button>
-      </footer>
-    </Link>
+    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, type: "spring" }}>
+      <Link href={detailsHref} className={styles["course"]}>
+        {children}
+        <footer>
+          <Button type="button">
+            <InformationCircleIcon width={24} height={24} />
+            Czytaj więcej
+          </Button>
+        </footer>
+      </Link>
+    </motion.div>
   );
 }
 
-Course.Header = function CourseHeader({ imageSrc, children }: CourseHeaderProps) {
-  return (
-    <>
-      <Image src={imageSrc} alt="" sizes="50vw" className={cn(styles["header__image"], "object-cover")} />
-      <h3>{children}</h3>
-    </>
-  );
-};
-
-Course.Content = function CourseContent({ children }: CourseContentProps) {
-  return (
-    <article>
-      <p className="line-clamp-6 text-center sm:line-clamp-4 sm:text-justify">{children}</p>
-    </article>
-  );
-};
+export { Header as CourseHeader, Content as CourseContent };

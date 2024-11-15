@@ -4,7 +4,7 @@ import { RefObject, useEffect, useRef } from "react";
 export default function useEventListener(
   eventType: string,
   listener: (ev: Event | MediaQueryListEvent) => void,
-  elementRef?: RefObject<HTMLElement | undefined> | RefObject<MediaQueryList | undefined>,
+  elementRef?: RefObject<HTMLElement | undefined | null> | RefObject<MediaQueryList | undefined | null>,
 ) {
   // The reference to the event listener
   const listenerRef = useRef(listener);

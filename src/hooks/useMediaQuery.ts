@@ -9,7 +9,7 @@ export default function useMediaQuery(mediaQuery: string) {
   const [isMatch, setIsMatch] = useState<boolean>();
 
   // Stores information on a media query applied to a document
-  const mediaQueryListRef = useRef<MediaQueryList>();
+  const mediaQueryListRef = useRef<MediaQueryList>(undefined);
 
   useEffect(() => {
     // Get the immediate one-time feedback
