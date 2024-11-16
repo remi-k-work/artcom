@@ -16,6 +16,7 @@ import useFormActionWithVal from "@/hooks/useFormActionWithVal";
 import { contactFormSchema } from "@/schemas/contactForm";
 import { ContactFormActionResult } from "@/schemas/types";
 import useContactActionFeedback from "@/hooks/useContactActionFeedback";
+import { motion } from "framer-motion";
 
 // components
 import { ContactFormStoreProvider } from "@/stores/contactFormProvider";
@@ -60,7 +61,7 @@ function TheFormWrapped({ onResetClicked }: TheFormWrappedProps) {
   });
 
   return (
-    <article className={styles["contact-form"]}>
+    <motion.article initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, type: "spring" }} className={styles["contact-form"]}>
       <FormProvider {...useFormMethods}>
         <AllFieldErrorsProvider allFieldErrors={allFieldErrors}>
           <form noValidate={true} onSubmit={onSubmit}>
@@ -133,6 +134,6 @@ function TheFormWrapped({ onResetClicked }: TheFormWrappedProps) {
         </AllFieldErrorsProvider>
       </FormProvider>
       {feedback}
-    </article>
+    </motion.article>
   );
 }
