@@ -190,6 +190,10 @@
     @apply border-border;
   }
 
+  html {
+    scrollbar-color: hsl(var(--primary)) hsl(var(--background));
+  }
+
   body {
     font-family: var(--font-sans);
     font-size: var(--font-size-1);

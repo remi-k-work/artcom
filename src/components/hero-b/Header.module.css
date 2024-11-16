@@ -5,14 +5,14 @@
   gap: var(--size-6);
 
   & > h1 {
-    font-family: var(--font-geist-sans);
+    font-family: var(--font-1);
     font-size: var(--font-size-5);
   }
 
   & > h2 {
     max-inline-size: var(--size-content-3);
 
-    font-family: var(--font-geist-sans);
+    font-family: var(--font-1);
     font-size: var(--font-size-3);
     color: hsl(var(--text-2));
   }

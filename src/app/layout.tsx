@@ -22,7 +22,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 // assets
-import { geistSans, geistMono, font3 } from "@/assets/fonts";
+import { font1, font2, font3, font4 } from "@/assets/fonts";
 
 // types
 interface LayoutProps {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 export default function Layout({ contentModal, children }: LayoutProps) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${font3.variable} font-geistMono antialiased`}>
+      <body className={`${font1.variable} ${font2.variable} ${font3.variable} ${font4.variable} font-font-4 md:font-font-2 antialiased`}>
         <article className={styles["layout"]}>
           <Header />
           <main>

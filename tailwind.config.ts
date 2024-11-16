@@ -7,9 +7,10 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        geistSans: ["var(--font-geist-sans)"],
-        geistMono: ["var(--font-geist-mono)"],
+        "font-1": ["var(--font-1)"],
+        "font-2": ["var(--font-2)"],
         "font-3": ["var(--font-3)"],
+        "font-4": ["var(--font-4)"],
       },
       borderRadius: {
         lg: "var(--radius)",

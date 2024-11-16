@@ -1,6 +1,9 @@
 .trigger {
   flex: 1;
 
+  font-family: var(--font-1);
+  text-transform: uppercase;
+
   padding-block: var(--size-2);
 
   display: flex;

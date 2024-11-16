@@ -23,7 +23,7 @@
     grid-area: hdr;
     place-self: center start;
 
-    font-family: var(--font-geist-sans);
+    font-family: var(--font-1);
     font-size: var(--font-size-4);
   }
 

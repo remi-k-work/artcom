@@ -35,7 +35,7 @@
   z-index: var(--layer-2);
 
   & > h1 {
-    font-family: var(--font-geist-sans);
+    font-family: var(--font-1);
     font-size: var(--font-size-5);
   }
 

@@ -36,7 +36,7 @@ export default function ContentModal({ children }: ContentModalProps) {
     <dialog ref={dialogRef} className={styles["content-modal"]} onClose={() => back()}>
       <form method="dialog">
         <header>
-          <Button type="submit" size="icon">
+          <Button type="submit" size="icon" variant="ghost">
             <XCircleIcon width={36} height={36} />
           </Button>
         </header>

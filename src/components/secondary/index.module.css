@@ -8,13 +8,13 @@
 .secondary__content {
   background: hsl(var(--surface-4));
 
-  padding-inline: var(--size-4);
+  padding-inline: var(--size-1);
   padding-block: var(--size-4);
 
   & > h2 {
     max-inline-size: none;
 
-    font-family: var(--font-geist-sans);
+    font-family: var(--font-1);
     font-size: var(--font-size-5);
     font-weight: var(--font-weight-6);
 
@@ -24,6 +24,7 @@
 
     /* Large screens */
     @media screen and (min-width: 1024px) {
+      padding-inline: var(--size-4);
       text-align: unset;
     }
   }
@@ -47,7 +48,7 @@
       border-radius: var(--radius-drawn-3);
       box-shadow: var(--shadow-3);
 
-      font-family: var(--font-geist-sans);
+      font-family: var(--font-1);
       font-size: var(--font-size-4);
       font-weight: var(--font-weight-6);
 

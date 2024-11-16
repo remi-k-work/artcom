@@ -36,17 +36,17 @@
 }
 
 .content-modal > form > header {
-  padding-inline: var(--size-3);
-  padding-block: var(--size-2);
+  background-image: var(--gradient-2), var(--noise-4);
+  background-size: cover;
+
+  padding-inline: var(--size-1);
+  padding-block: var(--size-1);
 
   display: flex;
   justify-content: flex-end;
 }
 
 .content-modal > form > article {
-  padding-inline: var(--size-3);
-  padding-block: var(--size-2);
-
   overflow-y: auto;
   max-block-size: 100%;
   overscroll-behavior-y: contain;
@@ -54,6 +54,5 @@
   display: grid;
   justify-items: flex-start;
 
-  box-shadow: var(--shadow-2);
   z-index: var(--layer-1);
 }

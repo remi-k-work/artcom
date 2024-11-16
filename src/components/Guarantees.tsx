@@ -14,7 +14,7 @@ export default function Guarantees() {
       <TrophyIcon />
       <article>
         <Carousel className="m-auto w-[80%]">
-          <CarouselContent className="items-center">
+          <CarouselContent>
             <CarouselItem>
               <div className={styles["guarantee"]}>
                 <span>1</span>
