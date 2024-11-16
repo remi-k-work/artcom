@@ -26,19 +26,25 @@ interface CourseProps {
   children: ReactNode;
 }
 
+const MotionLink = motion.create(Link);
+
 export default function Course({ detailsHref, children }: CourseProps) {
   return (
-    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, type: "spring" }}>
-      <Link href={detailsHref} className={styles["course"]}>
-        {children}
-        <footer>
-          <Button type="button">
-            <InformationCircleIcon width={24} height={24} />
-            Czytaj więcej
-          </Button>
-        </footer>
-      </Link>
-    </motion.div>
+    <MotionLink
+      href={detailsHref}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 3, type: "spring" }}
+      className={styles["course"]}
+    >
+      {children}
+      <footer>
+        <Button type="button">
+          <InformationCircleIcon width={24} height={24} />
+          Czytaj więcej
+        </Button>
+      </footer>
+    </MotionLink>
   );
 }
 

@@ -1,3 +1,5 @@
+"use client";
+
 // component css styles
 import styles from "./index.module.css";
 
@@ -6,10 +8,14 @@ import { ReactNode } from "react";
 
 // next
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
+
+// other libraries
+import { motion } from "framer-motion";
 
 // components
 import { Button } from "@/components/ui/custom/button";
+import Header from "./Header";
+import Content from "./Content";
 
 // assets
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
@@ -21,18 +27,17 @@ interface BlogProps {
   children: ReactNode;
 }
 
-interface BlogHeaderProps {
-  children: ReactNode;
-}
-
-interface BlogContentProps {
-  imageSrc: StaticImageData;
-  children: ReactNode;
-}
+const MotionLink = motion.create(Link);
 
 export default function Blog({ detailsHref, blogDate, children }: BlogProps) {
   return (
-    <Link href={detailsHref} className={styles["blog"]}>
+    <MotionLink
+      href={detailsHref}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 3, type: "spring" }}
+      className={styles["blog"]}
+    >
       {children}
       <footer>
         <section className={styles["footer__footer1"]}>
@@ -43,19 +48,8 @@ export default function Blog({ detailsHref, blogDate, children }: BlogProps) {
         </section>
         <section className={styles["footer__footer2"]}>{blogDate}</section>
       </footer>
-    </Link>
+    </MotionLink>
   );
 }
 
-Blog.Header = function BlogHeader({ children }: BlogHeaderProps) {
-  return <h3>{children}</h3>;
-};
-
-Blog.Content = function BlogContent({ imageSrc, children }: BlogContentProps) {
-  return (
-    <article className="line-clamp-6 text-center sm:text-justify">
-      <Image src={imageSrc} alt="" sizes="50vw" className="object-cover" />
-      <p>{children}</p>
-    </article>
-  );
-};
+export { Header as BlogHeader, Content as BlogContent };

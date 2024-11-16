@@ -1,0 +1,35 @@
+.content {
+  grid-area: cnt;
+
+  font-size: var(--font-size-1);
+  color: hsl(var(--text-2));
+
+  & > img {
+    inline-size: auto;
+    block-size: var(--size-content-1);
+
+    margin-inline: auto;
+    margin-block-end: var(--size-3);
+
+    border-start-start-radius: 25%;
+    border-start-end-radius: 25%;
+    border-end-start-radius: 25%;
+    border-end-end-radius: 25%;
+
+    /* Large screens */
+    @media screen and (min-width: 1024px) {
+      inline-size: 6em;
+      block-size: 6em;
+
+      float: inline-start;
+      border-start-start-radius: 50%;
+      border-start-end-radius: 50%;
+      border-end-start-radius: 50%;
+      border-end-end-radius: 50%;
+      shape-outside: circle(50%);
+
+      margin-inline: 0 1em;
+      margin-block: 1em 0;
+    }
+  }
+}

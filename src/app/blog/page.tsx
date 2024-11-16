@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/custom/button";
 import Hero from "@/components/hero-e";
 import Secondary from "@/components/secondary";
-import Blog from "@/components/blog";
+import Blog, { BlogHeader, BlogContent } from "@/components/blog";
 
 // assets
 import { ChatBubbleBottomCenterIcon } from "@heroicons/react/24/solid";
@@ -51,31 +51,31 @@ export default function Page() {
       </Hero>
       <Secondary header="Podróż w czasie przez nasz Blog">
         <Blog detailsHref="/blog/b" blogDate="18 listopada 2023">
-          <Blog.Header>Jestem ekspertem, czyli jak blefować, że znam się na komputerach?</Blog.Header>
-          <Blog.Content imageSrc={blogHeaderImgB}>
+          <BlogHeader>Jestem ekspertem, czyli jak blefować, że znam się na komputerach?</BlogHeader>
+          <BlogContent imageSrc={blogHeaderImgB}>
             Temat wydaje się trochę dziwny? Dzisiaj już przecież wszyscy &quot;znają się&quot; na komputerach 😀. No, może nie wszyscy, ale kto się przyzna?
             Dlatego nawet jeśli się znamy, to zawsze w towarzystwie znajdzie się ktoś, kto zna się lepiej. Wtedy dobrze jest zablefować, tak aby WSZYSCY
             zobaczyli że jesteśmy komputerowym ekspertem.
-          </Blog.Content>
+          </BlogContent>
         </Blog>
         <Blog detailsHref="/blog/c" blogDate="26 października 2023">
-          <Blog.Header>Czy sztuczna inteligencja zastąpi psa?</Blog.Header>
-          <Blog.Content imageSrc={blogHeaderImgC}>
+          <BlogHeader>Czy sztuczna inteligencja zastąpi psa?</BlogHeader>
+          <BlogContent imageSrc={blogHeaderImgC}>
             Obserwując rozwój sztucznej inteligencji, zauważam jednocześnie postępujące straszenie nią w postaci różnego rodzaju oświadczeń naukowców, w
             wywiadach i artykułach żądnych sensacji dziennikarzy. Przyszłość podana jest w najczarniejszych barwach. Strach się dobrze sprzedaje, zwłaszcza, że
             jest to nowy strach. Obawy rosną zwłaszcza u tych, którzy oglądali kultowe filmy w rodzaju „Terminatora” „Ja, robot” czy „Laleczka Chucky”.
-          </Blog.Content>
+          </BlogContent>
         </Blog>
         <Blog detailsHref="/blog/d" blogDate="18 października 2023">
-          <Blog.Header>Komputery kwantowe - czy już istnieją?</Blog.Header>
-          <Blog.Content imageSrc={blogHeaderImgD}>
+          <BlogHeader>Komputery kwantowe - czy już istnieją?</BlogHeader>
+          <BlogContent imageSrc={blogHeaderImgD}>
             Komputery kwantowe są uważane za jedną z najbardziej obiecujących technologii. Przetwarzają dane w sposób zdecydowanie szybszy niż obecne
             &quot;tradycyjne&quot; komputery, co oczywiście może mieć ogromne znaczenie w rozwoju nauki, badaniach np. nad nowymi lekami na nieuleczalne dziś
             choroby lub nowymi antybiotykami albo nad nowymi materiałami. Na komputery kwantowe niecierpliwie czeka sztuczna inteligencja, mająca ogromne
             potrzeby jeśli chodzi moc obliczeniową, której zaczyna brakować tradycyjnym komputerom. Jednocześnie mówi się, że to dopiero możliwości komputera
             kwantowego pozwolą stworzyć &quot;prawdziwą&quot; niezwykle zaawansowaną AI, której dzisiaj jeszcze nie ma. Czy AI z komputerem kwantowym zdziała
             więc cuda? Zobaczymy.
-          </Blog.Content>
+          </BlogContent>
         </Blog>
       </Secondary>
     </>

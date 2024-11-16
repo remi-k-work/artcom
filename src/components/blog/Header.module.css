@@ -1,0 +1,9 @@
+.header {
+  grid-area: hdr;
+  place-self: stretch center;
+
+  font-family: var(--font-1);
+  font-size: var(--font-size-4);
+
+  text-align: center;
+}

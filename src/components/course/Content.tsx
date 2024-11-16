@@ -12,7 +12,7 @@ interface ContentProps {
 export default function Content({ children }: ContentProps) {
   return (
     <article className={styles["content"]}>
-      <p className="line-clamp-6 text-center sm:line-clamp-4 sm:text-justify">{children}</p>
+      <p className="line-clamp-6 text-center">{children}</p>
     </article>
   );
 }
