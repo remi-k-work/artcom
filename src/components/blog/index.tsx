@@ -6,13 +6,8 @@ import styles from "./index.module.css";
 // react
 import { ReactNode } from "react";
 
-// next
-import Link from "next/link";
-
-// other libraries
-import { motion } from "framer-motion";
-
 // components
+import { FADE_IN, MotionLink } from "@/components/AnimComps";
 import { Button } from "@/components/ui/custom/button";
 import Header from "./Header";
 import Content from "./Content";
@@ -27,17 +22,9 @@ interface BlogProps {
   children: ReactNode;
 }
 
-const MotionLink = motion.create(Link);
-
 export default function Blog({ detailsHref, blogDate, children }: BlogProps) {
   return (
-    <MotionLink
-      href={detailsHref}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 3, type: "spring" }}
-      className={styles["blog"]}
-    >
+    <MotionLink href={detailsHref} className={styles["blog"]} {...FADE_IN}>
       {children}
       <footer>
         <section className={styles["footer__footer1"]}>

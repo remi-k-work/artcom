@@ -16,13 +16,13 @@ import useFormActionWithVal from "@/hooks/useFormActionWithVal";
 import { contactFormSchema } from "@/schemas/contactForm";
 import { ContactFormActionResult } from "@/schemas/types";
 import useContactActionFeedback from "@/hooks/useContactActionFeedback";
-import { motion } from "framer-motion";
 
 // components
 import { ContactFormStoreProvider } from "@/stores/contactFormProvider";
 import { AllFieldErrorsProvider } from "@/contexts/AllFieldErrors";
 import { FormCheckField, FormInputField, FormTextArea } from "@/components/FormControls";
 import FormSubmit from "@/components/FormSubmit";
+import { FADE_IN, MotionArticle } from "@/components/AnimComps";
 
 // types
 interface TheFormWrappedProps {
@@ -61,17 +61,11 @@ function TheFormWrapped({ onResetClicked }: TheFormWrappedProps) {
   });
 
   return (
-    <motion.article initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, type: "spring" }} className={styles["contact-form"]}>
+    <MotionArticle className={styles["contact-form"]} {...FADE_IN}>
       <FormProvider {...useFormMethods}>
         <AllFieldErrorsProvider allFieldErrors={allFieldErrors}>
           <form noValidate={true} onSubmit={onSubmit}>
-            {/* <form
-            noValidate={true}
-            onSubmit={(ev) => {
-              ev.preventDefault();
-              onSubmit({} as any, ev);
-            }}
-          > */}
+            {/* <form noValidate={true} onSubmit={(ev) => { ev.preventDefault(); onSubmit({} as any, ev); }}> */}
             <FormInputField
               fieldName={"name"}
               fieldLabel={"Imię i nazwisko"}
@@ -134,6 +128,6 @@ function TheFormWrapped({ onResetClicked }: TheFormWrappedProps) {
         </AllFieldErrorsProvider>
       </FormProvider>
       {feedback}
-    </motion.article>
+    </MotionArticle>
   );
 }

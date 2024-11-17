@@ -1,13 +1,8 @@
-"use client";
-
 // component css styles
 import styles from "./Icon.module.css";
 
 // react
 import { ReactNode } from "react";
-
-// other libraries
-import { motion } from "framer-motion";
 
 // components
 import RenderModel from "@/components/RenderModel";
@@ -20,9 +15,9 @@ interface IconProps {
 
 export default function Icon({ icon, model }: IconProps) {
   return (
-    <motion.section initial={{ scale: 0, rotate: 0 }} whileInView={{ scale: 1, rotate: 360 }} transition={{ duration: 1 }} className={styles["icon"]}>
+    <section className={styles["icon"]}>
       {icon}
       {/* <RenderModel>{model}</RenderModel> */}
-    </motion.section>
+    </section>
   );
 }

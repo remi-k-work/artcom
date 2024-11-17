@@ -6,13 +6,8 @@ import styles from "./index.module.css";
 // react
 import { ReactNode } from "react";
 
-// next
-import Link from "next/link";
-
-// other libraries
-import { motion } from "framer-motion";
-
 // components
+import { FADE_IN, MotionLink } from "@/components/AnimComps";
 import { Button } from "@/components/ui/custom/button";
 import Header from "./Header";
 import Content from "./Content";
@@ -26,17 +21,9 @@ interface ExamProps {
   children: ReactNode;
 }
 
-const MotionLink = motion.create(Link);
-
 export default function Exam({ detailsHref, children }: ExamProps) {
   return (
-    <MotionLink
-      href={detailsHref}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 3, type: "spring" }}
-      className={styles["exam"]}
-    >
+    <MotionLink href={detailsHref} className={styles["exam"]} {...FADE_IN}>
       {children}
       <footer>
         <Button type="button">
