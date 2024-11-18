@@ -21,5 +21,9 @@
 
   & > main {
     grid-area: main;
+
+    transition-property: opacity, transform, filter, background;
+    transition-timing-function: ease-in-out;
+    transition-duration: 500ms;
   }
 }

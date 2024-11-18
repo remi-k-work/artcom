@@ -2,16 +2,18 @@
 import styles from "./Logo.module.css";
 
 // next
-import Link from "next/link";
 import Image from "next/image";
+
+// components
+import TransitionLink from "@/components/TransitionLink";
 
 // assets
 import logo from "@/assets/logo-artcom.webp";
 
 export default function Logo() {
   return (
-    <Link href="/" className={styles["logo"]}>
+    <TransitionLink href="/" className={styles["logo"]}>
       <Image src={logo} alt="ARTCOM" title="ARTCOM" />
-    </Link>
+    </TransitionLink>
   );
 }

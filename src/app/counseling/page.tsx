@@ -1,6 +1,5 @@
 // next
 import type { Metadata } from "next";
-import Link from "next/link";
 
 // components
 import Accordion from "@/components/ui/custom/accordion";
@@ -10,6 +9,7 @@ import { default as AccordionTrigger } from "@/components/ui/custom/accordion/Tr
 import { Button } from "@/components/ui/custom/button";
 import Hero from "@/components/hero-b";
 import { DRAW, MotionPath, MotionSvg } from "@/components/AnimComps";
+import TransitionLink from "@/components/TransitionLink";
 
 // assets
 import { AtSymbolIcon } from "@heroicons/react/24/outline";
@@ -104,10 +104,10 @@ export default function Page() {
       <Hero.Footer>
         <Hero.Footer1>
           <Button asChild>
-            <Link href="/contact-us">
+            <TransitionLink href="/contact-us">
               <AtSymbolIcon width={24} height={24} />
               Kontakt
-            </Link>
+            </TransitionLink>
           </Button>
         </Hero.Footer1>
       </Hero.Footer>

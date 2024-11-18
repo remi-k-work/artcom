@@ -1,8 +1,8 @@
 // component css styles
 import styles from "./Shortcut.module.css";
 
-// next
-import Link from "next/link";
+// components
+import TransitionLink from "@/components/TransitionLink";
 
 export default function Shortcut() {
   return (
@@ -10,28 +10,28 @@ export default function Shortcut() {
       <h4 className="max-w-none text-center md:text-start">Na Skróty</h4>
       <ul className="grid gap-x-3 text-center md:grid-cols-[1fr_1fr] md:text-start">
         <li>
-          <Link href="/">O Nas</Link>
+          <TransitionLink href="/">O Nas</TransitionLink>
         </li>
         <li>
-          <Link href="/courses">Szkolenia i Kursy</Link>
+          <TransitionLink href="/courses">Szkolenia i Kursy</TransitionLink>
         </li>
         <li>
-          <Link href="/exams">Egzaminy</Link>
+          <TransitionLink href="/exams">Egzaminy</TransitionLink>
         </li>
         <li>
-          <Link href="/textbooks">Podręczniki</Link>
+          <TransitionLink href="/textbooks">Podręczniki</TransitionLink>
         </li>
         <li>
-          <Link href="/counseling">Doradztwo Zawodowe</Link>
+          <TransitionLink href="/counseling">Doradztwo Zawodowe</TransitionLink>
         </li>
         <li>
-          <Link href="/room-rental">Wynajem Sal</Link>
+          <TransitionLink href="/room-rental">Wynajem Sal</TransitionLink>
         </li>
         <li>
-          <Link href="/blog">Blog</Link>
+          <TransitionLink href="/blog">Blog</TransitionLink>
         </li>
         <li>
-          <Link href="/contact-us">Kontakt</Link>
+          <TransitionLink href="/contact-us">Kontakt</TransitionLink>
         </li>
       </ul>
     </section>

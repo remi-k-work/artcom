@@ -32,7 +32,7 @@ interface MotionPathProps extends ComponentPropsWithoutRef<"path"> {
 }
 
 // The global animation feature flag
-const ENABLE_ANIM = true;
+export const ENABLE_ANIM = true;
 
 const Motion_Link = motion.create(Link);
 const Motion_Article = motion.create("article");

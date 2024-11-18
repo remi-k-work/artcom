@@ -6,10 +6,12 @@ import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
 
 // next
 import { usePathname } from "next/navigation";
-import { default as NextLink } from "next/link";
 
 // other libraries
 import { Link as RdxLink } from "@radix-ui/react-navigation-menu";
+
+// components
+import TransitionLink from "@/components/TransitionLink";
 
 const Link = forwardRef<ElementRef<typeof RdxLink>, ComponentPropsWithoutRef<typeof RdxLink>>(({ href, className, children, ...props }, ref) => {
   const pathname = usePathname();
@@ -17,9 +19,9 @@ const Link = forwardRef<ElementRef<typeof RdxLink>, ComponentPropsWithoutRef<typ
 
   return (
     <RdxLink ref={ref} asChild active={isActive} {...props}>
-      <NextLink href={href!} className={styles["link"]}>
+      <TransitionLink href={href!} className={styles["link"]}>
         <div className={className}>{children}</div>
-      </NextLink>
+      </TransitionLink>
     </RdxLink>
   );
 });
