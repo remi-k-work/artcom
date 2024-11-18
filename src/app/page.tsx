@@ -7,6 +7,7 @@ import { default as AccordionContent } from "@/components/ui/custom/accordion/Co
 import { default as AccordionItem } from "@/components/ui/custom/accordion/Item";
 import { default as AccordionTrigger } from "@/components/ui/custom/accordion/Trigger";
 import Hero from "@/components/hero-a";
+import ArtcomExperience from "@/components/ArtcomExperience";
 import Secondary from "@/components/secondary";
 import Guarantees from "@/components/Guarantees";
 import References from "@/components/References";
@@ -164,6 +165,7 @@ export default function Page() {
           </Accordion>
         </Hero.Content>
       </Hero>
+      <ArtcomExperience />
       <Secondary header="Od 30 lat pracujemy dla Twojego rozwoju i satysfakcji">
         <Guarantees />
         <References />

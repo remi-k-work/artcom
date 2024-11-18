@@ -1,0 +1,62 @@
+.artcom-experience {
+  inline-size: 100%;
+  block-size: var(--size-14);
+
+  margin-block: 0 var(--size-9);
+
+  user-select: none;
+  pointer-events: none;
+
+  background-image: url("/images/artcom-experience.webp");
+  background-size: auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+
+  grid-template-areas: "stack";
+
+  & > h2 {
+    grid-area: stack;
+    place-self: center center;
+
+    background-color: hsl(var(--stone-12-hsl) / 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    padding-inline: var(--size-6);
+    padding-block: var(--size-6);
+
+    font-family: var(--font-1);
+    font-size: var(--font-size-5);
+    color: hsl(var(--text-1));
+
+    text-align: center;
+  }
+}
+
+.artcom-experience--anim {
+  background-position: top left;
+  animation: circular-scroll 120s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes circular-scroll {
+  0% {
+    background-position: top left;
+  }
+  25% {
+    background-position: top right;
+  }
+  50% {
+    background-position: bottom right;
+  }
+  75% {
+    background-position: bottom left;
+  }
+  100% {
+    background-position: top left;
+  }
+}
