@@ -4,10 +4,14 @@
 import styles from "./ContentModal.module.css";
 
 // react
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 // next
 import { useRouter } from "next/navigation";
+
+// other libraries
+import { cn } from "@/lib/utils";
+import { delay } from "@/lib/helpers";
 
 // components
 import { Button } from "@/components/ui/custom/button";
@@ -27,13 +31,24 @@ export default function ContentModal({ children }: ContentModalProps) {
   // To be able to close the modal
   const { back } = useRouter();
 
+  // Whether dialog should begin hiding itself
+  const [isHiding, setIsHiding] = useState(false);
+
   useEffect(() => {
     // Show the dialog as a modal
     dialogRef.current?.showModal();
   }, []);
 
   return (
-    <dialog ref={dialogRef} className={styles["content-modal"]} onClose={() => back()}>
+    <dialog
+      ref={dialogRef}
+      className={cn(styles["content-modal"], isHiding && styles["content-modal--hide"])}
+      onClose={async () => {
+        setIsHiding(true);
+        await delay(500);
+        back();
+      }}
+    >
       <form method="dialog">
         <header>
           <Button type="submit" size="icon" variant="ghost">

@@ -13,6 +13,10 @@
   transition: opacity 1s var(--ease-3);
 }
 
+.content-modal--hide {
+  animation: var(--animation-slide-out-down) forwards;
+}
+
 .content-modal[open] {
   animation: var(--animation-slide-in-up) forwards;
 }
