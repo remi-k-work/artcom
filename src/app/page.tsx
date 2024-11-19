@@ -8,6 +8,9 @@ import { default as AccordionItem } from "@/components/ui/custom/accordion/Item"
 import { default as AccordionTrigger } from "@/components/ui/custom/accordion/Trigger";
 import Hero from "@/components/hero-a";
 import ArtcomExperience from "@/components/ArtcomExperience";
+import CheckOurItCourses from "@/components/CheckOurItCourses";
+import AkademiaProject from "@/components/AkademiaProject";
+import CheckOurReferences from "@/components/CheckOurReferences";
 import Secondary from "@/components/secondary";
 import Guarantees from "@/components/Guarantees";
 import References from "@/components/References";
@@ -166,6 +169,11 @@ export default function Page() {
         </Hero.Content>
       </Hero>
       <ArtcomExperience />
+      <article className="mb-[--size-9] flex flex-wrap items-center justify-around gap-6">
+        <CheckOurItCourses />
+        <AkademiaProject />
+        <CheckOurReferences />
+      </article>
       <Secondary header="Od 30 lat pracujemy dla Twojego rozwoju i satysfakcji">
         <Guarantees />
         <References />

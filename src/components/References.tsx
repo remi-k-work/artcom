@@ -18,7 +18,7 @@ import { StarIcon } from "@heroicons/react/24/outline";
 
 export default function References() {
   return (
-    <MotionArticle className={styles["references"]} {...FADE_IN}>
+    <MotionArticle id="references" className={styles["references"]} {...FADE_IN}>
       <h3>Referencje naszych Klientów</h3>
       <MotionSvg
         xmlns="http://www.w3.org/2000/svg"

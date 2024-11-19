@@ -40,6 +40,11 @@ const Motion_Svg = motion.create("svg");
 const Motion_Path = motion.create("path");
 
 export const FADE_IN = { initial: { opacity: 0 }, whileInView: { opacity: 1 }, transition: { duration: 3, type: "spring" } } satisfies MotionProps;
+export const BANNER = {
+  initial: undefined,
+  whileInView: { scale: [1, 1.5, 1.5, 1, 1], rotate: [0, 0, 180, 180, 0], borderRadius: ["0%", "0%", "50%", "50%", "0%"] },
+  transition: { duration: 2, ease: "easeInOut", times: [0, 0.2, 0.5, 0.8, 1] },
+} satisfies MotionProps;
 export const DRAW = {
   hidden: { pathLength: 0, opacity: 0 },
   visible: { pathLength: 1, opacity: 1, transition: { pathLength: { type: "spring", duration: 10, bounce: 0 }, opacity: { duration: 0.25 } } },

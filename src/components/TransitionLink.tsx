@@ -24,7 +24,10 @@ export default function TransitionLink({ href, children, className, onClick, ...
   const router = useRouter();
 
   const handleTransition = async (e: MouseEvent<HTMLAnchorElement>) => {
-    if (!ENABLE_ANIM) return;
+    if (!ENABLE_ANIM) {
+      onClick?.(e);
+      return;
+    }
 
     e.preventDefault();
     onClick?.(e);
