@@ -7,6 +7,7 @@ import { default as AccordionContent } from "@/components/ui/custom/accordion/Co
 import { default as AccordionItem } from "@/components/ui/custom/accordion/Item";
 import { default as AccordionTrigger } from "@/components/ui/custom/accordion/Trigger";
 import Hero from "@/components/hero-a";
+import CoursesMatchingYou from "@/components/CoursesMatchingYou";
 import Secondary from "@/components/secondary";
 import Exam, { ExamHeader, ExamContent } from "@/components/exam";
 import { DRAW, MotionPath, MotionSvg } from "@/components/AnimComps";
@@ -147,6 +148,7 @@ export default function Page() {
           </Accordion>
         </Hero.Content>
       </Hero>
+      <CoursesMatchingYou />
       <Secondary header="Nasze Egzaminy">
         <Exam detailsHref="/exams/a">
           <ExamHeader imageSrc={examHeaderImgA}>Europejski Certyfikat Umiejętności Komputerowych (ECDL)</ExamHeader>

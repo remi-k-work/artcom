@@ -1,6 +1,6 @@
-.artcom-experience {
+.courses-matching-you {
   inline-size: 100%;
-  max-inline-size: 1996px;
+  max-inline-size: 1417px;
   block-size: var(--size-14);
 
   margin-inline: auto;
@@ -9,7 +9,7 @@
   user-select: none;
   pointer-events: none;
 
-  background-image: url("/images/artcom-experience.webp");
+  background-image: url("/images/courses-matching-you.webp");
   background-size: auto;
   background-position: center center;
   background-repeat: no-repeat;
@@ -40,7 +40,7 @@
   }
 }
 
-.artcom-experience--anim {
+.courses-matching-you--anim {
   background-position: top left;
   animation: circular-scroll 120s ease-in-out infinite alternate-reverse;
 }

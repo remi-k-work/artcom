@@ -7,6 +7,7 @@ import { default as AccordionContent } from "@/components/ui/custom/accordion/Co
 import { default as AccordionItem } from "@/components/ui/custom/accordion/Item";
 import { default as AccordionTrigger } from "@/components/ui/custom/accordion/Trigger";
 import Hero from "@/components/hero-a";
+import CoursesMatchingYou from "@/components/CoursesMatchingYou";
 import Secondary from "@/components/secondary";
 import Course, { CourseHeader, CourseContent } from "@/components/course";
 import { DRAW, MotionPath, MotionSvg } from "@/components/AnimComps";
@@ -161,6 +162,7 @@ export default function Page() {
           </Accordion>
         </Hero.Content>
       </Hero>
+      <CoursesMatchingYou />
       <Secondary header="Nasze Szkolenia i Kursy">
         <h2 id="courses1">Kursy Informatyczne</h2>
         <Course detailsHref="/courses/a">
