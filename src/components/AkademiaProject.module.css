@@ -17,16 +17,13 @@
 
   grid-template-areas: "stack";
 
-  transition-property: box-shadow, transform;
+  transition-property: filter;
   transition-duration: 500ms;
   transition-timing-function: ease;
 
-  box-shadow: var(--shadow-1);
-
   &:focus,
   &:hover {
-    box-shadow: var(--shadow-6);
-    transform: translateY(-8px);
+    filter: hue-rotate(90deg);
   }
 
   & > h2 {

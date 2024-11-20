@@ -11,15 +11,17 @@ import { motion, MotionProps, Variants } from "framer-motion";
 
 // types
 interface MotionLinkProps extends ComponentPropsWithoutRef<typeof Link> {
-  initial: MotionProps["initial"];
-  whileInView: MotionProps["whileInView"];
-  transition: MotionProps["transition"];
+  initial?: MotionProps["initial"];
+  whileInView?: MotionProps["whileInView"];
+  transition?: MotionProps["transition"];
+  variants?: MotionProps["variants"];
 }
 
 interface MotionArticleProps extends ComponentPropsWithoutRef<"article"> {
   initial: MotionProps["initial"];
   whileInView: MotionProps["whileInView"];
-  transition: MotionProps["transition"];
+  transition?: MotionProps["transition"];
+  variants?: MotionProps["variants"];
 }
 
 interface MotionSvgProps extends ComponentPropsWithoutRef<"svg"> {
@@ -40,26 +42,45 @@ const Motion_Svg = motion.create("svg");
 const Motion_Path = motion.create("path");
 
 export const FADE_IN = { initial: { opacity: 0 }, whileInView: { opacity: 1 }, transition: { duration: 3, type: "spring" } } satisfies MotionProps;
-export const BANNER = {
-  initial: undefined,
-  whileInView: { scale: [1, 1.5, 1.5, 1, 1], rotate: [0, 0, 180, 180, 0], borderRadius: ["0%", "0%", "50%", "50%", "0%"] },
-  transition: { duration: 2, ease: "easeInOut", times: [0, 0.2, 0.5, 0.8, 1] },
-} satisfies MotionProps;
+
+export const BANNER_LIST_VAR = {
+  hidden: { opacity: 0, transition: { when: "afterChildren" } },
+  visible: { opacity: 1, transition: { when: "beforeChildren", staggerChildren: 0.3 } },
+} satisfies Variants;
+export const BANNER_ITEM_VAR = {
+  hidden: { opacity: 0, scale: 0, rotate: 180 },
+  visible: { opacity: 1, scale: 1, rotate: 0, transition: { duration: 1 } },
+} satisfies Variants;
+
 export const DRAW = {
   hidden: { pathLength: 0, opacity: 0 },
   visible: { pathLength: 1, opacity: 1, transition: { pathLength: { type: "spring", duration: 10, bounce: 0 }, opacity: { duration: 0.25 } } },
 } satisfies Variants;
 
-export function MotionLink({ initial, whileInView, transition, ...props }: MotionLinkProps) {
+export function MotionLink({ initial, whileInView, transition, variants, ...props }: MotionLinkProps) {
   if (ENABLE_ANIM)
-    return <Motion_Link initial={initial} whileInView={whileInView} transition={transition} {...(props as ComponentPropsWithoutRef<typeof Motion_Link>)} />;
+    return (
+      <Motion_Link
+        initial={initial}
+        whileInView={whileInView}
+        transition={transition}
+        variants={variants}
+        {...(props as ComponentPropsWithoutRef<typeof Motion_Link>)}
+      />
+    );
   return <Link {...props} />;
 }
 
-export function MotionArticle({ initial, whileInView, transition, ...props }: MotionArticleProps) {
+export function MotionArticle({ initial, whileInView, transition, variants, ...props }: MotionArticleProps) {
   if (ENABLE_ANIM)
     return (
-      <Motion_Article initial={initial} whileInView={whileInView} transition={transition} {...(props as ComponentPropsWithoutRef<typeof Motion_Article>)} />
+      <Motion_Article
+        initial={initial}
+        whileInView={whileInView}
+        transition={transition}
+        variants={variants}
+        {...(props as ComponentPropsWithoutRef<typeof Motion_Article>)}
+      />
     );
   return <article {...props} />;
 }
