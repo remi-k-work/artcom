@@ -9,7 +9,17 @@ import Link from "next/link";
 // other libraries
 import { motion, MotionProps, Variants } from "framer-motion";
 
+// components
+import Accordion from "./ui/custom/accordion";
+
 // types
+type MotionAccordionProps = {
+  initial?: MotionProps["initial"];
+  whileInView?: MotionProps["whileInView"];
+  transition?: MotionProps["transition"];
+  variants?: MotionProps["variants"];
+} & ComponentPropsWithoutRef<typeof Accordion>;
+
 interface MotionLinkProps extends ComponentPropsWithoutRef<typeof Link> {
   initial?: MotionProps["initial"];
   whileInView?: MotionProps["whileInView"];
@@ -50,6 +60,15 @@ export const BANNER_LIST_VAR = {
 export const BANNER_ITEM_VAR = {
   hidden: { opacity: 0, scale: 0, rotate: 180 },
   visible: { opacity: 1, scale: 1, rotate: 0, transition: { duration: 1 } },
+} satisfies Variants;
+
+export const ACCORDION_LIST_VAR = {
+  hidden: { opacity: 0, transition: { when: "afterChildren" } },
+  visible: { opacity: 1, transition: { when: "beforeChildren", staggerChildren: 0.3 } },
+} satisfies Variants;
+export const ACCORDION_ITEM_VAR = {
+  hidden: { opacity: 0, x: -300 },
+  visible: { opacity: 1, x: 0 },
 } satisfies Variants;
 
 export const DRAW = {
