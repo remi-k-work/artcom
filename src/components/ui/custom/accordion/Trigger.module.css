@@ -2,6 +2,7 @@
   flex: 1;
 
   font-family: var(--font-1);
+  font-size: var(--font-size-2);
   text-transform: uppercase;
 
   padding-block: var(--size-2);

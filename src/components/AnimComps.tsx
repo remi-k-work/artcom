@@ -10,7 +10,8 @@ import Link from "next/link";
 import { motion, MotionProps, Variants } from "framer-motion";
 
 // components
-import Accordion from "./ui/custom/accordion";
+import Accordion from "@/components/ui/custom/accordion";
+import { default as AccordionItem } from "@/components/ui/custom/accordion/Item";
 
 // types
 type MotionAccordionProps = {
@@ -19,6 +20,27 @@ type MotionAccordionProps = {
   transition?: MotionProps["transition"];
   variants?: MotionProps["variants"];
 } & ComponentPropsWithoutRef<typeof Accordion>;
+
+type MotionAccordionItemProps = {
+  initial?: MotionProps["initial"];
+  whileInView?: MotionProps["whileInView"];
+  transition?: MotionProps["transition"];
+  variants?: MotionProps["variants"];
+} & ComponentPropsWithoutRef<typeof AccordionItem>;
+
+interface MotionUnListProps extends ComponentPropsWithoutRef<"ul"> {
+  initial?: MotionProps["initial"];
+  whileInView?: MotionProps["whileInView"];
+  transition?: MotionProps["transition"];
+  variants?: MotionProps["variants"];
+}
+
+interface MotionListItemProps extends ComponentPropsWithoutRef<"li"> {
+  initial?: MotionProps["initial"];
+  whileInView?: MotionProps["whileInView"];
+  transition?: MotionProps["transition"];
+  variants?: MotionProps["variants"];
+}
 
 interface MotionLinkProps extends ComponentPropsWithoutRef<typeof Link> {
   initial?: MotionProps["initial"];
@@ -46,12 +68,16 @@ interface MotionPathProps extends ComponentPropsWithoutRef<"path"> {
 // The global animation feature flag
 export const ENABLE_ANIM = true;
 
+const Motion_Accordion = motion.create(Accordion);
+const Motion_AccordionItem = motion.create(AccordionItem);
 const Motion_Link = motion.create(Link);
 const Motion_Article = motion.create("article");
 const Motion_Svg = motion.create("svg");
 const Motion_Path = motion.create("path");
+const Motion_UnList = motion.create("ul");
+const Motion_ListItem = motion.create("li");
 
-export const FADE_IN = { initial: { opacity: 0 }, whileInView: { opacity: 1 }, transition: { duration: 3, type: "spring" } } satisfies MotionProps;
+export const FADE_IN = { initial: { opacity: 0 }, whileInView: { opacity: 1 }, transition: { duration: 1 } } satisfies MotionProps;
 
 export const BANNER_LIST_VAR = {
   hidden: { opacity: 0, transition: { when: "afterChildren" } },
@@ -66,8 +92,12 @@ export const ACCORDION_LIST_VAR = {
   hidden: { opacity: 0, transition: { when: "afterChildren" } },
   visible: { opacity: 1, transition: { when: "beforeChildren", staggerChildren: 0.3 } },
 } satisfies Variants;
-export const ACCORDION_ITEM_VAR = {
-  hidden: { opacity: 0, x: -300 },
+export const ACCORDION_ITEM_VAR_L = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0 },
+} satisfies Variants;
+export const ACCORDION_ITEM_VAR_R = {
+  hidden: { opacity: 0, x: +100 },
   visible: { opacity: 1, x: 0 },
 } satisfies Variants;
 
@@ -75,6 +105,62 @@ export const DRAW = {
   hidden: { pathLength: 0, opacity: 0 },
   visible: { pathLength: 1, opacity: 1, transition: { pathLength: { type: "spring", duration: 10, bounce: 0 }, opacity: { duration: 0.25 } } },
 } satisfies Variants;
+
+export function MotionUnList({ initial, whileInView, transition, variants, ...props }: MotionUnListProps) {
+  if (ENABLE_ANIM)
+    return (
+      <Motion_UnList
+        initial={initial}
+        whileInView={whileInView}
+        transition={transition}
+        variants={variants}
+        {...(props as ComponentPropsWithoutRef<typeof Motion_UnList>)}
+      />
+    );
+  return <ul {...props} />;
+}
+
+export function MotionListItem({ initial, whileInView, transition, variants, ...props }: MotionListItemProps) {
+  if (ENABLE_ANIM)
+    return (
+      <Motion_ListItem
+        initial={initial}
+        whileInView={whileInView}
+        transition={transition}
+        variants={variants}
+        {...(props as ComponentPropsWithoutRef<typeof Motion_ListItem>)}
+      />
+    );
+  return <li {...props} />;
+}
+
+export function MotionAccordion({ initial, whileInView, transition, variants, ...props }: MotionAccordionProps) {
+  if (ENABLE_ANIM)
+    return (
+      <Motion_Accordion
+        initial={initial}
+        whileInView={whileInView}
+        transition={transition}
+        variants={variants}
+        {...(props as ComponentPropsWithoutRef<typeof Motion_Accordion>)}
+      />
+    );
+  return <Accordion {...props} />;
+}
+
+export function MotionAccordionItem({ initial, whileInView, transition, variants, ...props }: MotionAccordionItemProps) {
+  if (ENABLE_ANIM)
+    return (
+      <Motion_AccordionItem
+        initial={initial}
+        whileInView={whileInView}
+        transition={transition}
+        variants={variants}
+        {...(props as ComponentPropsWithoutRef<typeof Motion_AccordionItem>)}
+      />
+    );
+  return <AccordionItem {...props} />;
+}
 
 export function MotionLink({ initial, whileInView, transition, variants, ...props }: MotionLinkProps) {
   if (ENABLE_ANIM)

@@ -2,9 +2,7 @@
 import dynamic from "next/dynamic";
 
 // components
-import Accordion from "@/components/ui/custom/accordion";
 import { default as AccordionContent } from "@/components/ui/custom/accordion/Content";
-import { default as AccordionItem } from "@/components/ui/custom/accordion/Item";
 import { default as AccordionTrigger } from "@/components/ui/custom/accordion/Trigger";
 import Hero from "@/components/hero-a";
 import ArtcomExperience from "@/components/ArtcomExperience";
@@ -12,7 +10,7 @@ import CheckOurBanners from "@/components/CheckOurBanners";
 import Secondary from "@/components/secondary";
 import Guarantees from "@/components/Guarantees";
 import References from "@/components/References";
-import { DRAW, MotionPath, MotionSvg } from "@/components/AnimComps";
+import { ACCORDION_ITEM_VAR_L, ACCORDION_LIST_VAR, DRAW, MotionAccordion, MotionAccordionItem, MotionPath, MotionSvg } from "@/components/AnimComps";
 
 // const Wizard = dynamic(() => import("@/components/models/Wizard"), { ssr: false });
 // const Cursor = dynamic(() => import("@/components/models/Cursor"), { ssr: false });
@@ -44,8 +42,8 @@ export default function Page() {
       >
         <Hero.Header>O Nas</Hero.Header>
         <Hero.Content>
-          <Accordion type="single" defaultValue="item1">
-            <AccordionItem value="item1">
+          <MotionAccordion type="single" defaultValue="item1" initial="hidden" whileInView="visible" variants={ACCORDION_LIST_VAR}>
+            <MotionAccordionItem value="item1" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>Jesteśmy zespołem specjalistów z bogatym doświadczeniem</AccordionTrigger>
               <AccordionContent>
                 <p>
@@ -54,8 +52,8 @@ export default function Page() {
                   środków Unii Europejskiej.
                 </p>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item2">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item2" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>Naszym celem jest rozwój osobisty i zawodowy</AccordionTrigger>
               <AccordionContent>
                 <p>
@@ -64,8 +62,8 @@ export default function Page() {
                   nas polegać.
                 </p>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item3">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item3" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>Nasze kursy bazują na aktualnych materiałach źródłowych</AccordionTrigger>
               <AccordionContent>
                 <p>
@@ -74,8 +72,8 @@ export default function Page() {
                   uczestnicy naszych kursów mogą wykorzystać w życiu zawodowym.
                 </p>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item4">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item4" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>My również cały czas się uczymy</AccordionTrigger>
               <AccordionContent>
                 <p>
@@ -83,8 +81,8 @@ export default function Page() {
                   referencje, aby ocenić swoje doświadczenie i stale doskonalić nasze programy szkoleń.
                 </p>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item5">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item5" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>Wydajemy i oferujemy własne podręczniki</AccordionTrigger>
               <AccordionContent>
                 <p>
@@ -92,8 +90,8 @@ export default function Page() {
                   zajęć warsztatowych, które zapewniają skuteczną naukę.
                 </p>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item6">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item6" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>PZI ARTCOM posiada</AccordionTrigger>
               <AccordionContent>
                 <ul className="border border-surface-1 text-center">
@@ -111,8 +109,8 @@ export default function Page() {
                   </li>
                 </ul>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item7">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item7" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>W ostatnich latach prowadziliśmy również szkolenia</AccordionTrigger>
               <AccordionContent>
                 <ul className="border border-surface-1 text-center">
@@ -162,8 +160,8 @@ export default function Page() {
                   </li>
                 </ul>
               </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+            </MotionAccordionItem>
+          </MotionAccordion>
         </Hero.Content>
       </Hero>
       <ArtcomExperience />

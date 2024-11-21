@@ -2,13 +2,11 @@
 import type { Metadata } from "next";
 
 // components
-import Accordion from "@/components/ui/custom/accordion";
 import { default as AccordionContent } from "@/components/ui/custom/accordion/Content";
-import { default as AccordionItem } from "@/components/ui/custom/accordion/Item";
 import { default as AccordionTrigger } from "@/components/ui/custom/accordion/Trigger";
 import { Button } from "@/components/ui/custom/button";
 import Hero from "@/components/hero-b";
-import { DRAW, MotionPath, MotionSvg } from "@/components/AnimComps";
+import { ACCORDION_ITEM_VAR_R, ACCORDION_LIST_VAR, DRAW, MotionAccordion, MotionAccordionItem, MotionPath, MotionSvg } from "@/components/AnimComps";
 import TransitionLink from "@/components/TransitionLink";
 
 // assets
@@ -61,8 +59,8 @@ export default function Page() {
       />
       <Hero.Image imageSrc={heroImg} />
       <Hero.Content>
-        <Accordion type="single" defaultValue="item1">
-          <AccordionItem value="item1">
+        <MotionAccordion type="single" defaultValue="item1" initial="hidden" whileInView="visible" variants={ACCORDION_LIST_VAR}>
+          <MotionAccordionItem value="item1" variants={ACCORDION_ITEM_VAR_R}>
             <AccordionTrigger>Korzyści z rozmowy z doradcą zawodowym</AccordionTrigger>
             <AccordionContent>
               <p>
@@ -71,8 +69,8 @@ export default function Page() {
                 skierować swoją uwagę, by osiągnąć sukces.
               </p>
             </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item2">
+          </MotionAccordionItem>
+          <MotionAccordionItem value="item2" variants={ACCORDION_ITEM_VAR_R}>
             <AccordionTrigger>Zdiagnozujesz swoje predyspozycje zawodowe i personalne</AccordionTrigger>
             <AccordionContent>
               <p>
@@ -80,8 +78,8 @@ export default function Page() {
                 zainteresowaniami i wykształceniem.
               </p>
             </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item3">
+          </MotionAccordionItem>
+          <MotionAccordionItem value="item3" variants={ACCORDION_ITEM_VAR_R}>
             <AccordionTrigger>Wybierzesz ścieżkę kariery</AccordionTrigger>
             <AccordionContent>
               <p>
@@ -89,8 +87,8 @@ export default function Page() {
                 to również wsparcie w przypadku chęci zmiany zawodu, identyfikacji ze swoją rolą w zawodzie lub zaplanowanie nowej kariery zawodowej.
               </p>
             </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item4">
+          </MotionAccordionItem>
+          <MotionAccordionItem value="item4" variants={ACCORDION_ITEM_VAR_R}>
             <AccordionTrigger>Zaplanujesz własną działalność gospodarczą</AccordionTrigger>
             <AccordionContent>
               <p>
@@ -98,8 +96,8 @@ export default function Page() {
                 założyć własną firmę.
               </p>
             </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+          </MotionAccordionItem>
+        </MotionAccordion>
       </Hero.Content>
       <Hero.Footer>
         <Hero.Footer1>

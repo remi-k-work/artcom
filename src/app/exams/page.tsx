@@ -2,15 +2,13 @@
 import type { Metadata } from "next";
 
 // components
-import Accordion from "@/components/ui/custom/accordion";
 import { default as AccordionContent } from "@/components/ui/custom/accordion/Content";
-import { default as AccordionItem } from "@/components/ui/custom/accordion/Item";
 import { default as AccordionTrigger } from "@/components/ui/custom/accordion/Trigger";
 import Hero from "@/components/hero-a";
 import CoursesMatchingYou from "@/components/CoursesMatchingYou";
 import Secondary from "@/components/secondary";
 import Exam, { ExamHeader, ExamContent } from "@/components/exam";
-import { DRAW, MotionPath, MotionSvg } from "@/components/AnimComps";
+import { ACCORDION_ITEM_VAR_L, ACCORDION_LIST_VAR, DRAW, MotionAccordion, MotionAccordionItem, MotionPath, MotionSvg } from "@/components/AnimComps";
 
 // assets
 import examHeaderImgA from "@/assets/images/exams/a-header-0.webp";
@@ -57,8 +55,8 @@ export default function Page() {
       >
         <Hero.Header>Egzaminy</Hero.Header>
         <Hero.Content>
-          <Accordion type="single" defaultValue="item1">
-            <AccordionItem value="item1">
+          <MotionAccordion type="single" defaultValue="item1" initial="hidden" whileInView="visible" variants={ACCORDION_LIST_VAR}>
+            <MotionAccordionItem value="item1" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>Nasi wykładowcy</AccordionTrigger>
               <AccordionContent>
                 <p>
@@ -66,8 +64,8 @@ export default function Page() {
                   i przekazują praktyczne umiejętności, niezbędne w rozwoju i pracy zawodowej.
                 </p>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item2">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item2" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>Aktualne i zrozumiałe materiały szkoleniowe</AccordionTrigger>
               <AccordionContent>
                 <p>
@@ -75,8 +73,8 @@ export default function Page() {
                   informatycznej oraz metodami nauki języków obcych.
                 </p>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item3">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item3" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>Praktyczna nauka</AccordionTrigger>
               <AccordionContent>
                 <p>
@@ -84,8 +82,8 @@ export default function Page() {
                   obejmują przede wszystkim tworzenie ciekawych projektów i radzenia sobie z nietypowymi sytuacjami.
                 </p>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item4">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item4" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>Sprzęt i oprogramowanie</AccordionTrigger>
               <AccordionContent>
                 <p>
@@ -93,8 +91,8 @@ export default function Page() {
                   zastosowanie praktycznego sposobu prowadzenia zajęć. Naukę wspomagają systemy audio i wideo.
                 </p>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item5">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item5" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>Oceny</AccordionTrigger>
               <AccordionContent>
                 <p>
@@ -102,8 +100,8 @@ export default function Page() {
                   doskonalić nasze programy szkoleniowe.
                 </p>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item6">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item6" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>Certyfikaty i kwalifikacje</AccordionTrigger>
               <AccordionContent>
                 <p>
@@ -111,8 +109,8 @@ export default function Page() {
                   na rynku pracy.
                 </p>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item7">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item7" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>Wsparcie po szkoleniu</AccordionTrigger>
               <AccordionContent>
                 <p>
@@ -120,8 +118,8 @@ export default function Page() {
                   praktycznej.
                 </p>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item8">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item8" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>Dostępność i elastyczność</AccordionTrigger>
               <AccordionContent>
                 <p>
@@ -129,14 +127,14 @@ export default function Page() {
                   uczestników. Dlatego prowadzimy zajęcia zarówno w godzinach rannych jak i popołudniowych.
                 </p>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item9">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item9" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>Nasza gwarancja jakości</AccordionTrigger>
               <AccordionContent>
                 <p>Gwarantujemy najwyższą jakość szkoleń. Poznaj nasze 5 punktów Gwarancji jakości.</p>
               </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item10">
+            </MotionAccordionItem>
+            <MotionAccordionItem value="item10" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>Staże i pomoc w pozyskiwaniu miejsc pracy</AccordionTrigger>
               <AccordionContent>
                 <p>
@@ -144,8 +142,8 @@ export default function Page() {
                   przez Powiatowe Urzędy Pracy. Prowadzimy również staże dla uczestników projektów współfinansowanych przez Unię Europejską.
                 </p>
               </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+            </MotionAccordionItem>
+          </MotionAccordion>
         </Hero.Content>
       </Hero>
       <CoursesMatchingYou />

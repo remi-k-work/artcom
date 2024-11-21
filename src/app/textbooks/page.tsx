@@ -3,13 +3,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 // components
-import Accordion from "@/components/ui/custom/accordion";
 import { default as AccordionContent } from "@/components/ui/custom/accordion/Content";
-import { default as AccordionItem } from "@/components/ui/custom/accordion/Item";
 import { default as AccordionTrigger } from "@/components/ui/custom/accordion/Trigger";
 import { Button } from "@/components/ui/custom/button";
 import Hero from "@/components/hero-b";
-import { DRAW, MotionPath, MotionSvg } from "@/components/AnimComps";
+import { ACCORDION_ITEM_VAR_R, ACCORDION_LIST_VAR, DRAW, MotionAccordion, MotionAccordionItem, MotionPath, MotionSvg } from "@/components/AnimComps";
 
 // assets
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
@@ -54,8 +52,8 @@ export default function Page() {
       />
       <Hero.Image imageSrc={heroImg} />
       <Hero.Content>
-        <Accordion type="single" defaultValue="item1">
-          <AccordionItem value="item1">
+        <MotionAccordion type="single" defaultValue="item1" initial="hidden" whileInView="visible" variants={ACCORDION_LIST_VAR}>
+          <MotionAccordionItem value="item1" variants={ACCORDION_ITEM_VAR_R}>
             <AccordionTrigger>Materiał podręcznika zawiera</AccordionTrigger>
             <AccordionContent>
               <p>
@@ -64,8 +62,8 @@ export default function Page() {
                 Programów Operacyjnych współfinansowanych ze środków Europejskiego Funduszu Społecznego.
               </p>
             </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item2">
+          </MotionAccordionItem>
+          <MotionAccordionItem value="item2" variants={ACCORDION_ITEM_VAR_R}>
             <AccordionTrigger>W książce zostały opisane następujące moduły</AccordionTrigger>
             <AccordionContent>
               <ul className="border border-surface-1 text-center">
@@ -95,8 +93,8 @@ export default function Page() {
                 </li>
               </ul>
             </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+          </MotionAccordionItem>
+        </MotionAccordion>
       </Hero.Content>
       <Hero.Footer>
         <Hero.Footer1>
