@@ -1,15 +1,20 @@
+"use client";
+
 // component css styles
 import styles from "./ComputerRoom.module.css";
 
 // next
 import Image from "next/image";
 
+// components
+import { FADE_IN, MotionArticle } from "@/components/AnimComps";
+
 // assets
 import headerImg from "@/assets/images/room-rental/computer-room.jpg";
 
 export default function ComputerRoom() {
   return (
-    <article className={styles["computer-room"]}>
+    <MotionArticle className={styles["computer-room"]} {...FADE_IN}>
       <h3>Sala Informatyczna</h3>
       <Image src={headerImg} alt="" sizes="33vw" className="object-contain" />
       <article className="prose">
@@ -25,6 +30,6 @@ export default function ComputerRoom() {
           <li>klimatyzacja</li>
         </ul>
       </article>
-    </article>
+    </MotionArticle>
   );
 }

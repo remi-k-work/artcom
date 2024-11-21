@@ -1,15 +1,20 @@
+"use client";
+
 // component css styles
 import styles from "./MultimediaRoom.module.css";
 
 // next
 import Image from "next/image";
 
+// components
+import { FADE_IN, MotionArticle } from "@/components/AnimComps";
+
 // assets
 import headerImg from "@/assets/images/room-rental/multimedia-room.jpg";
 
 export default function MultimediaRoom() {
   return (
-    <article className={styles["multimedia-room"]}>
+    <MotionArticle className={styles["multimedia-room"]} {...FADE_IN}>
       <h3>Sala Multimedialna</h3>
       <Image src={headerImg} alt="" sizes="33vw" className="object-contain" />
       <article className="prose">
@@ -23,6 +28,6 @@ export default function MultimediaRoom() {
           <li>sprzęt audio/video</li>
         </ul>
       </article>
-    </article>
+    </MotionArticle>
   );
 }
