@@ -5,13 +5,14 @@ import styles from "./CoursesMatchingYou.module.css";
 
 // other libraries
 import { cn } from "@/lib/utils";
-
-// components
-import { ENABLE_ANIM } from "@/components/AnimComps";
+import { useUserSettingsStore } from "@/stores/userSettingsProvider";
 
 export default function CoursesMatchingYou() {
+  // Are the animations enabled or disabled by the user?
+  const enableAnim = useUserSettingsStore((state) => state.enableAnim);
+
   return (
-    <article className={cn(styles["courses-matching-you"], ENABLE_ANIM && styles["courses-matching-you--anim"])}>
+    <article className={cn(styles["courses-matching-you"], enableAnim && styles["courses-matching-you--anim"])}>
       <h2>
         Szkolenia idealnie dopasowane
         <br />

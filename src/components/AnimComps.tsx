@@ -8,6 +8,7 @@ import Link from "next/link";
 
 // other libraries
 import { motion, MotionProps, Variants } from "framer-motion";
+import { useUserSettingsStore } from "@/stores/userSettingsProvider";
 
 // components
 import Accordion from "@/components/ui/custom/accordion";
@@ -65,9 +66,6 @@ interface MotionPathProps extends ComponentPropsWithoutRef<"path"> {
   variants: MotionProps["variants"];
 }
 
-// The global animation feature flag
-export const ENABLE_ANIM = true;
-
 const Motion_Accordion = motion.create(Accordion);
 const Motion_AccordionItem = motion.create(AccordionItem);
 const Motion_Link = motion.create(Link);
@@ -107,7 +105,10 @@ export const DRAW = {
 } satisfies Variants;
 
 export function MotionUnList({ initial, whileInView, transition, variants, ...props }: MotionUnListProps) {
-  if (ENABLE_ANIM)
+  // Are the animations enabled or disabled by the user?
+  const enableAnim = useUserSettingsStore((state) => state.enableAnim);
+
+  if (enableAnim)
     return (
       <Motion_UnList
         initial={initial}
@@ -121,7 +122,10 @@ export function MotionUnList({ initial, whileInView, transition, variants, ...pr
 }
 
 export function MotionListItem({ initial, whileInView, transition, variants, ...props }: MotionListItemProps) {
-  if (ENABLE_ANIM)
+  // Are the animations enabled or disabled by the user?
+  const enableAnim = useUserSettingsStore((state) => state.enableAnim);
+
+  if (enableAnim)
     return (
       <Motion_ListItem
         initial={initial}
@@ -135,7 +139,10 @@ export function MotionListItem({ initial, whileInView, transition, variants, ...
 }
 
 export function MotionAccordion({ initial, whileInView, transition, variants, ...props }: MotionAccordionProps) {
-  if (ENABLE_ANIM)
+  // Are the animations enabled or disabled by the user?
+  const enableAnim = useUserSettingsStore((state) => state.enableAnim);
+
+  if (enableAnim)
     return (
       <Motion_Accordion
         initial={initial}
@@ -149,7 +156,10 @@ export function MotionAccordion({ initial, whileInView, transition, variants, ..
 }
 
 export function MotionAccordionItem({ initial, whileInView, transition, variants, ...props }: MotionAccordionItemProps) {
-  if (ENABLE_ANIM)
+  // Are the animations enabled or disabled by the user?
+  const enableAnim = useUserSettingsStore((state) => state.enableAnim);
+
+  if (enableAnim)
     return (
       <Motion_AccordionItem
         initial={initial}
@@ -163,7 +173,10 @@ export function MotionAccordionItem({ initial, whileInView, transition, variants
 }
 
 export function MotionLink({ initial, whileInView, transition, variants, ...props }: MotionLinkProps) {
-  if (ENABLE_ANIM)
+  // Are the animations enabled or disabled by the user?
+  const enableAnim = useUserSettingsStore((state) => state.enableAnim);
+
+  if (enableAnim)
     return (
       <Motion_Link
         initial={initial}
@@ -177,7 +190,10 @@ export function MotionLink({ initial, whileInView, transition, variants, ...prop
 }
 
 export function MotionArticle({ initial, whileInView, transition, variants, ...props }: MotionArticleProps) {
-  if (ENABLE_ANIM)
+  // Are the animations enabled or disabled by the user?
+  const enableAnim = useUserSettingsStore((state) => state.enableAnim);
+
+  if (enableAnim)
     return (
       <Motion_Article
         initial={initial}
@@ -191,11 +207,17 @@ export function MotionArticle({ initial, whileInView, transition, variants, ...p
 }
 
 export function MotionSvg({ initial, whileInView, ...props }: MotionSvgProps) {
-  if (ENABLE_ANIM) return <Motion_Svg initial={initial} whileInView={whileInView} {...(props as ComponentPropsWithoutRef<typeof Motion_Svg>)} />;
+  // Are the animations enabled or disabled by the user?
+  const enableAnim = useUserSettingsStore((state) => state.enableAnim);
+
+  if (enableAnim) return <Motion_Svg initial={initial} whileInView={whileInView} {...(props as ComponentPropsWithoutRef<typeof Motion_Svg>)} />;
   return <svg {...props} />;
 }
 
 export function MotionPath({ variants, ...props }: MotionPathProps) {
-  if (ENABLE_ANIM) return <Motion_Path variants={variants} {...(props as ComponentPropsWithoutRef<typeof Motion_Path>)} />;
+  // Are the animations enabled or disabled by the user?
+  const enableAnim = useUserSettingsStore((state) => state.enableAnim);
+
+  if (enableAnim) return <Motion_Path variants={variants} {...(props as ComponentPropsWithoutRef<typeof Motion_Path>)} />;
   return <path {...props} />;
 }

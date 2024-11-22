@@ -18,6 +18,7 @@ import { ReactNode } from "react";
 import type { Metadata } from "next";
 
 // components
+import { UserSettingsStoreProvider } from "@/stores/userSettingsProvider";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
@@ -41,14 +42,16 @@ export const metadata: Metadata = {
 export default function Layout({ contentModal, children }: LayoutProps) {
   return (
     <html lang="en">
-      <body className={`${font1.variable} ${font2.variable} ${font3.variable} ${font4.variable} font-font-4 md:font-font-2 antialiased`}>
+      <body className={`${font1.variable} ${font2.variable} ${font3.variable} ${font4.variable} font-font-4 antialiased md:font-font-2`}>
         <article className={styles["layout"]}>
-          <Header />
-          <main>
-            {contentModal}
-            {children}
-          </main>
-          <Footer />
+          <UserSettingsStoreProvider>
+            <Header />
+            <main>
+              {contentModal}
+              {children}
+            </main>
+            <Footer />
+          </UserSettingsStoreProvider>
         </article>
       </body>
     </html>

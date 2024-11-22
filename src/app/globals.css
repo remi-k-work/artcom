@@ -15,12 +15,9 @@
     --surface-3-light: var(--gray-3-hsl);
     --surface-4-light: var(--gray-4-hsl);
     --scrollthumb-color-light: var(--gray-7-hsl);
-    /* form validation colors */
-    --form-field-alert-bg-light: var(--red-12-hsl);
-    --form-field-alert-tx-light: var(--yellow-9-hsl);
     /* gradients */
-    --gradient-1-light: linear-gradient(45deg, var(--gray-12) 57%, hsl(var(--gray-10-hsl) / 83%) 69%, var(--teal-7) 100%);
-    --gradient-2-light: linear-gradient(45deg, var(--gray-12) 57%, hsl(var(--gray-10-hsl) / 83%) 69%, var(--indigo-7) 100%);
+    --gradient-1-light: linear-gradient(45deg, var(--gray-5) 57%, hsl(var(--gray-0-hsl) / 83%) 69%, var(--teal-7) 100%);
+    --gradient-2-light: linear-gradient(45deg, var(--gray-5) 57%, hsl(var(--gray-0-hsl) / 83%) 69%, var(--indigo-7) 100%);
 
     /* shadcn/ui (light) */
     --background-light: var(--gray-0-hsl);
@@ -63,9 +60,6 @@
     --surface-3-dark: var(--stone-10-hsl);
     --surface-4-dark: var(--stone-0-hsl);
     --scrollthumb-color-dark: var(--gray-6-hsl);
-    /* form validation colors */
-    --form-field-alert-bg-dark: var(--yellow-9-hsl);
-    --form-field-alert-tx-dark: var(--red-12-hsl);
     /* gradients */
     --gradient-1-dark: linear-gradient(45deg, var(--gray-12) 57%, hsl(var(--gray-10-hsl) / 83%) 69%, var(--teal-7) 100%);
     --gradient-2-dark: linear-gradient(45deg, var(--gray-12) 57%, hsl(var(--gray-10-hsl) / 83%) 69%, var(--indigo-7) 100%);
@@ -111,8 +105,6 @@
       --surface-2: var(--surface-2-dark);
       --surface-3: var(--surface-3-dark);
       --surface-4: var(--surface-4-dark);
-      --form-field-alert-bg: var(--form-field-alert-bg-dark);
-      --form-field-alert-tx: var(--form-field-alert-tx-dark);
       --gradient-1: var(--gradient-1-dark);
       --gradient-2: var(--gradient-2-dark);
 
@@ -154,8 +146,6 @@
       --surface-2: var(--surface-2-light);
       --surface-3: var(--surface-3-light);
       --surface-4: var(--surface-4-light);
-      --form-field-alert-bg: var(--form-field-alert-bg-light);
-      --form-field-alert-tx: var(--form-field-alert-tx-light);
       --gradient-1: var(--gradient-1-light);
       --gradient-2: var(--gradient-2-light);
 
@@ -184,6 +174,84 @@
       --chart-4: var(--chart-4-light);
       --chart-5: var(--chart-5-light);
     }
+  }
+
+  :root[data-theme="dark"] {
+    --brand: var(--brand-dark);
+    --link: var(--link-dark);
+    --link-visited: var(--link-visited-dark);
+    --text-1: var(--text-1-dark);
+    --text-2: var(--text-2-dark);
+    --surface-1: var(--surface-1-dark);
+    --surface-2: var(--surface-2-dark);
+    --surface-3: var(--surface-3-dark);
+    --surface-4: var(--surface-4-dark);
+    --gradient-1: var(--gradient-1-dark);
+    --gradient-2: var(--gradient-2-dark);
+
+    --background: var(--background-dark);
+    --foreground: var(--foreground-dark);
+    --card: var(--card-dark);
+    --card-foreground: var(--card-foreground-dark);
+    --popover: var(--popover-dark);
+    --popover-foreground: var(--popover-foreground-dark);
+    --primary: var(--primary-dark);
+    --primary-foreground: var(--primary-foreground-dark);
+    --secondary: var(--secondary-dark);
+    --secondary-foreground: var(--secondary-foreground-dark);
+    --muted: var(--muted-dark);
+    --muted-foreground: var(--muted-foreground-dark);
+    --accent: var(--accent-dark);
+    --accent-foreground: var(--accent-foreground-dark);
+    --destructive: var(--destructive-dark);
+    --destructive-foreground: var(--destructive-foreground-dark);
+    --border: var(--border-dark);
+    --input: var(--input-dark);
+    --ring: var(--ring-dark);
+    --chart-1: var(--chart-1-dark);
+    --chart-2: var(--chart-2-dark);
+    --chart-3: var(--chart-3-dark);
+    --chart-4: var(--chart-4-dark);
+    --chart-5: var(--chart-5-dark);
+  }
+
+  :root[data-theme="light"] {
+    --brand: var(--brand-light);
+    --link: var(--link-light);
+    --link-visited: var(--link-visited-light);
+    --text-1: var(--text-1-light);
+    --text-2: var(--text-2-light);
+    --surface-1: var(--surface-1-light);
+    --surface-2: var(--surface-2-light);
+    --surface-3: var(--surface-3-light);
+    --surface-4: var(--surface-4-light);
+    --gradient-1: var(--gradient-1-light);
+    --gradient-2: var(--gradient-2-light);
+
+    --background: var(--background-light);
+    --foreground: var(--foreground-light);
+    --card: var(--card-light);
+    --card-foreground: var(--card-foreground-light);
+    --popover: var(--popover-light);
+    --popover-foreground: var(--popover-foreground-light);
+    --primary: var(--primary-light);
+    --primary-foreground: var(--primary-foreground-light);
+    --secondary: var(--secondary-light);
+    --secondary-foreground: var(--secondary-foreground-light);
+    --muted: var(--muted-light);
+    --muted-foreground: var(--muted-foreground-light);
+    --accent: var(--accent-light);
+    --accent-foreground: var(--accent-foreground-light);
+    --destructive: var(--destructive-light);
+    --destructive-foreground: var(--destructive-foreground-light);
+    --border: var(--border-light);
+    --input: var(--input-light);
+    --ring: var(--ring-light);
+    --chart-1: var(--chart-1-light);
+    --chart-2: var(--chart-2-light);
+    --chart-3: var(--chart-3-light);
+    --chart-4: var(--chart-4-light);
+    --chart-5: var(--chart-5-light);
   }
 
   * {

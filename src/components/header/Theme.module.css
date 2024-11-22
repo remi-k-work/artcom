@@ -1,4 +1,8 @@
 .theme {
   grid-area: thm;
   place-self: center end;
+
+  display: flex;
+  align-items: center;
+  gap: var(--size-2);
 }

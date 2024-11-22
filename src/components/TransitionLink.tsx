@@ -9,9 +9,7 @@ import { useRouter } from "next/navigation";
 
 // other libraries
 import { delay } from "@/lib/helpers";
-
-// components
-import { ENABLE_ANIM } from "@/components/AnimComps";
+import { useUserSettingsStore } from "@/stores/userSettingsProvider";
 
 // types
 interface TransitionLinkProps extends LinkProps {
@@ -21,10 +19,13 @@ interface TransitionLinkProps extends LinkProps {
 }
 
 export default function TransitionLink({ href, children, className, onClick, ...props }: TransitionLinkProps) {
+  // Are the animations enabled or disabled by the user?
+  const enableAnim = useUserSettingsStore((state) => state.enableAnim);
+
   const router = useRouter();
 
   const handleTransition = async (e: MouseEvent<HTMLAnchorElement>) => {
-    if (!ENABLE_ANIM) {
+    if (!enableAnim) {
       onClick?.(e);
       return;
     }

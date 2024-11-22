@@ -4,7 +4,7 @@
   font-family: var(--font-3);
   text-transform: uppercase;
 
-  background-color: hsl(var(--stone-12-hsl) / 0.4);
+  background: hsl(var(--popover));
 
   padding-inline: var(--size-2);
   padding-block: var(--size-2);

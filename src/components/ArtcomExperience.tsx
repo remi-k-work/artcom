@@ -5,13 +5,14 @@ import styles from "./ArtcomExperience.module.css";
 
 // other libraries
 import { cn } from "@/lib/utils";
-
-// components
-import { ENABLE_ANIM } from "@/components/AnimComps";
+import { useUserSettingsStore } from "@/stores/userSettingsProvider";
 
 export default function ArtcomExperience() {
+  // Are the animations enabled or disabled by the user?
+  const enableAnim = useUserSettingsStore((state) => state.enableAnim);
+
   return (
-    <article className={cn(styles["artcom-experience"], ENABLE_ANIM && styles["artcom-experience--anim"])}>
+    <article className={cn(styles["artcom-experience"], enableAnim && styles["artcom-experience--anim"])}>
       <h2>
         ARTCOM 1994-2024
         <br />
