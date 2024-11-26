@@ -1,6 +1,6 @@
 // storage-adapter-import-placeholder
-import { sqliteAdapter } from "@payloadcms/db-sqlite";
-import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
+import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
 import { buildConfig } from "payload";
@@ -26,16 +26,7 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
-  // database-adapter-config-start
-  db: sqliteAdapter({
-    client: {
-      url: process.env.DATABASE_URI || "",
-    },
-  }),
-  // database-adapter-config-end
+  db: vercelPostgresAdapter({ pool: { connectionString: process.env.POSTGRES_URL || "" } }),
   sharp,
-  plugins: [
-    payloadCloudPlugin(),
-    // storage-adapter-placeholder
-  ],
+  plugins: [vercelBlobStorage({ collections: { media: true }, token: process.env.BLOB_READ_WRITE_TOKEN || "" })],
 });
