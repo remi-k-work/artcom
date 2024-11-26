@@ -13,17 +13,17 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
-    'payload-locked-documents': PayloadLockedDocument;
-    'payload-preferences': PayloadPreference;
-    'payload-migrations': PayloadMigration;
+    "payload-locked-documents": PayloadLockedDocument;
+    "payload-preferences": PayloadPreference;
+    "payload-migrations": PayloadMigration;
   };
   collectionsJoins: {};
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
-    'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
-    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
-    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
+    "payload-locked-documents": PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
+    "payload-preferences": PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
+    "payload-migrations": PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
   };
   db: {
     defaultIDType: number;
@@ -32,7 +32,7 @@ export interface Config {
   globalsSelect: {};
   locale: null;
   user: User & {
-    collection: 'users';
+    collection: "users";
   };
   jobs: {
     tasks: unknown;
@@ -101,16 +101,16 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
-        relationTo: 'users';
+        relationTo: "users";
         value: number | User;
       } | null)
     | ({
-        relationTo: 'media';
+        relationTo: "media";
         value: number | Media;
       } | null);
   globalSlug?: string | null;
   user: {
-    relationTo: 'users';
+    relationTo: "users";
     value: number | User;
   };
   updatedAt: string;
@@ -123,7 +123,7 @@ export interface PayloadLockedDocument {
 export interface PayloadPreference {
   id: number;
   user: {
-    relationTo: 'users';
+    relationTo: "users";
     value: number | User;
   };
   key?: string | null;
@@ -223,7 +223,6 @@ export interface Auth {
   [k: string]: unknown;
 }
 
-
-declare module 'payload' {
+declare module "payload" {
   export interface GeneratedTypes extends Config {}
 }
