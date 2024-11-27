@@ -8,7 +8,7 @@ import Hero from "@/components/hero-a";
 import ArtcomExperience from "@/components/ArtcomExperience";
 import CheckOurBanners from "@/components/CheckOurBanners";
 import Secondary from "@/components/secondary";
-import Guarantees from "@/components/Guarantees";
+import GuaranteesFetcher from "@/components/GuaranteesFetcher";
 import References from "@/components/References";
 import { ACCORDION_ITEM_VAR_L, ACCORDION_LIST_VAR, DRAW, MotionAccordion, MotionAccordionItem, MotionPath, MotionSvg } from "@/components/AnimComps";
 
@@ -167,7 +167,7 @@ export default function Page() {
       <ArtcomExperience />
       <CheckOurBanners />
       <Secondary header="Od 30 lat pracujemy dla Twojego rozwoju i satysfakcji">
-        <Guarantees />
+        <GuaranteesFetcher />
         <References />
       </Secondary>
     </>

@@ -3,11 +3,20 @@
 // component css styles
 import styles from "./Guarantees.module.css";
 
+// payload and db access
+import { PaginatedDocs } from "payload";
+import { Guarantee } from "@/payload-types";
+
 // components
 import { DRAW, FADE_IN, MotionArticle, MotionPath, MotionSvg } from "@/components/AnimComps";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
-export default function Guarantees() {
+// types
+interface GuaranteesProps {
+  guarantees: PaginatedDocs<Guarantee>;
+}
+
+export default function Guarantees({ guarantees }: GuaranteesProps) {
   return (
     <MotionArticle className={styles["guarantees"]} {...FADE_IN}>
       <h3>5 punktów GWARANCJI jakości naszych szkoleń</h3>
@@ -32,51 +41,14 @@ export default function Guarantees() {
       <article>
         <Carousel className="m-auto w-[80%]">
           <CarouselContent>
-            <CarouselItem>
-              <div className={styles["guarantee"]}>
-                <span>1</span>
-                <p className="text-center">
-                  Najlepszą gwarancją jakości naszych szkoleń są liczne referencje od Klientów, opinie i polecenia naszych Kursantów, a także przyjazna&nbsp;
-                  <b>kadra trenerska z wieloletnim doświadczeniem</b> szkoleniowym i praktycznym zawodowym.
-                </p>
-              </div>
-            </CarouselItem>
-            <CarouselItem>
-              <div className={styles["guarantee"]}>
-                <span>2</span>
-                <p className="text-center">
-                  W celu zapewnienia najwyższej jakości szkoleń, każdorazowo <b>przeprowadzamy testy i ankiety przed szkoleniowe</b>, dokonujemy analizy
-                  materiałów szkoleniowych i dostosowujemy je do potrzeb uczestników każdego prowadzonego szkolenia.
-                </p>
-              </div>
-            </CarouselItem>
-            <CarouselItem>
-              <div className={styles["guarantee"]}>
-                <span>3</span>
-                <p className="text-center">
-                  Kończąc zajęcia, prosimy o wyrażenie opinii na karcie oceny jakości szkolenia. <b>Rezygnujemy z wynagrodzenia</b> gdy grupa (min. 5 osób)
-                  oceni zajęcia poniżej wartości 4 w skali 1-5.
-                </p>
-              </div>
-            </CarouselItem>
-            <CarouselItem>
-              <div className={styles["guarantee"]}>
-                <span>4</span>
-                <p className="text-center">
-                  Uczestnicy zajęć mogą uzyskać <b>kwalifikacje i certyfikaty</b> o znaczeniu międzynarodowym, które są cenione na rynku pracy. Każdorazowo
-                  wydajemy świadectwa ukończenia kursów uznawane przez pracodawców i instytucje w Polsce.
-                </p>
-              </div>
-            </CarouselItem>
-            <CarouselItem>
-              <div className={styles["guarantee"]}>
-                <span>5</span>
-                <p className="text-center">
-                  Nasza gwarancja jakości nie kończy się na kursie. Oferujemy <b>bezpłatne wsparcie i konsultacje</b> po szkoleniu aby nasi uczestnicy kursów
-                  zawsze mieli dostęp do wiedzy praktycznej.
-                </p>
-              </div>
-            </CarouselItem>
+            {guarantees.docs.map(({ id, guarantee }, index) => (
+              <CarouselItem key={id}>
+                <div className={styles["guarantee"]}>
+                  <span>{index + 1}</span>
+                  <p className="text-center">{guarantee}</p>
+                </div>
+              </CarouselItem>
+            ))}
           </CarouselContent>
           <CarouselPrevious />
           <CarouselNext />
