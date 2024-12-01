@@ -1,5 +1,9 @@
 import type { CollectionConfig } from "payload";
 
+import text from "./fields/text";
+import urlAddress from "./fields/urlAddress";
+import textArea from "./fields/textArea";
+
 export const References: CollectionConfig = {
   slug: "references",
 
@@ -16,11 +20,7 @@ export const References: CollectionConfig = {
 
   fields: [
     {
-      name: "customerName",
-      type: "text",
-      required: true,
-      minLength: 1,
-      maxLength: 256,
+      ...text("customerName", 128),
 
       label: {
         en: "Customer Name",
@@ -33,23 +33,10 @@ export const References: CollectionConfig = {
           pl: "Przykład: BWI Poland Technologies Sp. z o.o.",
         },
       },
-
-      hooks: {
-        beforeChange: [
-          ({ value }) => {
-            // Field data that will be saved to the document is valid (trim the content)
-            return (value as string).trim();
-          },
-        ],
-      },
     },
 
     {
-      name: "theirLocation",
-      type: "text",
-      required: true,
-      minLength: 1,
-      maxLength: 50,
+      ...text("theirLocation"),
 
       label: {
         en: "Their Location",
@@ -62,23 +49,10 @@ export const References: CollectionConfig = {
           pl: "Przykład: Rzeszów, Polska",
         },
       },
-
-      hooks: {
-        beforeChange: [
-          ({ value }) => {
-            // Field data that will be saved to the document is valid (trim the content)
-            return (value as string).trim();
-          },
-        ],
-      },
     },
 
     {
-      name: "theirWebsite",
-      type: "text",
-      required: true,
-      minLength: 1,
-      maxLength: 512,
+      ...urlAddress("theirWebsite"),
 
       label: {
         en: "Their Website",
@@ -91,24 +65,10 @@ export const References: CollectionConfig = {
           pl: "Przykład: http://cras.org.pl",
         },
       },
-
-      // *** TODO: Need to add URL validation and error message in both en/pl ***
-      hooks: {
-        beforeChange: [
-          ({ value }) => {
-            // Field data that will be saved to the document is valid (trim the content)
-            return (value as string).trim();
-          },
-        ],
-      },
     },
 
     {
-      name: "reference",
-      type: "textarea",
-      required: true,
-      minLength: 1,
-      maxLength: 512,
+      ...textArea("reference"),
 
       label: {
         en: "Reference Description",
@@ -120,15 +80,6 @@ export const References: CollectionConfig = {
           en: "Example: The training was organized according to a previously established program. The company showed great commitment both at the stage of program construction and its implementation. The preparation and conduct of the training was carried out in a professional and efficient manner.",
           pl: "Przykład: Szkolenie zostało zorganizowane zgodnie z wcześniej ustalonym programem. Firma wykazała się dużym zaangażowaniem zarówno na etapie konstruowania programu jaki jego realizacji. Przygotowanie i przeprowadzenie szkolenia odbyło się w sposób fachowy i sprawny.",
         },
-      },
-
-      hooks: {
-        beforeChange: [
-          ({ value }) => {
-            // Field data that will be saved to the document is valid (remove leading and trailing whitespace, newline characters, and carriage return characters)
-            return (value as string).trim().replace(/\n/g, "").replace(/\r/g, "");
-          },
-        ],
       },
     },
   ],

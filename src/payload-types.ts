@@ -14,6 +14,7 @@ export interface Config {
     users: User;
     media: Media;
     guarantees: Guarantee;
+    references: Reference;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -23,6 +24,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     guarantees: GuaranteesSelect<false> | GuaranteesSelect<true>;
+    references: ReferencesSelect<false> | ReferencesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -107,6 +109,19 @@ export interface Guarantee {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "references".
+ */
+export interface Reference {
+  id: number;
+  customerName: string;
+  theirLocation: string;
+  theirWebsite: string;
+  reference: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -123,6 +138,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'guarantees';
         value: number | Guarantee;
+      } | null)
+    | ({
+        relationTo: 'references';
+        value: number | Reference;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -205,6 +224,18 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface GuaranteesSelect<T extends boolean = true> {
   guarantee?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "references_select".
+ */
+export interface ReferencesSelect<T extends boolean = true> {
+  customerName?: T;
+  theirLocation?: T;
+  theirWebsite?: T;
+  reference?: T;
   updatedAt?: T;
   createdAt?: T;
 }

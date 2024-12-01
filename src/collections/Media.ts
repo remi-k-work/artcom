@@ -1,5 +1,7 @@
 import type { CollectionConfig } from "payload";
 
+import text from "./fields/text";
+
 export const Media: CollectionConfig = {
   slug: "media",
 
@@ -20,11 +22,7 @@ export const Media: CollectionConfig = {
 
   fields: [
     {
-      name: "alt",
-      type: "text",
-      required: true,
-      minLength: 1,
-      maxLength: 256,
+      ...text("alt", 128),
 
       label: {
         en: "Textual replacement for the image (alt)",
@@ -36,15 +34,6 @@ export const Media: CollectionConfig = {
           en: "Example: Grapefruit slice atop a pile of other slices.",
           pl: "Przykład: Plasterek grejpfruta położony na stosie innych plasterków.",
         },
-      },
-
-      hooks: {
-        beforeChange: [
-          ({ value }) => {
-            // Field data that will be saved to the document is valid (trim the content)
-            return (value as string).trim();
-          },
-        ],
       },
     },
   ],
