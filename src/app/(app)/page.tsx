@@ -9,7 +9,7 @@ import ArtcomExperience from "@/components/ArtcomExperience";
 import CheckOurBanners from "@/components/CheckOurBanners";
 import Secondary from "@/components/secondary";
 import GuaranteesFetcher from "@/components/GuaranteesFetcher";
-import References from "@/components/References";
+import ReferencesFetcher from "@/components/ReferencesFetcher";
 import { ACCORDION_ITEM_VAR_L, ACCORDION_LIST_VAR, DRAW, MotionAccordion, MotionAccordionItem, MotionPath, MotionSvg } from "@/components/AnimComps";
 
 // const Wizard = dynamic(() => import("@/components/models/Wizard"), { ssr: false });
@@ -168,7 +168,7 @@ export default function Page() {
       <CheckOurBanners />
       <Secondary header="Od 30 lat pracujemy dla Twojego rozwoju i satysfakcji">
         <GuaranteesFetcher />
-        <References />
+        <ReferencesFetcher />
       </Secondary>
     </>
   );

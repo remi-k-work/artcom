@@ -18,6 +18,10 @@ export const References: CollectionConfig = {
     },
   },
 
+  admin: {
+    useAsTitle: "customerName",
+  },
+
   fields: [
     {
       ...text("customerName", 128),

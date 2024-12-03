@@ -16,7 +16,7 @@ interface GuaranteesProps {
   guarantees: PaginatedDocs<Guarantee>;
 }
 
-export default function Guarantees({ guarantees }: GuaranteesProps) {
+export default function Guarantees({ guarantees: { docs } }: GuaranteesProps) {
   return (
     <MotionArticle className={styles["guarantees"]} {...FADE_IN}>
       <h3>5 punktów GWARANCJI jakości naszych szkoleń</h3>
@@ -41,7 +41,7 @@ export default function Guarantees({ guarantees }: GuaranteesProps) {
       <article>
         <Carousel className="m-auto w-[80%]">
           <CarouselContent>
-            {guarantees.docs.map(({ id, guarantee }, index) => (
+            {docs.map(({ id, guarantee }, index) => (
               <CarouselItem key={id}>
                 <div className={styles["guarantee"]}>
                   <span>{index + 1}</span>

@@ -6,6 +6,10 @@ import styles from "./References.module.css";
 // next
 import Link from "next/link";
 
+// payload and db access
+import { PaginatedDocs } from "payload";
+import { Reference } from "@/payload-types";
+
 // other libraries
 import Autoplay from "embla-carousel-autoplay";
 
@@ -16,7 +20,12 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 // assets
 import { StarIcon } from "@heroicons/react/24/outline";
 
-export default function References() {
+// types
+interface ReferencesProps {
+  references: PaginatedDocs<Reference>;
+}
+
+export default function References({ references: { docs } }: ReferencesProps) {
   return (
     <MotionArticle id="references" className={styles["references"]} {...FADE_IN}>
       <h3>Referencje naszych Klientów</h3>
@@ -41,178 +50,33 @@ export default function References() {
       <article>
         <Carousel className="m-auto w-[80%]" plugins={[Autoplay({ delay: 6000 })]}>
           <CarouselContent>
-            <CarouselItem>
-              <div className={styles["reference"]}>
-                <span className="flex items-center justify-center gap-1">
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                </span>
-                <br />
-                <p className="text-center">
-                  Usługa szkoleniowa została przeprowadzona z dużą starannością i w pełni profesjonalnie. Zaangażowanie, komunikatywność i kompetencje trenera a
-                  także jego dobry kontakt z kursantami zapewniły pełną 100% zdawalność egzaminów ECDL jak i uzyskanie certyfikatów przez wszystkich
-                  uczestników, którzy ukończyli szkolenie. Na bazie naszych doświadczeń, możemy polecić PZI ARTCOM jako rzetelnego partnera, realizującego
-                  szkolenia na wysokim poziomie.
-                </p>
-                <br />
-                <p className="text-center">
-                  <b>Podkarpacka Wojewódzka Komenda Ochotniczych Hufców Pracy</b>
+            {docs.map(({ id, customerName, theirLocation, theirWebsite, reference }) => (
+              <CarouselItem key={id}>
+                <div className={styles["reference"]}>
+                  <span className="flex items-center justify-center gap-1">
+                    <StarIcon width={36} height={36} />
+                    <StarIcon width={36} height={36} />
+                    <StarIcon width={36} height={36} />
+                    <StarIcon width={36} height={36} />
+                    <StarIcon width={36} height={36} />
+                  </span>
                   <br />
-                  <small>
-                    Rzeszów
-                    <br />
-                    <Link href="http://www.podkarpacka.ohp.pl" target="_blank">
-                      www.podkarpacka.ohp.pl
-                    </Link>
-                  </small>
-                </p>
-              </div>
-            </CarouselItem>
-            <CarouselItem>
-              <div className={styles["reference"]}>
-                <span className="flex items-center justify-center gap-1">
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                </span>
-                <br />
-                <p className="text-center">
-                  Szkolenie zostało zorganizowane zgodnie z wcześniej ustalonym programem. Firma wykazała się dużym zaangażowaniem zarówno na etapie
-                  konstruowania programu jaki jego realizacji. Przygotowanie i przeprowadzenie szkolenia odbyło się w sposób fachowy i sprawny.
-                </p>
-                <br />
-                <p className="text-center">
-                  <b>BWI Poland Technologies Sp. z o.o.</b>
+                  <p className="text-center">{reference}</p>
                   <br />
-                  <small>
-                    Krosno
+                  <p className="text-center">
+                    <b>{customerName}</b>
                     <br />
-                    <Link href="https://www.bwigroup.pl" target="_blank">
-                      www.bwigroup.pl
-                    </Link>
-                  </small>
-                </p>
-              </div>
-            </CarouselItem>
-            <CarouselItem>
-              <div className={styles["reference"]}>
-                <span className="flex items-center justify-center gap-1">
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                </span>
-                <br />
-                <p className="text-center">
-                  Stwierdzamy, że Przedsiębiorstwo Zastosowań Informatyki ARTCOM Roman Bocheński w Rzeszowie wykazało się profesjonalizmem oraz solidnością w
-                  realizacji usługi, zasługuje na polecenie jako partner w realizacji szkoleń.
-                </p>
-                <br />
-                <p className="text-center">
-                  <b>Powiatowy Urząd Pracy w Leżajsku</b>
-                  <br />
-                  <small>
-                    Leżajsk
-                    <br />
-                    <Link href="https://lezajsk.praca.gov.pl" target="_blank">
-                      lezajsk.praca.gov.pl
-                    </Link>
-                  </small>
-                </p>
-              </div>
-            </CarouselItem>
-            <CarouselItem>
-              <div className={styles["reference"]}>
-                <span className="flex items-center justify-center gap-1">
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                </span>
-                <br />
-                <p className="text-center">
-                  Firma zaprezentowała szeroką i konkurencyjną ofertę szkoleń, dostosowaną do potrzeb uczestników i przeprowadzoną zgodnie z harmonogramem.
-                  Usługa została zrealizowana profesjonalnie oraz na wysokim poziomie technicznym. Szkolenia prowadzone były w sposób komunikatywny i
-                  interesujący.
-                </p>
-                <br />
-                <p className="text-center">
-                  <b>Wojewódzki Ośrodek Medycyny Pracy</b>
-                  <br />
-                  <small>
-                    Rzeszów
-                    <br />
-                    <Link href="https://www.womp.rzeszow.pl" target="_blank">
-                      www.womp.rzeszow.pl
-                    </Link>
-                  </small>
-                </p>
-              </div>
-            </CarouselItem>
-            <CarouselItem>
-              <div className={styles["reference"]}>
-                <span className="flex items-center justify-center gap-1">
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                </span>
-                <br />
-                <p className="text-center">
-                  PZI Artcom dysponowało odpowiednimi zasobami kadrowymi i technicznymi umożliwiającymi realizację kursów. Usługi zostały wykonane rzetelnie,
-                  profesjonalnie i terminowo. Z prawdziwą przyjemnością rekomendujemy dla innych podmiotów szkolenia firmy PZI Artcom.
-                </p>
-                <br />
-                <p className="text-center">
-                  <b>Stowarzyszenie CRAS</b>
-                  <br />
-                  <small>
-                    Rzeszów
-                    <br />
-                    <Link href="http://cras.org.pl" target="_blank">
-                      cras.org.pl
-                    </Link>
-                  </small>
-                </p>
-              </div>
-            </CarouselItem>
-            <CarouselItem>
-              <div className={styles["reference"]}>
-                <span className="flex items-center justify-center gap-1">
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                  <StarIcon width={36} height={36} />
-                </span>
-                <br />
-                <p className="text-center">
-                  Szkolenie zrealizowane zostało zgodnie z naszymi oczekiwaniami, profesjonalnie, z dużym zaangażowaniem trenera, a uczestnik szkolenia miał
-                  zapewniony sprzęt i oprogramowanie do realizacji zajęć. W związku z tym rekomendujemy firmę Artcom jako rzetelnego, kompetentnego i
-                  terminowego wykonawcę szkoleń z zakresu grafiki komputerowej.
-                </p>
-                <br />
-                <p className="text-center">
-                  <b>Nasza Drukarnia Justyna Adamiec</b>
-                  <br />
-                  <small>
-                    Rzeszów
-                    <br />
-                    <Link href="https://naszadrukarnia.eu" target="_blank">
-                      naszadrukarnia.eu
-                    </Link>
-                  </small>
-                </p>
-              </div>
-            </CarouselItem>
+                    <small>
+                      {theirLocation}
+                      <br />
+                      <Link href={theirWebsite} target="_blank">
+                        {new URL(theirWebsite).hostname}
+                      </Link>
+                    </small>
+                  </p>
+                </div>
+              </CarouselItem>
+            ))}
           </CarouselContent>
           <CarouselPrevious />
           <CarouselNext />
