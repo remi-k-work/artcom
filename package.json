@@ -2,6 +2,7 @@
   "name": "artcom",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev --turbopack",
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
