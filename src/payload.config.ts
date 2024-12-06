@@ -21,9 +21,9 @@ const dirname = path.dirname(filename);
 export default buildConfig({
   admin: {
     components: {
-      beforeLogin: ["@/components/payload/BeforeLogin"],
       graphics: {
-        Logo: "@/components/payload/BeforeLogin",
+        Icon: "@/components/payload/Icon",
+        Logo: "@/components/payload/Logo",
       },
     },
 

@@ -33,11 +33,12 @@ html {
   --theme-bg: unset;
 
   --gradient-1: linear-gradient(45deg, var(--gray-12) 57%, hsl(var(--gray-10-hsl) / 83%) 69%, var(--teal-7) 100%);
+  --gradient-2: linear-gradient(45deg, var(--gray-12) 57%, hsl(var(--gray-10-hsl) / 83%) 69%, var(--indigo-7) 100%);
 }
 
 body {
   background-color: var(--gray-12);
-  background-image: var(--gradient-1), var(--noise-4);
+  background-image: var(--gradient-2), var(--noise-4);
   background-size:
     auto 200vh,
     auto 200vh;
