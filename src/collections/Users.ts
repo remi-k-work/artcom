@@ -16,6 +16,7 @@ export const Users: CollectionConfig = {
 
   admin: {
     useAsTitle: "email",
+    hideAPIURL: true,
   },
 
   auth: true,

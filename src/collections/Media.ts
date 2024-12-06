@@ -16,6 +16,10 @@ export const Media: CollectionConfig = {
     },
   },
 
+  admin: {
+    hideAPIURL: true,
+  },
+
   access: {
     read: () => true,
   },

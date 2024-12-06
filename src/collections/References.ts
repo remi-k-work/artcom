@@ -20,6 +20,7 @@ export const References: CollectionConfig = {
 
   admin: {
     useAsTitle: "customerName",
+    hideAPIURL: true,
   },
 
   fields: [

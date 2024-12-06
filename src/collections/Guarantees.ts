@@ -16,6 +16,10 @@ export const Guarantees: CollectionConfig = {
     },
   },
 
+  admin: {
+    hideAPIURL: true,
+  },
+
   fields: [
     {
       ...textArea("guarantee"),
