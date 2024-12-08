@@ -12,6 +12,7 @@ import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Guarantees } from "./collections/Guarantees";
 import { References } from "./collections/References";
+import { Courses } from "./collections/Courses";
 
 import { customTranslations } from "./custom-translations";
 
@@ -32,7 +33,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Guarantees, References],
+  collections: [Users, Media, Guarantees, References, Courses],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

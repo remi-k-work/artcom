@@ -17,24 +17,21 @@ export const Guarantees: CollectionConfig = {
   },
 
   admin: {
+    defaultColumns: ["guarantee"],
     hideAPIURL: true,
   },
 
   fields: [
     {
-      ...textArea("guarantee"),
-
-      label: {
-        en: "Guarantee Description",
-        pl: "Opis Gwarancji",
-      },
-
-      admin: {
-        placeholder: {
-          en: "Example: The best guarantee of the quality of our training is the numerous references from our Clients, opinions and recommendations of our Trainees, as well as a friendly training staff with many years of training and practical professional experience.",
-          pl: "Przykład: Najlepszą gwarancją jakości naszych szkoleń są liczne referencje od Klientów, opinie i polecenia naszych Kursantów, a także przyjazna kadra trenerska z wieloletnim doświadczeniem szkoleniowym i praktycznym zawodowym.",
-        },
-      },
+      ...textArea(
+        "guarantee",
+        undefined,
+        undefined,
+        "Guarantee Description",
+        "Opis Gwarancji",
+        "The best guarantee of the quality of our training is the numerous references from our Clients, opinions and recommendations of our Trainees, as well as a friendly training staff with many years of training and practical professional experience.",
+        "Najlepszą gwarancją jakości naszych szkoleń są liczne referencje od Klientów, opinie i polecenia naszych Kursantów, a także przyjazna kadra trenerska z wieloletnim doświadczeniem szkoleniowym i praktycznym zawodowym.",
+      ),
     },
   ],
 };

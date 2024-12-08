@@ -19,73 +19,34 @@ export const References: CollectionConfig = {
   },
 
   admin: {
+    defaultColumns: ["customerName", "theirLocation"],
     useAsTitle: "customerName",
     hideAPIURL: true,
   },
 
   fields: [
     {
-      ...text("customerName", 128),
-
-      label: {
-        en: "Customer Name",
-        pl: "Nazwa Klienta",
-      },
-
-      admin: {
-        placeholder: {
-          en: "Example: BWI Poland Technologies Sp. z o.o.",
-          pl: "Przykład: BWI Poland Technologies Sp. z o.o.",
-        },
-      },
+      ...text("customerName", undefined, 128, "Customer Name", "Nazwa Klienta", "BWI Poland Technologies Sp. z o.o.", "BWI Poland Technologies Sp. z o.o."),
     },
 
     {
-      ...text("theirLocation"),
-
-      label: {
-        en: "Their Location",
-        pl: "Ich Lokalizacja",
-      },
-
-      admin: {
-        placeholder: {
-          en: "Example: Rzeszów, Poland",
-          pl: "Przykład: Rzeszów, Polska",
-        },
-      },
+      ...text("theirLocation", undefined, undefined, "Their Location", "Ich Lokalizacja", "Rzeszów, Poland", "Rzeszów, Polska"),
     },
 
     {
-      ...urlAddress("theirWebsite"),
-
-      label: {
-        en: "Their Website",
-        pl: "Ich Strona Internetowa",
-      },
-
-      admin: {
-        placeholder: {
-          en: "Example: http://cras.org.pl",
-          pl: "Przykład: http://cras.org.pl",
-        },
-      },
+      ...urlAddress("theirWebsite", "Their Website", "Ich Strona Internetowa", "http://cras.org.pl", "http://cras.org.pl"),
     },
 
     {
-      ...textArea("reference"),
-
-      label: {
-        en: "Reference Description",
-        pl: "Opis Referencji/Opinii Klienta",
-      },
-
-      admin: {
-        placeholder: {
-          en: "Example: The training was organized according to a previously established program. The company showed great commitment both at the stage of program construction and its implementation. The preparation and conduct of the training was carried out in a professional and efficient manner.",
-          pl: "Przykład: Szkolenie zostało zorganizowane zgodnie z wcześniej ustalonym programem. Firma wykazała się dużym zaangażowaniem zarówno na etapie konstruowania programu jaki jego realizacji. Przygotowanie i przeprowadzenie szkolenia odbyło się w sposób fachowy i sprawny.",
-        },
-      },
+      ...textArea(
+        "reference",
+        undefined,
+        undefined,
+        "Reference Description",
+        "Opis Referencji/Opinii Klienta",
+        "The training was organized according to a previously established program. The company showed great commitment both at the stage of program construction and its implementation. The preparation and conduct of the training was carried out in a professional and efficient manner.",
+        "Szkolenie zostało zorganizowane zgodnie z wcześniej ustalonym programem. Firma wykazała się dużym zaangażowaniem zarówno na etapie konstruowania programu jaki jego realizacji. Przygotowanie i przeprowadzenie szkolenia odbyło się w sposób fachowy i sprawny.",
+      ),
     },
   ],
 };

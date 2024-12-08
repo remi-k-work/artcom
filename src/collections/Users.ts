@@ -1,5 +1,7 @@
 import type { CollectionConfig } from "payload";
 
+import text from "./fields/text";
+
 export const Users: CollectionConfig = {
   slug: "users",
 
@@ -15,14 +17,44 @@ export const Users: CollectionConfig = {
   },
 
   admin: {
-    useAsTitle: "email",
+    defaultColumns: ["username", "name", "email", "role"],
+    useAsTitle: "username",
     hideAPIURL: true,
   },
 
-  auth: true,
+  auth: {
+    loginWithUsername: {
+      allowEmailLogin: true,
+      requireEmail: false,
+    },
+  },
+
+  timestamps: true,
 
   fields: [
-    // Email added by default
-    // Add more fields as needed
+    {
+      ...text("name", undefined, undefined, "Name", "Nazwa", "John Smith", "Jan Kowalski"),
+    },
+
+    {
+      // Will be stored in the jwt
+      saveToJWT: true,
+
+      name: "role",
+      type: "select",
+      required: true,
+
+      label: {
+        en: "Role",
+        pl: "Rola",
+      },
+
+      options: [
+        { label: { en: "Administrator", pl: "Administrator" }, value: "admin" },
+        { label: { en: "User", pl: "Użytkownik" }, value: "user" },
+      ],
+
+      defaultValue: "user",
+    },
   ],
 };

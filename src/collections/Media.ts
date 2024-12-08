@@ -17,6 +17,8 @@ export const Media: CollectionConfig = {
   },
 
   admin: {
+    defaultColumns: ["filename", "filesize", "width", "height"],
+    useAsTitle: "filename",
     hideAPIURL: true,
   },
 
@@ -26,21 +28,21 @@ export const Media: CollectionConfig = {
 
   fields: [
     {
-      ...text("alt", 128),
-
-      label: {
-        en: "Textual replacement for the image (alt)",
-        pl: "Zastępstwo tekstowe dla obrazu (alt)",
-      },
-
-      admin: {
-        placeholder: {
-          en: "Example: Grapefruit slice atop a pile of other slices.",
-          pl: "Przykład: Plasterek grejpfruta położony na stosie innych plasterków.",
-        },
-      },
+      ...text(
+        "alt",
+        undefined,
+        128,
+        "Textual replacement for the image (alt)",
+        "Zastępstwo tekstowe dla obrazu (alt)",
+        "Grapefruit slice atop a pile of other slices.",
+        "Plasterek grejpfruta położony na stosie innych plasterków.",
+      ),
     },
   ],
 
-  upload: true,
+  upload: {
+    mimeTypes: ["image/*"],
+    disableLocalStorage: true,
+    adminThumbnail: ({ doc }) => `${process.env.NEXT_PUBLIC_BLOB_BASE_URL}/${doc.filename}`,
+  },
 };
