@@ -18,7 +18,7 @@ export const Courses: CollectionConfig = {
   },
 
   admin: {
-    defaultColumns: ["name", "headerImg", "type"],
+    defaultColumns: ["name", "type"],
     useAsTitle: "name",
     hideAPIURL: true,
   },

@@ -1,6 +1,5 @@
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
 import { buildConfig } from "payload";
 import { en } from "@payloadcms/translations/languages/en";
@@ -15,7 +14,9 @@ import { References } from "./collections/References";
 import { Courses } from "./collections/Courses";
 
 import { customTranslations } from "./custom-translations";
+import { defaultLexical } from "./collections/fields/defaultLexical";
 
+// Get the filename and directory name from the current file's url
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
@@ -34,7 +35,10 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Guarantees, References, Courses],
-  editor: lexicalEditor(),
+
+  // This config helps us configure global or default features that the other editors can inherit
+  editor: defaultLexical,
+
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
