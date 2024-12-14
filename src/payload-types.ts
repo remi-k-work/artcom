@@ -153,9 +153,10 @@ export interface Reference {
  */
 export interface Course {
   id: number;
-  headerImg: number | Media;
   name: string;
   type: 'it-courses' | 'foreign-languages' | 'hr-and-others';
+  slug: string;
+  headerImg: number | Media;
   intro: string;
   content1: {
     root: {
@@ -350,9 +351,10 @@ export interface ReferencesSelect<T extends boolean = true> {
  * via the `definition` "courses_select".
  */
 export interface CoursesSelect<T extends boolean = true> {
-  headerImg?: T;
   name?: T;
   type?: T;
+  slug?: T;
+  headerImg?: T;
   intro?: T;
   content1?: T;
   content2?: T;

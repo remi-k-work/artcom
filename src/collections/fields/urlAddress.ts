@@ -5,7 +5,16 @@ import { text } from "payload/shared";
 
 import { CustomTranslationsKeys } from "@/custom-translations";
 
-export default function urlAddress(name: string, labelEn: string, labelPl: string, placeholderEn: string, placeholderPl: string): TextField {
+export default function urlAddress(
+  name: string,
+  labelEn: string,
+  labelPl: string,
+  placeholderEn: string,
+  placeholderPl: string,
+  overrides: Partial<TextField> = {},
+): TextField {
+  // Expect ts error here because of typescript mismatching Partial<TextField> with TextField
+  // @ts-expect-error
   return {
     name,
     type: "text",
@@ -13,8 +22,10 @@ export default function urlAddress(name: string, labelEn: string, labelPl: strin
     minLength: 1,
     maxLength: 512,
 
+    ...overrides,
+
     label: { en: labelEn, pl: labelPl },
-    admin: { placeholder: { en: "💡 Tip → " + placeholderEn, pl: "💡 Wskazówka → " + placeholderPl } },
+    admin: { placeholder: { en: "💡 Tip → " + placeholderEn, pl: "💡 Wskazówka → " + placeholderPl }, ...overrides?.admin },
 
     validate: (value, args) => {
       try {
@@ -33,15 +44,8 @@ export default function urlAddress(name: string, labelEn: string, labelPl: strin
     hooks: {
       beforeValidate: [
         ({ value }) => {
-          // Trim the content before it undergoes validation
-          return (value as string).trim();
-        },
-      ],
-
-      beforeChange: [
-        ({ value }) => {
-          // Field data that will be saved to the document is valid (trim the content)
-          return (value as string).trim();
+          // Trim the content before it undergoes validation (remove any extra spaces as well)
+          return (value as string).trim().replace(/\s+/g, " ");
         },
       ],
     },

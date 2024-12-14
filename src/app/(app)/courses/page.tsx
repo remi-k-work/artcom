@@ -7,20 +7,8 @@ import { default as AccordionTrigger } from "@/components/ui/custom/accordion/Tr
 import Hero from "@/components/hero-a";
 import CoursesMatchingYou from "@/components/CoursesMatchingYou";
 import Secondary from "@/components/secondary";
-import Course, { CourseHeader, CourseContent } from "@/components/course";
+import CoursesList from "@/components/CoursesList";
 import { ACCORDION_ITEM_VAR_L, ACCORDION_LIST_VAR, DRAW, MotionAccordion, MotionAccordionItem, MotionPath, MotionSvg } from "@/components/AnimComps";
-
-// assets
-import courseHeaderImgA from "@/assets/images/courses/a-header.webp";
-import courseHeaderImgB from "@/assets/images/courses/b-header.webp";
-import courseHeaderImgC from "@/assets/images/courses/c-header.webp";
-import courseHeaderImgD from "@/assets/images/courses/d-header.webp";
-import courseHeaderImgE from "@/assets/images/courses/e-header.webp";
-import courseHeaderImgF from "@/assets/images/courses/f-header.webp";
-import courseHeaderImgG from "@/assets/images/courses/g-header.webp";
-import courseHeaderImgH from "@/assets/images/courses/h-header.webp";
-import courseHeaderImgI from "@/assets/images/courses/i-header.webp";
-import courseHeaderImgJ from "@/assets/images/courses/j-header.webp";
 
 export const metadata: Metadata = {
   title: "ArtCom ► Szkolenia i Kursy",
@@ -163,79 +151,11 @@ export default function Page() {
       <CoursesMatchingYou />
       <Secondary header="Nasze Szkolenia i Kursy">
         <h2 id="courses1">Kursy Informatyczne</h2>
-        <Course detailsHref="/courses/a">
-          <CourseHeader imageSrc={courseHeaderImgA}>Grafika komputerowa - Corel Draw i Adobe Photoshop</CourseHeader>
-          <CourseContent>
-            Kompleksowy kurs grafiki komputerowej dla osób, które chcą zawodowo lub prywatnie zajmować się przetwarzanie zdjęć, tworzeniem ilustracji,
-            projektowaniem form użytkowych takich jak np. plakaty, okładki, wizytówki, artykuły reklamowe, grafikę na strony internetowe itp.
-          </CourseContent>
-        </Course>
-        <Course detailsHref="/courses/b">
-          <CourseHeader imageSrc={courseHeaderImgB}>AutoCAD GEOLIPS - tworzenie map numerycznych</CourseHeader>
-          <CourseContent>
-            To specjalistyczny kurs na którym otrzymasz wiedzę z zakresu tworzenia i aktualizacji map numerycznych wykorzystywanych m. innymi w geodezji i
-            kartografii. W ten sposób uzyskasz nowe kompetencje zawodowe w zakresie technologii geo-informatycznych.
-          </CourseContent>
-        </Course>
-        <Course detailsHref="/courses/c">
-          <CourseHeader imageSrc={courseHeaderImgC}>Projektowanie w AutoCAD - kurs podstawowy</CourseHeader>
-          <CourseContent>
-            AutoCAD® to najbardziej rozpoznawalne na świecie oprogramowanie, które służy do komputerowego wspomagania projektowania CAD - Computer Aided
-            Design. Na dzisiejszym skomplikowanym rynku pracy możliwość udowodnienia swoich umiejętności jest niezwykle cenna.
-          </CourseContent>
-        </Course>
-        <Course detailsHref="/courses/a">
-          <CourseHeader imageSrc={courseHeaderImgD}>Sztuczna inteligencja w biznesie</CourseHeader>
-          <CourseContent>
-            Nasz kurs to przewaga konkurencyjna dzięki AI oraz optymalizacja procesów biznesowych w oparciu o nowoczesne technologie. Skuteczne zautomatyzowanie
-            procesów, obniżenie kosztów w Twojej firmie, wyższy poziom marketingu ze sztuczną inteligencją.
-          </CourseContent>
-        </Course>
-        <Course detailsHref="/courses/a">
-          <CourseHeader imageSrc={courseHeaderImgE}>Analityk baz danych</CourseHeader>
-          <CourseContent>
-            Nasz kurs Analityk baz danych przeznaczony jest dla wszystkich osób planujących rozpocząć karierę analityka danych albo rozwinąć swoje umiejętności
-            analityczne i zyskać kompetencje do pracy w świecie Data science.
-          </CourseContent>
-        </Course>
-        <Course detailsHref="/courses/a">
-          <CourseHeader imageSrc={courseHeaderImgF}>Python - język programowania</CourseHeader>
-          <CourseContent>
-            Python to uniwersalny, stosunkowo prosty, bardzo popularny i szybko rozwijający się język programowania. Najszerzej stosowany jest do tworzenia
-            sieciowych aplikacji `biznesowych` oraz w analizie danych.
-          </CourseContent>
-        </Course>
+        <CoursesList courseType="it-courses" />
         <h2 id="courses2">Języki Obce</h2>
-        <Course detailsHref="/courses/a">
-          <CourseHeader imageSrc={courseHeaderImgG}>Język angielski - indywidualnie lub grupowo</CourseHeader>
-          <CourseContent>
-            Otwórz się na świat z angielskim! Nasz kurs języka angielskiego to klucz do sukcesu, podróży, nawiązania nowych znajomości i podniesienia
-            kwalifikacji zawodowych. Z nami nauczysz się płynnie komunikować w języku Shakespeara.
-          </CourseContent>
-        </Course>
-        <Course detailsHref="/courses/a">
-          <CourseHeader imageSrc={courseHeaderImgH}>Język niemiecki - indywidualnie lub grupowo</CourseHeader>
-          <CourseContent>
-            Opanuj język niemiecki w naszej szkole! Zdobądź solidne podstawy i poszerzaj swoje umiejętności w komfortowym tempie. Nasi doświadczeni lektorzy
-            zapewnią Ci skuteczną naukę, a różnorodne materiały edukacyjne ułatwią Ci przyswajanie wiedzy.
-          </CourseContent>
-        </Course>
-        <Course detailsHref="/courses/a">
-          <CourseHeader imageSrc={courseHeaderImgI}>Język hiszpański - indywidualnie lub grupowo</CourseHeader>
-          <CourseContent>
-            Naucz się hiszpańskiego z nami! Odkryj urok tego romantycznego języka i rozszerz swoje horyzonty. Nasz kurs języka hiszpańskiego to idealna okazja,
-            aby zdobyć nową umiejętność. Nasi doświadczeni nauczyciele pomogą Ci osiągnąć mistrzostwo w mówieniu, czytaniu i rozumieniu hiszpańskiego.
-          </CourseContent>
-        </Course>
+        <CoursesList courseType="foreign-languages" />
         <h2 id="courses3">HR i Inne</h2>
-        <Course detailsHref="/courses/a">
-          <CourseHeader imageSrc={courseHeaderImgJ}>Specjalista ds. sprzedaży</CourseHeader>
-          <CourseContent>
-            Specjaliści ds. Sprzedaży napędzają sprzedaż i rozwój biznesu. Często to właśnie od nich zależy, czy inne działy w firmie będą miały pracę! Muszą
-            dobrze sprzedać produkt lub usługę, przekonać do niej klienta, a następnie często go utrzymać! To właśnie specjaliści ds. sprzedaży mają solidną
-            wiedzę na temat wszystkich produktów i usług firmy oraz umiejętności wymagane do ich sprzedaży.
-          </CourseContent>
-        </Course>
+        <CoursesList courseType="hr-and-others" />
       </Secondary>
     </>
   );

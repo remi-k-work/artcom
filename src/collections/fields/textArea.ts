@@ -8,6 +8,7 @@ export default function textArea(
   labelPl: string,
   placeholderEn: string,
   placeholderPl: string,
+  overrides: Partial<TextareaField> = {},
 ): TextareaField {
   return {
     name,
@@ -16,21 +17,16 @@ export default function textArea(
     minLength,
     maxLength,
 
+    ...overrides,
+
     label: { en: labelEn, pl: labelPl },
-    admin: { placeholder: { en: "💡 Tip → " + placeholderEn, pl: "💡 Wskazówka → " + placeholderPl } },
+    admin: { placeholder: { en: "💡 Tip → " + placeholderEn, pl: "💡 Wskazówka → " + placeholderPl }, ...overrides?.admin },
 
     hooks: {
       beforeValidate: [
         ({ value }) => {
           // Remove leading and trailing whitespace, newline characters, and carriage return characters from content before it undergoes validation
-          return (value as string).trim().replace(/\n/g, "").replace(/\r/g, "");
-        },
-      ],
-
-      beforeChange: [
-        ({ value }) => {
-          // Field data that will be saved to the document is valid (remove leading and trailing whitespace, newline characters, and carriage return characters)
-          return (value as string).trim().replace(/\n/g, "").replace(/\r/g, "");
+          return (value as string).trim().replace(/\n/g, "").replace(/\r/g, "").replace(/\s+/g, " ");
         },
       ],
     },

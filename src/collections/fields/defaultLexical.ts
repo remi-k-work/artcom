@@ -10,20 +10,30 @@ import {
   FixedToolbarFeature,
   InlineToolbarFeature,
   HorizontalRuleFeature,
+  StrikethroughFeature,
+  SubscriptFeature,
+  SuperscriptFeature,
+  UnorderedListFeature,
+  OrderedListFeature,
 } from "@payloadcms/richtext-lexical";
 
 export const defaultLexical: Config["editor"] = lexicalEditor({
   features: () => {
     return [
-      ParagraphFeature(),
-      UnderlineFeature(),
       BoldFeature(),
       ItalicFeature(),
-      LinkFeature(),
+      UnderlineFeature(),
+      StrikethroughFeature(),
+      SubscriptFeature(),
+      SuperscriptFeature(),
+      ParagraphFeature(),
       HeadingFeature({ enabledHeadingSizes: ["h2"] }),
-      FixedToolbarFeature(),
-      InlineToolbarFeature(),
+      UnorderedListFeature(),
+      OrderedListFeature(),
+      LinkFeature(),
       HorizontalRuleFeature(),
+      InlineToolbarFeature(),
+      FixedToolbarFeature(),
     ];
   },
 });

@@ -1,5 +1,6 @@
 import type { CollectionConfig } from "payload";
 
+import slug from "./fields/slug";
 import text from "./fields/text";
 import textArea from "./fields/textArea";
 
@@ -25,6 +26,43 @@ export const Courses: CollectionConfig = {
 
   fields: [
     {
+      type: "row",
+      fields: [
+        {
+          ...text(
+            "name",
+            24,
+            128,
+            "Course Name",
+            "Nazwa Kursu",
+            "Computer graphics - Corel Draw and Adobe Photoshop",
+            "Grafika komputerowa - Corel Draw i Adobe Photoshop",
+            { admin: { width: "50%" } },
+          ),
+        },
+
+        {
+          name: "type",
+          type: "select",
+          required: true,
+
+          label: { en: "Type of Course", pl: "Rodzaj Kursu" },
+          admin: { width: "50%" },
+
+          options: [
+            { label: { en: "IT Courses", pl: "Kursy Informatyczne" }, value: "it-courses" },
+            { label: { en: "Foreign Languages", pl: "Języki Obce" }, value: "foreign-languages" },
+            { label: { en: "HR and Others", pl: "HR i Inne" }, value: "hr-and-others" },
+          ],
+
+          defaultValue: "it-courses",
+        },
+      ],
+    },
+
+    { ...slug(undefined, { admin: { width: "50%" } }) },
+
+    {
       type: "tabs",
       tabs: [
         {
@@ -41,37 +79,6 @@ export const Courses: CollectionConfig = {
               required: true,
 
               label: { en: "Header Image", pl: "Obraz Nagłówka" },
-            },
-
-            {
-              ...text(
-                "name",
-                24,
-                128,
-                "Course Name",
-                "Nazwa Kursu",
-                "Computer graphics - Corel Draw and Adobe Photoshop",
-                "Grafika komputerowa - Corel Draw i Adobe Photoshop",
-              ),
-            },
-
-            {
-              name: "type",
-              type: "select",
-              required: true,
-
-              label: {
-                en: "Type of Course",
-                pl: "Rodzaj Kursu",
-              },
-
-              options: [
-                { label: { en: "IT Courses", pl: "Kursy Informatyczne" }, value: "it-courses" },
-                { label: { en: "Foreign Languages", pl: "Języki Obce" }, value: "foreign-languages" },
-                { label: { en: "HR and Others", pl: "HR i Inne" }, value: "hr-and-others" },
-              ],
-
-              defaultValue: "it-courses",
             },
 
             {
