@@ -5,21 +5,32 @@ import styles from "./Header.module.css";
 import { ReactNode } from "react";
 
 // next
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+
+// payload and db access
+import { Media } from "@/payload-types";
 
 // other libraries
 import { cn } from "@/lib/utils";
 
 // types
 interface HeaderProps {
-  imageSrc: StaticImageData;
+  headerImage: Media;
   children: ReactNode;
 }
 
-export default function Header({ imageSrc, children }: HeaderProps) {
+export default function Header({ headerImage: { filename, width, height }, children }: HeaderProps) {
   return (
     <header className={styles["header"]}>
-      <Image src={imageSrc} alt="" sizes="100vw" className={cn(styles["header__image"], "object-cover")} priority />
+      <Image
+        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + filename}
+        width={width!}
+        height={height!}
+        alt=""
+        sizes="100vw"
+        className={cn(styles["header__image"], "object-cover")}
+        priority
+      />
       <h1>{children}</h1>
     </header>
   );

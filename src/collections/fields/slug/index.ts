@@ -8,14 +8,13 @@ export default function slug(fieldToUse: string = "name", overrides: Partial<Tex
   return {
     name: "slug",
     type: "text",
-    required: true,
     index: true,
     unique: true,
 
     ...overrides,
 
     label: { en: "Slug", pl: "Klucz" },
-    admin: { readOnly: true, ...overrides?.admin },
+    admin: { position: "sidebar", readOnly: true, ...overrides?.admin },
 
     hooks: {
       // Kept this in for hook or API based updates

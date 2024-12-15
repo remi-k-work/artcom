@@ -153,12 +153,13 @@ export interface Reference {
  */
 export interface Course {
   id: number;
+  slug?: string | null;
+  enableDoc?: boolean | null;
   name: string;
   type: 'it-courses' | 'foreign-languages' | 'hr-and-others';
-  slug: string;
-  headerImg: number | Media;
+  headerImage: number | Media;
   intro: string;
-  content1: {
+  contentColumn1: {
     root: {
       type: string;
       children: {
@@ -173,7 +174,7 @@ export interface Course {
     };
     [k: string]: unknown;
   };
-  content2: {
+  contentColumn2: {
     root: {
       type: string;
       children: {
@@ -188,7 +189,7 @@ export interface Course {
     };
     [k: string]: unknown;
   };
-  footer: {
+  footerContent: {
     root: {
       type: string;
       children: {
@@ -351,14 +352,15 @@ export interface ReferencesSelect<T extends boolean = true> {
  * via the `definition` "courses_select".
  */
 export interface CoursesSelect<T extends boolean = true> {
+  slug?: T;
+  enableDoc?: T;
   name?: T;
   type?: T;
-  slug?: T;
-  headerImg?: T;
+  headerImage?: T;
   intro?: T;
-  content1?: T;
-  content2?: T;
-  footer?: T;
+  contentColumn1?: T;
+  contentColumn2?: T;
+  footerContent?: T;
   updatedAt?: T;
   createdAt?: T;
 }

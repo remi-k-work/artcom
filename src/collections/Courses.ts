@@ -1,6 +1,7 @@
 import type { CollectionConfig } from "payload";
 
 import slug from "./fields/slug";
+import enableDoc from "./fields/enableDoc";
 import text from "./fields/text";
 import textArea from "./fields/textArea";
 
@@ -25,42 +26,8 @@ export const Courses: CollectionConfig = {
   },
 
   fields: [
-    {
-      type: "row",
-      fields: [
-        {
-          ...text(
-            "name",
-            24,
-            128,
-            "Course Name",
-            "Nazwa Kursu",
-            "Computer graphics - Corel Draw and Adobe Photoshop",
-            "Grafika komputerowa - Corel Draw i Adobe Photoshop",
-            { admin: { width: "50%" } },
-          ),
-        },
-
-        {
-          name: "type",
-          type: "select",
-          required: true,
-
-          label: { en: "Type of Course", pl: "Rodzaj Kursu" },
-          admin: { width: "50%" },
-
-          options: [
-            { label: { en: "IT Courses", pl: "Kursy Informatyczne" }, value: "it-courses" },
-            { label: { en: "Foreign Languages", pl: "Języki Obce" }, value: "foreign-languages" },
-            { label: { en: "HR and Others", pl: "HR i Inne" }, value: "hr-and-others" },
-          ],
-
-          defaultValue: "it-courses",
-        },
-      ],
-    },
-
-    { ...slug(undefined, { admin: { width: "50%" } }) },
+    { ...slug() },
+    { ...enableDoc() },
 
     {
       type: "tabs",
@@ -73,7 +40,35 @@ export const Courses: CollectionConfig = {
 
           fields: [
             {
-              name: "headerImg",
+              ...text(
+                "name",
+                19,
+                128,
+                "Course Name",
+                "Nazwa Kursu",
+                "Computer graphics - Corel Draw and Adobe Photoshop",
+                "Grafika komputerowa - Corel Draw i Adobe Photoshop",
+              ),
+            },
+
+            {
+              name: "type",
+              type: "select",
+              required: true,
+
+              label: { en: "Type of Course", pl: "Rodzaj Kursu" },
+
+              options: [
+                { label: { en: "IT Courses", pl: "Kursy Informatyczne" }, value: "it-courses" },
+                { label: { en: "Foreign Languages", pl: "Języki Obce" }, value: "foreign-languages" },
+                { label: { en: "HR and Others", pl: "HR i Inne" }, value: "hr-and-others" },
+              ],
+
+              defaultValue: "it-courses",
+            },
+
+            {
+              name: "headerImage",
               type: "upload",
               relationTo: "media",
               required: true,
@@ -106,19 +101,19 @@ export const Courses: CollectionConfig = {
               type: "row",
               fields: [
                 {
-                  name: "content1",
+                  name: "contentColumn1",
                   type: "richText",
                   required: true,
 
-                  label: { en: "Column 1", pl: "Kolumna 1" },
+                  label: { en: "Column 1 Content", pl: "Treść Kolumny 1" },
                   admin: { width: "50%" },
                 },
                 {
-                  name: "content2",
+                  name: "contentColumn2",
                   type: "richText",
                   required: true,
 
-                  label: { en: "Column 2", pl: "Kolumna 2" },
+                  label: { en: "Column 2 Content", pl: "Treść Kolumny 2" },
                   admin: { width: "50%" },
                 },
               ],
@@ -134,10 +129,11 @@ export const Courses: CollectionConfig = {
 
           fields: [
             {
-              name: "footer",
+              name: "footerContent",
               type: "richText",
               required: true,
-              label: false,
+
+              label: { en: "Footer Content", pl: "Treść Stopki" },
             },
           ],
         },
