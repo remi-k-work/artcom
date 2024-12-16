@@ -1,5 +1,6 @@
 .content-modal {
-  background: hsl(var(--surface-1));
+  background-image: var(--gradient-1), var(--noise-4);
+  background-size: cover;
 
   max-inline-size: 95vw;
   max-block-size: min(95vh, 100%);
