@@ -1,5 +1,5 @@
 .layout {
-  background-color: var(--gray-12);
+  background-color: var(--gradient-back);
   background-image: var(--gradient-1), var(--noise-4);
   background-size:
     auto 200vh,

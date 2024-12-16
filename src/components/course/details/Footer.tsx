@@ -1,17 +1,18 @@
 // component css styles
 import styles from "./Footer.module.css";
 
-// react
-import { ReactNode } from "react";
+// payload and db access
+import type { Course } from "@/payload-types";
+import { RichText } from "@payloadcms/richtext-lexical/react";
 
 // other libraries
 import { cn } from "@/lib/utils";
 
 // types
 interface FooterProps {
-  children: ReactNode;
+  footerContent: Course["footerContent"];
 }
 
-export default function Footer({ children }: FooterProps) {
-  return <footer className={cn(styles["footer"], "prose")}>{children}</footer>;
+export default function Footer({ footerContent }: FooterProps) {
+  return <RichText data={footerContent} disableIndent disableTextAlign className={cn(styles["footer"], "prose prose-stone dark:prose-invert")} />;
 }

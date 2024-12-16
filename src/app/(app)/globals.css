@@ -18,6 +18,7 @@
     /* gradients */
     --gradient-1-light: linear-gradient(45deg, var(--gray-5) 57%, hsl(var(--gray-0-hsl) / 83%) 69%, var(--teal-7) 100%);
     --gradient-2-light: linear-gradient(45deg, var(--gray-5) 57%, hsl(var(--gray-0-hsl) / 83%) 69%, var(--indigo-7) 100%);
+    --gradient-back-light: var(--gray-5);
 
     /* shadcn/ui (light) */
     --background-light: var(--gray-0-hsl);
@@ -63,6 +64,7 @@
     /* gradients */
     --gradient-1-dark: linear-gradient(45deg, var(--gray-12) 57%, hsl(var(--gray-10-hsl) / 83%) 69%, var(--teal-7) 100%);
     --gradient-2-dark: linear-gradient(45deg, var(--gray-12) 57%, hsl(var(--gray-10-hsl) / 83%) 69%, var(--indigo-7) 100%);
+    --gradient-back-dark: var(--gray-12);
 
     /* shadcn/ui (dark) */
     --background-dark: var(--gray-10-hsl);
@@ -107,6 +109,7 @@
       --surface-4: var(--surface-4-dark);
       --gradient-1: var(--gradient-1-dark);
       --gradient-2: var(--gradient-2-dark);
+      --gradient-back: var(--gradient-back-dark);
 
       --background: var(--background-dark);
       --foreground: var(--foreground-dark);
@@ -148,6 +151,7 @@
       --surface-4: var(--surface-4-light);
       --gradient-1: var(--gradient-1-light);
       --gradient-2: var(--gradient-2-light);
+      --gradient-back: var(--gradient-back-light);
 
       --background: var(--background-light);
       --foreground: var(--foreground-light);
@@ -188,6 +192,7 @@
     --surface-4: var(--surface-4-dark);
     --gradient-1: var(--gradient-1-dark);
     --gradient-2: var(--gradient-2-dark);
+    --gradient-back: var(--gradient-back-dark);
 
     --background: var(--background-dark);
     --foreground: var(--foreground-dark);
@@ -227,6 +232,7 @@
     --surface-4: var(--surface-4-light);
     --gradient-1: var(--gradient-1-light);
     --gradient-2: var(--gradient-2-light);
+    --gradient-back: var(--gradient-back-light);
 
     --background: var(--background-light);
     --foreground: var(--foreground-light);

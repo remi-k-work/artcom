@@ -4,11 +4,10 @@ import { notFound } from "next/navigation";
 // payload and db access
 import { getPayload } from "payload";
 import config from "@payload-config";
-import { Media } from "@/payload-types";
-import { RichText } from "@payloadcms/richtext-lexical/react";
+import type { Media } from "@/payload-types";
 
 // components
-import Details from "@/components/course/details";
+import Details, { DetailsHeader, DetailsContent1, DetailsContent2, DetailsFooter } from "@/components/course/details";
 
 // types
 interface CourseViewProps {
@@ -31,16 +30,10 @@ export default async function CourseView({ slug }: CourseViewProps) {
 
   return (
     <Details>
-      <Details.Header headerImage={headerImage as Media}>{name}</Details.Header>
-      <Details.Content1>
-        <RichText data={contentColumn1} disableIndent disableTextAlign />
-      </Details.Content1>
-      <Details.Content2>
-        <RichText data={contentColumn2} disableIndent disableTextAlign />
-      </Details.Content2>
-      <Details.Footer>
-        <RichText data={footerContent} disableIndent disableTextAlign />
-      </Details.Footer>
+      <DetailsHeader headerImage={headerImage as Media}>{name}</DetailsHeader>
+      <DetailsContent1 contentColumn1={contentColumn1} />
+      <DetailsContent2 contentColumn2={contentColumn2} />
+      <DetailsFooter footerContent={footerContent} />
     </Details>
   );
 }

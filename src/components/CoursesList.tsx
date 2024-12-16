@@ -1,7 +1,7 @@
 // payload and db access
 import { getPayload } from "payload";
 import config from "@payload-config";
-import { Course as CourseT, Media } from "@/payload-types";
+import type { Course as CourseT, Media } from "@/payload-types";
 
 // components
 import Course, { CourseHeader, CourseContent } from "@/components/course";

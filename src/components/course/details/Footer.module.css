@@ -6,7 +6,5 @@
   padding-inline: var(--size-4);
   padding-block: var(--size-4);
 
-  color: hsl(var(--text-2));
-
   text-align: center;
 }
