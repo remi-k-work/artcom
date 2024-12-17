@@ -31,6 +31,10 @@ interface LayoutProps {
   children: ReactNode;
 }
 
+// Disable the whole route cache (avoid prerendered static content because we want to stay in sync with payload cms database changes)
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: "ArtCom Szkolenia Informatyczne i Kursy Językowe",
   description: "Od ponad 30 lat specjalizujemy się w szkoleniach informatycznych oraz kursach języków obcych. Prowadzimy egzaminy ECDL, VCC i TELC.",
