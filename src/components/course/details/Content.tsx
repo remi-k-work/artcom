@@ -18,9 +18,9 @@ interface Content2Props {
 }
 
 export function Content1({ contentColumn1 }: Content1Props) {
-  return <RichText data={contentColumn1} disableIndent disableTextAlign className={cn(styles["content1"], "prose prose-stone dark:prose-invert")} />;
+  return <RichText data={contentColumn1} disableIndent disableTextAlign className={cn(styles["content1"], "prose dark:prose-invert")} />;
 }
 
 export function Content2({ contentColumn2 }: Content2Props) {
-  return <RichText data={contentColumn2} disableIndent disableTextAlign className={cn(styles["content2"], "prose prose-stone dark:prose-invert")} />;
+  return <RichText data={contentColumn2} disableIndent disableTextAlign className={cn(styles["content2"], "prose dark:prose-invert")} />;
 }

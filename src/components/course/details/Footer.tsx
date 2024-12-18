@@ -14,5 +14,5 @@ interface FooterProps {
 }
 
 export default function Footer({ footerContent }: FooterProps) {
-  return <RichText data={footerContent} disableIndent disableTextAlign className={cn(styles["footer"], "prose prose-stone dark:prose-invert")} />;
+  return <RichText data={footerContent} disableIndent disableTextAlign className={cn(styles["footer"], "prose dark:prose-invert")} />;
 }
