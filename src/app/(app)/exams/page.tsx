@@ -7,14 +7,8 @@ import { default as AccordionTrigger } from "@/components/ui/custom/accordion/Tr
 import Hero from "@/components/hero-a";
 import CoursesMatchingYou from "@/components/CoursesMatchingYou";
 import Secondary from "@/components/secondary";
-import Exam, { ExamHeader, ExamContent } from "@/components/exam";
+import ExamsList from "@/components/ExamsList";
 import { ACCORDION_ITEM_VAR_L, ACCORDION_LIST_VAR, DRAW, MotionAccordion, MotionAccordionItem, MotionPath, MotionSvg } from "@/components/AnimComps";
-
-// assets
-import examHeaderImgA from "@/assets/images/exams/a-header-0.webp";
-import examHeaderImgB from "@/assets/images/exams/b-header-0.webp";
-import examHeaderImgC from "@/assets/images/exams/c-header-0.webp";
-import examHeaderImgD from "@/assets/images/exams/d-header-0.webp";
 
 export const metadata: Metadata = {
   title: "ArtCom ► Egzaminy",
@@ -148,35 +142,7 @@ export default function Page() {
       </Hero>
       <CoursesMatchingYou />
       <Secondary header="Nasze Egzaminy">
-        <Exam detailsHref="/exams/a">
-          <ExamHeader imageSrc={examHeaderImgA}>Europejski Certyfikat Umiejętności Komputerowych (ECDL)</ExamHeader>
-          <ExamContent>
-            Idea Europejskiego Certyfikatu Umiejętności Komputerowych (ECDL) podjęta została z poparciem Rady Europy w 1996 roku. Certyfikat wprowadzony został
-            w całej Zjednoczonej Europie. W Polsce CDL propaguje i wdraża Polskie Towarzystwo Informatyczne.
-          </ExamContent>
-        </Exam>
-        <Exam detailsHref="/exams/b">
-          <ExamHeader imageSrc={examHeaderImgB}>Certificate of Vocational Qualification</ExamHeader>
-          <ExamContent>
-            VCC jest nowym systemem kształcenia i certyfikacji, który powstał z myślą o integracji wiedzy oraz umiejętności zawodowych osób pracujących zarówno
-            na ojczystym, jak i międzynarodowym rynku pracy.
-          </ExamContent>
-        </Exam>
-        <Exam detailsHref="/exams/c">
-          <ExamHeader imageSrc={examHeaderImgC}>Autodesk® Certificate of Completion</ExamHeader>
-          <ExamContent>
-            Ten certyfikat jest jednym z podstawowych dokumentów wymaganych dla inżynierów i konstruktorów w wielu branżach, gdzie w studiach projektowych
-            zaczyna powstawać koncepcja końcowego produktu, którym może być dom, samochód czy np. odkurzacz.
-          </ExamContent>
-        </Exam>
-        <Exam detailsHref="/exams/d">
-          <ExamHeader imageSrc={examHeaderImgD}>TELC Language Tests</ExamHeader>
-          <ExamContent>
-            Certyfikat TELC można uzyskać po zdaniu egzaminu, który sprawdza znajomość języka, kładąc szczególny nacisk na umiejętność porozumiewania się, a nie
-            na znajomość gramatyki. TELC nie ocenia znajomości reguł gramatycznych i ilości popełnionych błędów, lecz umiejętność wykorzystania języka do
-            osiągnięcia różnych celów.
-          </ExamContent>
-        </Exam>
+        <ExamsList />
       </Secondary>
     </>
   );

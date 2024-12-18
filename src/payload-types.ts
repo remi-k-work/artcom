@@ -16,6 +16,7 @@ export interface Config {
     guarantees: Guarantee;
     references: Reference;
     courses: Course;
+    exams: Exam;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -27,6 +28,7 @@ export interface Config {
     guarantees: GuaranteesSelect<false> | GuaranteesSelect<true>;
     references: ReferencesSelect<false> | ReferencesSelect<true>;
     courses: CoursesSelect<false> | CoursesSelect<true>;
+    exams: ExamsSelect<false> | ExamsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -209,6 +211,69 @@ export interface Course {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "exams".
+ */
+export interface Exam {
+  id: number;
+  slug?: string | null;
+  enableDoc?: boolean | null;
+  name: string;
+  headerImage: number | Media;
+  intro: string;
+  contentImage1?: (number | null) | Media;
+  contentImage2?: (number | null) | Media;
+  contentColumn1: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  contentColumn2: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  footerImage1?: (number | null) | Media;
+  footerImage2?: (number | null) | Media;
+  footerContent: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -233,6 +298,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'courses';
         value: number | Course;
+      } | null)
+    | ({
+        relationTo: 'exams';
+        value: number | Exam;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -360,6 +429,26 @@ export interface CoursesSelect<T extends boolean = true> {
   intro?: T;
   contentColumn1?: T;
   contentColumn2?: T;
+  footerContent?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "exams_select".
+ */
+export interface ExamsSelect<T extends boolean = true> {
+  slug?: T;
+  enableDoc?: T;
+  name?: T;
+  headerImage?: T;
+  intro?: T;
+  contentImage1?: T;
+  contentImage2?: T;
+  contentColumn1?: T;
+  contentColumn2?: T;
+  footerImage1?: T;
+  footerImage2?: T;
   footerContent?: T;
   updatedAt?: T;
   createdAt?: T;
