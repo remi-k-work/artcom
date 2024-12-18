@@ -25,7 +25,7 @@
     place-self: stretch center;
   }
 
-  & > article {
+  .footer__content {
     grid-area: cnt;
     place-self: stretch center;
 

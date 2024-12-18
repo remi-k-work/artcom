@@ -1,28 +1,47 @@
 // component css styles
 import styles from "./Footer.module.css";
 
-// react
-import { ReactNode } from "react";
-
 // next
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+
+// payload and db access
+import type { Exam, Media } from "@/payload-types";
+import { RichText } from "@payloadcms/richtext-lexical/react";
 
 // other libraries
 import { cn } from "@/lib/utils";
 
 // types
 interface FooterProps {
-  image1Src?: StaticImageData;
-  image2Src?: StaticImageData;
-  children: ReactNode;
+  footerImage1?: Media;
+  footerImage2?: Media;
+  footerContent: Exam["footerContent"];
 }
 
-export default function Footer({ image1Src, image2Src, children }: FooterProps) {
+export default function Footer({ footerImage1, footerImage2, footerContent }: FooterProps) {
   return (
-    <footer className={cn(styles["footer"], !image2Src && styles["footer--one-img"])}>
-      {image1Src && <Image src={image1Src} alt="" sizes="50vw" className={cn(styles["footer__image1"], "object-cover")} />}
-      {image2Src && <Image src={image2Src} alt="" sizes="50vw" className={cn(styles["footer__image2"], "object-cover")} />}
-      <article className="prose">{children}</article>
+    <footer className={cn(styles["footer"], !footerImage2 && styles["footer--one-img"])}>
+      {footerImage1 && (
+        <Image
+          src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + footerImage1.filename}
+          width={footerImage1.width!}
+          height={footerImage1.height!}
+          alt=""
+          sizes="50vw"
+          className={cn(styles["footer__image1"], "object-cover")}
+        />
+      )}
+      {footerImage2 && (
+        <Image
+          src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + footerImage2.filename}
+          width={footerImage2.width!}
+          height={footerImage2.height!}
+          alt=""
+          sizes="50vw"
+          className={cn(styles["footer__image2"], "object-cover")}
+        />
+      )}
+      <RichText data={footerContent} disableIndent disableTextAlign className={cn(styles["footer__content"], "prose dark:prose-invert")} />;
     </footer>
   );
 }

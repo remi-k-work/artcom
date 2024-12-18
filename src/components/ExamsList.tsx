@@ -21,7 +21,7 @@ export default async function ExamsList() {
   return (
     <>
       {docs.map(({ id, slug, name, headerImage, intro }) => (
-        <Exam key={id} detailsHref={`/courses/${slug}`}>
+        <Exam key={id} detailsHref={`/exams/${slug}`}>
           <ExamHeader headerImage={headerImage as Media}>{name}</ExamHeader>
           <ExamContent>{intro}</ExamContent>
         </Exam>

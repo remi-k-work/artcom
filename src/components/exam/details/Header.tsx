@@ -5,25 +5,44 @@ import styles from "./Header.module.css";
 import { ReactNode } from "react";
 
 // next
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+
+// payload and db access
+import type { Media } from "@/payload-types";
 
 // other libraries
 import { cn } from "@/lib/utils";
 
 // types
 interface HeaderProps {
-  image1Src?: StaticImageData;
-  image2Src?: StaticImageData;
+  contentImage1?: Media;
+  contentImage2?: Media;
   children: ReactNode;
 }
 
-export default function Header({ image1Src, image2Src, children }: HeaderProps) {
+export default function Header({ contentImage1, contentImage2, children }: HeaderProps) {
   return (
     <header className={styles["header"]}>
-      {image1Src && image2Src && (
+      {contentImage1 && contentImage2 && (
         <>
-          <Image src={image1Src} alt="" sizes="(max-width: 1024px) 100vw, 50vw" className={cn(styles["header__image1"], "object-cover")} priority />
-          <Image src={image2Src} alt="" sizes="(max-width: 1024px) 100vw, 50vw" className={cn(styles["header__image2"], "object-cover")} priority />
+          <Image
+            src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage1.filename}
+            width={contentImage1.width!}
+            height={contentImage1.height!}
+            alt=""
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className={cn(styles["header__image1"], "object-cover")}
+            priority
+          />
+          <Image
+            src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage2.filename}
+            width={contentImage2.width!}
+            height={contentImage2.height!}
+            alt=""
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className={cn(styles["header__image2"], "object-cover")}
+            priority
+          />
         </>
       )}
       <h1>{children}</h1>

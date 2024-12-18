@@ -8,7 +8,7 @@ import { ReactNode } from "react";
 import Image from "next/image";
 
 // payload and db access
-import { Media } from "@/payload-types";
+import type { Media } from "@/payload-types";
 
 // other libraries
 import { cn } from "@/lib/utils";
