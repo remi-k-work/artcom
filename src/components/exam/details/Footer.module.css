@@ -29,7 +29,6 @@
     grid-area: cnt;
     place-self: stretch center;
 
-    color: hsl(var(--text-2));
     text-align: center;
   }
 
