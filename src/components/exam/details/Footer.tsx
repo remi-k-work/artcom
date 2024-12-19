@@ -19,8 +19,30 @@ interface FooterProps {
 }
 
 export default function Footer({ footerImage1, footerImage2, footerContent }: FooterProps) {
-  return (
-    <footer className={cn(styles["footer"], !footerImage2 && styles["footer--one-img"])}>
+  const areBothImagesProvided = !!footerImage1 && !!footerImage2;
+
+  return areBothImagesProvided ? (
+    <footer className={styles["footer"]}>
+      <Image
+        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + footerImage1.filename}
+        width={footerImage1.width!}
+        height={footerImage1.height!}
+        alt=""
+        sizes="50vw"
+        className={cn(styles["footer__image1"], "object-cover")}
+      />
+      <Image
+        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + footerImage2.filename}
+        width={footerImage2.width!}
+        height={footerImage2.height!}
+        alt=""
+        sizes="50vw"
+        className={cn(styles["footer__image2"], "object-cover")}
+      />
+      <RichText data={footerContent} disableIndent disableTextAlign className={cn(styles["footer__content"], "prose dark:prose-invert")} />;
+    </footer>
+  ) : (
+    <footer className={cn(styles["footer"], styles["footer--one-img"])}>
       {footerImage1 && (
         <Image
           src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + footerImage1.filename}
@@ -38,7 +60,7 @@ export default function Footer({ footerImage1, footerImage2, footerContent }: Fo
           height={footerImage2.height!}
           alt=""
           sizes="50vw"
-          className={cn(styles["footer__image2"], "object-cover")}
+          className={cn(styles["footer__image1"], "object-cover")}
         />
       )}
       <RichText data={footerContent} disableIndent disableTextAlign className={cn(styles["footer__content"], "prose dark:prose-invert")} />;

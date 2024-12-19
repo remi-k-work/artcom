@@ -21,29 +21,53 @@ interface HeaderProps {
 }
 
 export default function Header({ contentImage1, contentImage2, children }: HeaderProps) {
-  return (
+  const areBothImagesProvided = !!contentImage1 && !!contentImage2;
+
+  return areBothImagesProvided ? (
     <header className={styles["header"]}>
-      {contentImage1 && contentImage2 && (
-        <>
-          <Image
-            src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage1.filename}
-            width={contentImage1.width!}
-            height={contentImage1.height!}
-            alt=""
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className={cn(styles["header__image1"], "object-cover")}
-            priority
-          />
-          <Image
-            src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage2.filename}
-            width={contentImage2.width!}
-            height={contentImage2.height!}
-            alt=""
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className={cn(styles["header__image2"], "object-cover")}
-            priority
-          />
-        </>
+      <Image
+        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage1.filename}
+        width={contentImage1.width!}
+        height={contentImage1.height!}
+        alt=""
+        sizes="(max-width: 1024px) 100vw, 50vw"
+        className={cn(styles["header__image1"], "object-cover")}
+        priority
+      />
+      <Image
+        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage2.filename}
+        width={contentImage2.width!}
+        height={contentImage2.height!}
+        alt=""
+        sizes="(max-width: 1024px) 100vw, 50vw"
+        className={cn(styles["header__image2"], "object-cover")}
+        priority
+      />
+      <h1>{children}</h1>
+    </header>
+  ) : (
+    <header className={cn(styles["header"], styles["header--one-img"])}>
+      {contentImage1 && (
+        <Image
+          src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage1.filename}
+          width={contentImage1.width!}
+          height={contentImage1.height!}
+          alt=""
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className={cn(styles["header__image1"], "object-cover")}
+          priority
+        />
+      )}
+      {contentImage2 && (
+        <Image
+          src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage2.filename}
+          width={contentImage2.width!}
+          height={contentImage2.height!}
+          alt=""
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className={cn(styles["header__image1"], "object-cover")}
+          priority
+        />
       )}
       <h1>{children}</h1>
     </header>

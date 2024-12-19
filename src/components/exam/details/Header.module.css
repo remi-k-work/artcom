@@ -49,3 +49,17 @@
       "hdr hdr";
   }
 }
+
+.header--one-img {
+  grid-template-areas:
+    "hi1"
+    "hi1"
+    "hdr";
+
+  /* Large screens */
+  @media screen and (min-width: 1024px) {
+    grid-template-areas:
+      "hi1 hi1"
+      "hdr hdr";
+  }
+}

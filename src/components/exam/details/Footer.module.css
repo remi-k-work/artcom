@@ -45,6 +45,14 @@
 
 .footer--one-img {
   grid-template-areas:
-    "fi1 fi1"
-    "cnt cnt";
+    "fi1"
+    "fi1"
+    "cnt";
+
+  /* Large screens */
+  @media screen and (min-width: 1024px) {
+    grid-template-areas:
+      "fi1 fi1"
+      "cnt cnt";
+  }
 }
