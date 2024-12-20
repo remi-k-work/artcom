@@ -67,7 +67,7 @@ export interface UserAuthOperations {
   registerFirstUser: {
     password: string;
     username: string;
-    email?: string;
+    email: string;
   };
   unlock:
     | {
@@ -87,7 +87,7 @@ export interface User {
   role: 'admin' | 'user';
   updatedAt: string;
   createdAt: string;
-  email?: string | null;
+  email: string;
   username: string;
   resetPasswordToken?: string | null;
   resetPasswordExpiration?: string | null;

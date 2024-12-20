@@ -25,7 +25,7 @@ export const Users: CollectionConfig = {
   auth: {
     loginWithUsername: {
       allowEmailLogin: true,
-      requireEmail: false,
+      requireEmail: true,
     },
   },
 
