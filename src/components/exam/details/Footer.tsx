@@ -39,7 +39,7 @@ export default function Footer({ footerImage1, footerImage2, footerContent }: Fo
         sizes="50vw"
         className={cn(styles["footer__image2"], "object-cover")}
       />
-      <RichText data={footerContent} disableIndent disableTextAlign className={cn(styles["footer__content"], "prose dark:prose-invert")} />;
+      <RichText data={footerContent} disableIndent disableTextAlign className={cn(styles["footer__content"], "prose dark:prose-invert")} />
     </footer>
   ) : (
     <footer className={cn(styles["footer"], styles["footer--one-img"])}>
@@ -63,7 +63,7 @@ export default function Footer({ footerImage1, footerImage2, footerContent }: Fo
           className={cn(styles["footer__image1"], "object-cover")}
         />
       )}
-      <RichText data={footerContent} disableIndent disableTextAlign className={cn(styles["footer__content"], "prose dark:prose-invert")} />;
+      <RichText data={footerContent} disableIndent disableTextAlign className={cn(styles["footer__content"], "prose dark:prose-invert")} />
     </footer>
   );
 }
