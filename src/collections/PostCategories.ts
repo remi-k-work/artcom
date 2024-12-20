@@ -25,6 +25,9 @@ export const PostCategories: CollectionConfig = {
   fields: [
     {
       ...text("name", undefined, undefined, "Name", "Nazwa", "Technology, Lifestyle, Business, Entertainment", "Technologia, Styl, Biznes, Rozrywka"),
+
+      index: true,
+      unique: true,
     },
   ],
 };
