@@ -4,25 +4,12 @@ import text from "./fields/text";
 import urlAddress from "./fields/urlAddress";
 import textArea from "./fields/textArea";
 
-export const References: CollectionConfig = {
+export const References: CollectionConfig<"references"> = {
   slug: "references",
 
-  labels: {
-    singular: {
-      en: "Reference",
-      pl: "Referencja",
-    },
-    plural: {
-      en: "References",
-      pl: "Referencje",
-    },
-  },
-
-  admin: {
-    defaultColumns: ["customerName", "theirLocation"],
-    useAsTitle: "customerName",
-    hideAPIURL: true,
-  },
+  labels: { singular: { en: "Reference", pl: "Referencja" }, plural: { en: "References", pl: "Referencje" } },
+  admin: { defaultColumns: ["customerName", "theirLocation"], useAsTitle: "customerName", hideAPIURL: true },
+  defaultPopulate: { customerName: true, theirLocation: true },
 
   fields: [
     {

@@ -10,25 +10,11 @@ import text from "./fields/text";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
-export const Media: CollectionConfig = {
+export const Media: CollectionConfig<"media"> = {
   slug: "media",
 
-  labels: {
-    singular: {
-      en: "Media File",
-      pl: "Plik Multimedialny",
-    },
-    plural: {
-      en: "Media Files",
-      pl: "Pliki Multimedialne",
-    },
-  },
-
-  admin: {
-    defaultColumns: ["filename", "filesize", "width", "height"],
-    useAsTitle: "filename",
-    hideAPIURL: true,
-  },
+  labels: { singular: { en: "Media File", pl: "Plik Multimedialny" }, plural: { en: "Media Files", pl: "Pliki Multimedialne" } },
+  admin: { defaultColumns: ["filename", "filesize", "width", "height"], useAsTitle: "filename", hideAPIURL: true },
 
   access: {
     read: () => true,

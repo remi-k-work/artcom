@@ -2,24 +2,11 @@ import type { CollectionConfig } from "payload";
 
 import textArea from "./fields/textArea";
 
-export const Guarantees: CollectionConfig = {
+export const Guarantees: CollectionConfig<"guarantees"> = {
   slug: "guarantees",
 
-  labels: {
-    singular: {
-      en: "Guarantee",
-      pl: "Gwarancja Jakości",
-    },
-    plural: {
-      en: "Guarantees",
-      pl: "Gwarancje Jakości",
-    },
-  },
-
-  admin: {
-    defaultColumns: ["guarantee"],
-    hideAPIURL: true,
-  },
+  labels: { singular: { en: "Guarantee", pl: "Gwarancja Jakości" }, plural: { en: "Guarantees", pl: "Gwarancje Jakości" } },
+  admin: { defaultColumns: ["guarantee"], hideAPIURL: true },
 
   fields: [
     {

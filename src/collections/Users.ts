@@ -2,25 +2,11 @@ import type { CollectionConfig } from "payload";
 
 import text from "./fields/text";
 
-export const Users: CollectionConfig = {
+export const Users: CollectionConfig<"users"> = {
   slug: "users",
 
-  labels: {
-    singular: {
-      en: "User",
-      pl: "Użytkownik",
-    },
-    plural: {
-      en: "Users",
-      pl: "Użytkownicy",
-    },
-  },
-
-  admin: {
-    defaultColumns: ["username", "name", "email", "role"],
-    useAsTitle: "username",
-    hideAPIURL: true,
-  },
+  labels: { singular: { en: "User", pl: "Użytkownik" }, plural: { en: "Users", pl: "Użytkownicy" } },
+  admin: { defaultColumns: ["username", "name", "email", "role"], useAsTitle: "username", hideAPIURL: true },
 
   auth: {
     loginWithUsername: {

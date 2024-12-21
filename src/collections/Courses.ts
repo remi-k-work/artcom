@@ -5,25 +5,12 @@ import enableDoc from "./fields/enableDoc";
 import text from "./fields/text";
 import textArea from "./fields/textArea";
 
-export const Courses: CollectionConfig = {
+export const Courses: CollectionConfig<"courses"> = {
   slug: "courses",
 
-  labels: {
-    singular: {
-      en: "Course",
-      pl: "Kurs",
-    },
-    plural: {
-      en: "Courses",
-      pl: "Kursy",
-    },
-  },
-
-  admin: {
-    defaultColumns: ["name", "type"],
-    useAsTitle: "name",
-    hideAPIURL: true,
-  },
+  labels: { singular: { en: "Course", pl: "Kurs" }, plural: { en: "Courses", pl: "Kursy" } },
+  admin: { defaultColumns: ["name", "type"], useAsTitle: "name", hideAPIURL: true },
+  defaultPopulate: { slug: true, name: true, type: true },
 
   fields: [
     { ...slug() },
@@ -42,7 +29,7 @@ export const Courses: CollectionConfig = {
             {
               ...text(
                 "name",
-                19,
+                18,
                 128,
                 "Course Name",
                 "Nazwa Kursu",

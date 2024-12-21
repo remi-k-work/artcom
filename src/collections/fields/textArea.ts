@@ -2,7 +2,7 @@ import type { TextareaField } from "payload";
 
 export default function textArea(
   name: string,
-  minLength: number = 1,
+  minLength: number = 50,
   maxLength: number = 512,
   labelEn: string,
   labelPl: string,

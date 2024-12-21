@@ -13,6 +13,8 @@ import { Guarantees } from "./collections/Guarantees";
 import { References } from "./collections/References";
 import { Courses } from "./collections/Courses";
 import { Exams } from "./collections/Exams";
+import { PostCategories } from "./collections/PostCategories";
+import { Posts } from "./collections/Posts";
 
 import { customTranslations } from "./custom-translations";
 import { defaultLexical } from "./collections/fields/defaultLexical";
@@ -35,7 +37,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Guarantees, References, Courses, Exams],
+  collections: [Users, Media, Guarantees, References, Courses, Exams, PostCategories, Posts],
 
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,

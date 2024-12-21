@@ -17,6 +17,8 @@ export interface Config {
     references: Reference;
     courses: Course;
     exams: Exam;
+    'post-categories': PostCategory;
+    posts: Post;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -29,6 +31,8 @@ export interface Config {
     references: ReferencesSelect<false> | ReferencesSelect<true>;
     courses: CoursesSelect<false> | CoursesSelect<true>;
     exams: ExamsSelect<false> | ExamsSelect<true>;
+    'post-categories': PostCategoriesSelect<false> | PostCategoriesSelect<true>;
+    posts: PostsSelect<false> | PostsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -274,6 +278,85 @@ export interface Exam {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "post-categories".
+ */
+export interface PostCategory {
+  id: number;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: number;
+  slug?: string | null;
+  enableDoc?: boolean | null;
+  authors: (number | User)[];
+  publishedAt: string;
+  relatedPosts?: (number | Post)[] | null;
+  categories?: (number | PostCategory)[] | null;
+  title: string;
+  headerImage: number | Media;
+  intro: string;
+  contentColumn1: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  contentColumn2: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  footerContent?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  populatedAuthors?:
+    | {
+        id?: string | null;
+        name?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -302,6 +385,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'exams';
         value: number | Exam;
+      } | null)
+    | ({
+        relationTo: 'post-categories';
+        value: number | PostCategory;
+      } | null)
+    | ({
+        relationTo: 'posts';
+        value: number | Post;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -450,6 +541,41 @@ export interface ExamsSelect<T extends boolean = true> {
   footerImage1?: T;
   footerImage2?: T;
   footerContent?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "post-categories_select".
+ */
+export interface PostCategoriesSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
+  slug?: T;
+  enableDoc?: T;
+  authors?: T;
+  publishedAt?: T;
+  relatedPosts?: T;
+  categories?: T;
+  title?: T;
+  headerImage?: T;
+  intro?: T;
+  contentColumn1?: T;
+  contentColumn2?: T;
+  footerContent?: T;
+  populatedAuthors?:
+    | T
+    | {
+        id?: T;
+        name?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

@@ -7,29 +7,58 @@ import textArea from "./fields/textArea";
 
 import { populateAuthors } from "./hooks/populateAuthors";
 
-export const Posts: CollectionConfig = {
+export const Posts: CollectionConfig<"posts"> = {
   slug: "posts",
 
-  labels: {
-    singular: {
-      en: "Post",
-      pl: "Post",
-    },
-    plural: {
-      en: "Posts",
-      pl: "Posty",
-    },
-  },
-
-  admin: {
-    defaultColumns: ["title"],
-    useAsTitle: "title",
-    hideAPIURL: true,
-  },
+  labels: { singular: { en: "Post", pl: "Post" }, plural: { en: "Posts", pl: "Posty" } },
+  admin: { defaultColumns: ["title", "authors", "publishedAt"], useAsTitle: "title", hideAPIURL: true },
+  defaultPopulate: { slug: true, title: true, categories: true },
 
   fields: [
     { ...slug("title") },
     { ...enableDoc() },
+
+    {
+      name: "authors",
+      type: "relationship",
+      required: true,
+      hasMany: true,
+      relationTo: "users",
+
+      label: { en: "Authors", pl: "Autorzy" },
+      admin: { position: "sidebar" },
+    },
+
+    {
+      name: "publishedAt",
+      type: "date",
+      required: true,
+
+      label: { en: "Published At", pl: "Opublikowano" },
+      admin: { position: "sidebar", date: { pickerAppearance: "dayOnly", displayFormat: "d MMM yyy" } },
+    },
+
+    {
+      name: "relatedPosts",
+      type: "relationship",
+      hasMany: true,
+      relationTo: "posts",
+
+      label: { en: "Related Posts", pl: "Powiązane Posty" },
+      admin: { position: "sidebar" },
+
+      filterOptions: ({ id }) => ({ id: { not_in: [id] } }),
+    },
+
+    {
+      name: "categories",
+      type: "relationship",
+      hasMany: true,
+      relationTo: "post-categories",
+
+      label: { en: "Post Categories", pl: "Kategorie Postu" },
+      admin: { position: "sidebar" },
+    },
 
     {
       type: "tabs",
@@ -44,7 +73,7 @@ export const Posts: CollectionConfig = {
             {
               ...text(
                 "title",
-                19,
+                18,
                 128,
                 "Post Title",
                 "Tytuł Postu",
@@ -115,42 +144,10 @@ export const Posts: CollectionConfig = {
 
           fields: [
             {
-              type: "row",
-              fields: [
-                {
-                  name: "footerContent",
-                  type: "richText",
+              name: "footerContent",
+              type: "richText",
 
-                  label: { en: "Footer Content", pl: "Treść Stopki" },
-                  admin: { width: "50%" },
-                },
-                {
-                  type: "collapsible",
-
-                  label: { en: "Post Details", pl: "Szczegóły Postu" },
-                  admin: { width: "50%" },
-
-                  fields: [
-                    {
-                      name: "authors",
-                      type: "relationship",
-                      required: true,
-                      hasMany: true,
-                      relationTo: "users",
-
-                      label: { en: "Authors", pl: "Autorzy" },
-                    },
-                    {
-                      name: "publishedAt",
-                      type: "date",
-                      required: true,
-
-                      label: { en: "Published At", pl: "Opublikowano" },
-                      admin: { date: { pickerAppearance: "dayAndTime" } },
-                    },
-                  ],
-                },
-              ],
+              label: { en: "Footer Content", pl: "Treść Stopki" },
             },
           ],
         },
