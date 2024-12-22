@@ -30,7 +30,7 @@
     grid-area: hdr;
     place-self: stretch center;
 
-    background: var(--gradient-3);
+    background: var(--gradient-23);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 

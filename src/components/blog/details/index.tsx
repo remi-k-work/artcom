@@ -18,9 +18,11 @@ export default function Details({ children }: DetailsProps) {
   return <article className={styles["details"]}>{children}</article>;
 }
 
-Details.Header = Header;
-Details.Content1 = Content1;
-Details.Content2 = Content2;
-Details.Footer = Footer;
-Details.Footer1 = Footer1;
-Details.Footer2 = Footer2;
+export {
+  Header as DetailsHeader,
+  Content1 as DetailsContent1,
+  Content2 as DetailsContent2,
+  Footer as DetailsFooter,
+  Footer1 as DetailsFooter1,
+  Footer2 as DetailsFooter2,
+};
