@@ -2,8 +2,7 @@
 import { notFound } from "next/navigation";
 
 // payload and db access
-import { getPayload } from "payload";
-import config from "@payload-config";
+import { getExamBySlug } from "@/db/exams";
 import type { Media } from "@/payload-types";
 
 // components
@@ -15,18 +14,11 @@ interface ExamViewProps {
 }
 
 export default async function ExamView({ slug }: ExamViewProps) {
-  const payload = await getPayload({ config });
-
   // Gather all of the information about the selected exam, but only the enabled one
-  const result = await payload.find({
-    collection: "exams",
-    limit: 1,
-    pagination: false,
-    where: { and: [{ slug: { equals: slug } }, { enableDoc: { equals: true } }] },
-  });
+  const docs = await getExamBySlug(slug);
 
-  if (result.docs.length === 0) notFound();
-  const { name, contentImage1, contentImage2, contentColumn1, contentColumn2, footerImage1, footerImage2, footerContent } = result.docs[0];
+  if (docs.length === 0) notFound();
+  const { name, contentImage1, contentImage2, contentColumn1, contentColumn2, footerImage1, footerImage2, footerContent } = docs[0];
 
   return (
     <Details>

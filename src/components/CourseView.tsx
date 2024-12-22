@@ -2,8 +2,7 @@
 import { notFound } from "next/navigation";
 
 // payload and db access
-import { getPayload } from "payload";
-import config from "@payload-config";
+import { getCourseBySlug } from "@/db/courses";
 import type { Media } from "@/payload-types";
 
 // components
@@ -15,18 +14,11 @@ interface CourseViewProps {
 }
 
 export default async function CourseView({ slug }: CourseViewProps) {
-  const payload = await getPayload({ config });
-
   // Gather all of the information about the selected course, but only the enabled one
-  const result = await payload.find({
-    collection: "courses",
-    limit: 1,
-    pagination: false,
-    where: { and: [{ slug: { equals: slug } }, { enableDoc: { equals: true } }] },
-  });
+  const docs = await getCourseBySlug(slug);
 
-  if (result.docs.length === 0) notFound();
-  const { name, headerImage, contentColumn1, contentColumn2, footerContent } = result.docs[0];
+  if (docs.length === 0) notFound();
+  const { name, headerImage, contentColumn1, contentColumn2, footerContent } = docs[0];
 
   return (
     <Details>

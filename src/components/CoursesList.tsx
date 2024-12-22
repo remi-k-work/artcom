@@ -1,6 +1,5 @@
 // payload and db access
-import { getPayload } from "payload";
-import config from "@payload-config";
+import { allCoursesByType } from "@/db/courses";
 import type { Course as CourseT, Media } from "@/payload-types";
 
 // components
@@ -12,16 +11,8 @@ interface CoursesListProps {
 }
 
 export default async function CoursesList({ courseType }: CoursesListProps) {
-  const payload = await getPayload({ config });
-
   // Gather all courses of a specific type, but only the enabled ones
-  const { docs } = await payload.find({
-    collection: "courses",
-    pagination: false,
-    sort: "-id",
-    select: { slug: true, name: true, headerImage: true, intro: true },
-    where: { and: [{ type: { equals: courseType } }, { enableDoc: { equals: true } }] },
-  });
+  const docs = await allCoursesByType(courseType);
 
   return (
     <>

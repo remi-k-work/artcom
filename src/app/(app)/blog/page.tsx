@@ -4,9 +4,11 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 
 // payload and db access
-import { getPayload } from "payload";
-import config from "@payload-config";
+import { getLatestPost } from "@/db/posts";
 import type { Media } from "@/payload-types";
+
+// other libraries
+import { formatDate } from "@/lib/formatters";
 
 // components
 import { Button } from "@/components/ui/custom/button";
@@ -23,20 +25,11 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const payload = await getPayload({ config });
-
   // Gather all of the information about the latest post, but only the enabled one
-  const result = await payload.find({
-    collection: "posts",
-    limit: 1,
-    pagination: false,
-    sort: "-publishedAt",
-    select: { slug: true, publishedAt: true, title: true, headerImage: true, intro: true },
-    where: { enableDoc: { equals: true } },
-  });
+  const docs = await getLatestPost();
 
-  if (result.docs.length === 0) notFound();
-  const { slug, publishedAt, title, headerImage, intro } = result.docs[0];
+  if (docs.length === 0) notFound();
+  const { slug, publishedAt, title, headerImage, intro } = docs[0];
 
   return (
     <>
@@ -79,7 +72,7 @@ export default async function Page() {
               </Link>
             </Button>
           </Hero.Footer1>
-          <Hero.Footer2>{publishedAt}</Hero.Footer2>
+          <Hero.Footer2>{formatDate(publishedAt)}</Hero.Footer2>
         </Hero.Footer>
       </Hero>
       <Secondary header="Podróż w czasie przez nasz Blog">

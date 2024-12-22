@@ -1,22 +1,13 @@
 // payload and db access
-import { getPayload } from "payload";
-import config from "@payload-config";
+import { allPosts } from "@/db/posts";
 import type { Media } from "@/payload-types";
 
 // components
 import Blog, { BlogHeader, BlogContent } from "@/components/blog";
 
 export default async function PostsList() {
-  const payload = await getPayload({ config });
-
   // Gather all posts, but only the enabled ones
-  const { docs } = await payload.find({
-    collection: "posts",
-    pagination: false,
-    sort: "-id",
-    select: { slug: true, publishedAt: true, title: true, headerImage: true, intro: true },
-    where: { enableDoc: { equals: true } },
-  });
+  const docs = await allPosts();
 
   return (
     <>

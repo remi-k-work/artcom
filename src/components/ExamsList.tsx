@@ -1,22 +1,13 @@
 // payload and db access
-import { getPayload } from "payload";
-import config from "@payload-config";
+import { allExams } from "@/db/exams";
 import type { Media } from "@/payload-types";
 
 // components
 import Exam, { ExamHeader, ExamContent } from "@/components/exam";
 
 export default async function ExamsList() {
-  const payload = await getPayload({ config });
-
   // Gather all exams, but only the enabled ones
-  const { docs } = await payload.find({
-    collection: "exams",
-    pagination: false,
-    sort: "-id",
-    select: { slug: true, name: true, headerImage: true, intro: true },
-    where: { enableDoc: { equals: true } },
-  });
+  const docs = await allExams();
 
   return (
     <>
