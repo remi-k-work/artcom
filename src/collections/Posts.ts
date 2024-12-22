@@ -44,6 +44,9 @@ export const Posts: CollectionConfig<"posts"> = {
       hasMany: true,
       relationTo: "posts",
 
+      // Users are allowed to add related posts only when updating an existing post (a validation error happens while creating a new post)
+      access: { create: () => false },
+
       label: { en: "Related Posts", pl: "Powiązane Posty" },
       admin: { position: "sidebar" },
 
@@ -94,7 +97,7 @@ export const Posts: CollectionConfig<"posts"> = {
             {
               ...textArea(
                 "intro",
-                268,
+                368,
                 undefined,
                 "Introduction",
                 "Wprowadzenie",
