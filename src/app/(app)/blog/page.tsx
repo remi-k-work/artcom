@@ -8,7 +8,7 @@ import { getLatestPost } from "@/db/posts";
 import type { Media } from "@/payload-types";
 
 // other libraries
-import { formatDate } from "@/lib/formatters";
+import { formatDate, formatDateForTimeEl } from "@/lib/formatters";
 
 // components
 import { Button } from "@/components/ui/custom/button";
@@ -72,7 +72,9 @@ export default async function Page() {
               </Link>
             </Button>
           </Hero.Footer1>
-          <Hero.Footer2>{formatDate(publishedAt)}</Hero.Footer2>
+          <Hero.Footer2>
+            <time dateTime={formatDateForTimeEl(publishedAt)}>{formatDate(publishedAt)}</time>
+          </Hero.Footer2>
         </Hero.Footer>
       </Hero>
       <Secondary header="Podróż w czasie przez nasz Blog">

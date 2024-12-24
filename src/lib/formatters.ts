@@ -10,6 +10,11 @@ export const formatNumber = (number: number) => NUMBER_FORMATTER.format(number);
 export const formatDateTime = (date: Date | string) => DATE_TIME_FORMATTER.format(typeof date === "string" ? new Date(date) : date);
 export const formatDate = (date: Date | string) => DATE_FORMATTER.format(typeof date === "string" ? new Date(date) : date);
 
+export function formatDateForTimeEl(date: Date | string): string {
+  const dateObj = typeof date === "string" ? new Date(date) : date;
+  return `${dateObj.getFullYear()}-${String(dateObj.getMonth() + 1).padStart(2, "0")}-${String(dateObj.getDate()).padStart(2, "0")}`;
+}
+
 export function convertLocalDateToUTCIgnoringTimezone(locDate: Date) {
   const timestamp = Date.UTC(
     locDate.getFullYear(),

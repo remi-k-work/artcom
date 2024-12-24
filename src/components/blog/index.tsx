@@ -7,7 +7,7 @@ import styles from "./index.module.css";
 import { ReactNode } from "react";
 
 // other libraries
-import { formatDate } from "@/lib/formatters";
+import { formatDate, formatDateForTimeEl } from "@/lib/formatters";
 
 // components
 import { FADE_IN, MotionLink } from "@/components/AnimComps";
@@ -36,7 +36,9 @@ export default function Blog({ detailsHref, blogDate, children }: BlogProps) {
             Czytaj więcej
           </Button>
         </section>
-        <section className={styles["footer__footer2"]}>{formatDate(blogDate)}</section>
+        <time dateTime={formatDateForTimeEl(blogDate)} className={styles["footer__footer2"]}>
+          {formatDate(blogDate)}
+        </time>
       </footer>
     </MotionLink>
   );

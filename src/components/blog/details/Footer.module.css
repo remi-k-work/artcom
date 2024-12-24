@@ -4,34 +4,45 @@
   background-image: var(--gradient-2), var(--noise-4);
   background-size: cover;
 
-  margin-block: var(--size-3) var(--size-6);
-  padding-inline: var(--size-4);
-  padding-block: var(--size-4);
-
   color: hsl(var(--text-1));
-
   text-align: center;
 
   display: grid;
 
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  gap: var(--size-6);
+  grid-template-rows: auto auto;
 
-  grid-template-areas: "ft1 ft2";
+  grid-template-areas:
+    "cnt cnt"
+    "ft1 ft2";
 
-  & a {
-    color: hsl(var(--text-2));
-    text-decoration: underline;
+  .footer__content {
+    grid-area: cnt;
+
+    max-inline-size: none;
+    background: var(--gradient-back);
+
+    padding-inline: var(--size-4);
+    padding-block: var(--size-4);
+  }
+
+  .footer__content > * {
+    margin: auto;
   }
 
   .footer__footer1 {
     grid-area: ft1;
     place-self: center center;
+
+    padding-inline: var(--size-4);
+    padding-block: var(--size-4);
   }
 
   .footer__footer2 {
     grid-area: ft2;
     place-self: center center;
+
+    padding-inline: var(--size-4);
+    padding-block: var(--size-4);
   }
 }

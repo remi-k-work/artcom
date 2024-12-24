@@ -18,15 +18,15 @@ export default async function PostView({ slug }: PostViewProps) {
   const docs = await getPostBySlug(slug);
 
   if (docs.length === 0) notFound();
-  const { title, headerImage, contentColumn1, contentColumn2, footerContent, publishedAt } = docs[0];
+  const { title, headerImage, contentColumn1, contentColumn2, footerContent, populatedAuthors, publishedAt } = docs[0];
 
   return (
     <Details>
       <DetailsHeader headerImage={headerImage as Media}>{title}</DetailsHeader>
       <DetailsContent1 contentColumn1={contentColumn1} />
       <DetailsContent2 contentColumn2={contentColumn2} />
-      <DetailsFooter>
-        <DetailsFooter1 footerContent={footerContent} />
+      <DetailsFooter footerContent={footerContent}>
+        <DetailsFooter1 populatedAuthors={populatedAuthors} />
         <DetailsFooter2 publishedAt={publishedAt} />
       </DetailsFooter>
     </Details>
