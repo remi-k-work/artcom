@@ -6,6 +6,9 @@ import styles from "./index.module.css";
 // react
 import { ReactNode } from "react";
 
+// payload and db access
+import type { Post } from "@/payload-types";
+
 // other libraries
 import { formatDate, formatDateForTimeEl } from "@/lib/formatters";
 
@@ -21,11 +24,11 @@ import { InformationCircleIcon } from "@heroicons/react/24/outline";
 // types
 interface BlogProps {
   detailsHref: string;
-  blogDate: string;
+  publishedAt: Post["publishedAt"];
   children: ReactNode;
 }
 
-export default function Blog({ detailsHref, blogDate, children }: BlogProps) {
+export default function Blog({ detailsHref, publishedAt, children }: BlogProps) {
   return (
     <MotionLink href={detailsHref} className={styles["blog"]} {...FADE_IN}>
       {children}
@@ -36,8 +39,8 @@ export default function Blog({ detailsHref, blogDate, children }: BlogProps) {
             Czytaj więcej
           </Button>
         </section>
-        <time dateTime={formatDateForTimeEl(blogDate)} className={styles["footer__footer2"]}>
-          {formatDate(blogDate)}
+        <time dateTime={formatDateForTimeEl(publishedAt)} className={styles["footer__footer2"]}>
+          {formatDate(publishedAt)}
         </time>
       </footer>
     </MotionLink>

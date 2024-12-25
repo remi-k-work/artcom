@@ -27,10 +27,56 @@
     background-image: var(--gradient-1), var(--noise-4);
     background-size: cover;
 
+    font-family: var(--font-1);
+    font-size: var(--font-size-2);
     color: hsl(var(--text-2));
 
     padding-inline: var(--size-4);
     padding-block: var(--size-4);
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--size-3);
+
+    text-align: center;
+
+    & > section {
+      flex: 1 1 var(--size-content-2);
+    }
+
+    & > section > h3 {
+      color: hsl(var(--text-1));
+
+      text-transform: uppercase;
+      padding-block: var(--size-2);
+
+      max-inline-size: none;
+
+      border-block-start: var(--border-size-1) dotted hsl(var(--surface-1));
+      border-block-end: var(--border-size-1) dotted hsl(var(--surface-1));
+    }
+
+    & > section > ul {
+      list-style: none;
+
+      padding-block: var(--size-2);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--size-2);
+    }
+
+    & > section > ul li::before {
+      content: "●";
+      color: hsl(var(--accent-foreground));
+      padding-inline: 1ch;
+    }
+
+    & a:hover {
+      text-decoration: underline;
+    }
   }
 
   /* Large screens */

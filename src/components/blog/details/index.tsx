@@ -30,7 +30,7 @@ export default function Details({ relatedPosts, categories, children }: DetailsP
         <aside>
           {relatedPosts && relatedPosts.length > 0 && (
             <section>
-              <h3>Related Posts</h3>
+              <h3>Powiązane Posty</h3>
               <ul>
                 {relatedPosts.map(({ id, slug, title }) => (
                   <li key={id}>
@@ -42,7 +42,7 @@ export default function Details({ relatedPosts, categories, children }: DetailsP
           )}
           {categories && categories.length > 0 && (
             <section>
-              <h3>Categories</h3>
+              <h3>Kategorie Postu</h3>
               <ul>
                 {categories.map(({ id, name }) => (
                   <li key={id}>{name}</li>

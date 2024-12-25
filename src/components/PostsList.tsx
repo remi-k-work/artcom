@@ -12,7 +12,7 @@ export default async function PostsList() {
   return (
     <>
       {docs.map(({ id, slug, publishedAt, title, headerImage, intro }) => (
-        <Blog key={id} detailsHref={`/blog/${slug}`} blogDate={publishedAt}>
+        <Blog key={id} detailsHref={`/blog/${slug}`} publishedAt={publishedAt}>
           <BlogHeader>{title}</BlogHeader>
           <BlogContent contentImage={headerImage as Media}>{intro}</BlogContent>
         </Blog>
