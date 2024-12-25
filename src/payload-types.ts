@@ -88,7 +88,7 @@ export interface UserAuthOperations {
 export interface User {
   id: number;
   name: string;
-  role: 'admin' | 'user';
+  role: 'admin' | 'user' | 'blogger';
   updatedAt: string;
   createdAt: string;
   email: string;

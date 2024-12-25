@@ -15,6 +15,7 @@ import {
   SuperscriptFeature,
   UnorderedListFeature,
   OrderedListFeature,
+  UploadFeature,
 } from "@payloadcms/richtext-lexical";
 
 export const defaultLexical: Config["editor"] = lexicalEditor({
@@ -30,8 +31,9 @@ export const defaultLexical: Config["editor"] = lexicalEditor({
       HeadingFeature({ enabledHeadingSizes: ["h2"] }),
       UnorderedListFeature(),
       OrderedListFeature(),
-      LinkFeature(),
+      LinkFeature({ enabledCollections: ["posts"] }),
       HorizontalRuleFeature(),
+      UploadFeature({ collections: { media: { fields: [] } } }),
       InlineToolbarFeature(),
       FixedToolbarFeature(),
     ];

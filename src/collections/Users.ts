@@ -38,6 +38,7 @@ export const Users: CollectionConfig<"users"> = {
       options: [
         { label: { en: "Administrator", pl: "Administrator" }, value: "admin" },
         { label: { en: "User", pl: "Użytkownik" }, value: "user" },
+        { label: { en: "Blogger", pl: "Bloger" }, value: "blogger" },
       ],
 
       defaultValue: "user",
