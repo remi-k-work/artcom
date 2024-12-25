@@ -2,14 +2,15 @@
   display: grid;
 
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto;
   gap: var(--size-6);
 
   grid-template-areas:
     "hdr"
     "ct1"
     "ct2"
-    "ftr";
+    "ftr"
+    "asd";
 
   & h2 {
     font-family: var(--font-1);
@@ -20,15 +21,28 @@
     margin-block-start: var(--size-3);
   }
 
+  & > aside {
+    grid-area: asd;
+
+    background-image: var(--gradient-1), var(--noise-4);
+    background-size: cover;
+
+    color: hsl(var(--text-2));
+
+    padding-inline: var(--size-4);
+    padding-block: var(--size-4);
+  }
+
   /* Large screens */
   @media screen and (min-width: 1024px) {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto auto auto;
 
     grid-template-areas:
       "hdr hdr"
       "ct1 ct2"
-      "ftr ftr";
+      "ftr ftr"
+      "asd asd";
 
     & > article + article {
       margin-block-start: unset;

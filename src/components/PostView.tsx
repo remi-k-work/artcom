@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 // payload and db access
 import { getPostBySlug } from "@/db/posts";
-import type { Media } from "@/payload-types";
+import type { Media, Post, PostCategory } from "@/payload-types";
 
 // components
 import Details, { DetailsHeader, DetailsContent1, DetailsContent2, DetailsFooter, DetailsFooter1, DetailsFooter2 } from "@/components/blog/details";
@@ -18,10 +18,10 @@ export default async function PostView({ slug }: PostViewProps) {
   const docs = await getPostBySlug(slug);
 
   if (docs.length === 0) notFound();
-  const { title, headerImage, contentColumn1, contentColumn2, footerContent, populatedAuthors, publishedAt } = docs[0];
+  const { relatedPosts, categories, title, headerImage, contentColumn1, contentColumn2, footerContent, populatedAuthors, publishedAt } = docs[0];
 
   return (
-    <Details>
+    <Details relatedPosts={relatedPosts as Post[]} categories={categories as PostCategory[]}>
       <DetailsHeader headerImage={headerImage as Media}>{title}</DetailsHeader>
       <DetailsContent1 contentColumn1={contentColumn1} />
       <DetailsContent2 contentColumn2={contentColumn2} />
