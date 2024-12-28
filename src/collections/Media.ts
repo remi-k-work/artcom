@@ -2,9 +2,14 @@
 import path from "path";
 import { fileURLToPath } from "url";
 
+// payload and db access
 import type { CollectionConfig } from "payload";
 
+// fields
 import text from "./fields/text";
+
+// access control functions
+import { isAdminOrBlogger } from "@/access/isAdminOrBlogger";
 
 // Get the filename and directory name from the current file's url
 const filename = fileURLToPath(import.meta.url);
@@ -17,7 +22,10 @@ export const Media: CollectionConfig<"media"> = {
   admin: { defaultColumns: ["filename", "filesize", "width", "height"], useAsTitle: "filename", hideAPIURL: true },
 
   access: {
-    read: () => true,
+    // Only admins and bloggers can create, update, and delete media (everyone can read)
+    create: isAdminOrBlogger,
+    update: isAdminOrBlogger,
+    delete: isAdminOrBlogger,
   },
 
   fields: [

@@ -1,5 +1,7 @@
+// payload and db access
 import type { CollectionConfig } from "payload";
 
+// fields
 import slug from "./fields/slug";
 import enableDoc from "./fields/enableDoc";
 import text from "./fields/text";
@@ -7,12 +9,22 @@ import textArea from "./fields/textArea";
 
 import { populateAuthors } from "./hooks/populateAuthors";
 
+// access control functions
+import { isAdminOrBlogger } from "@/access/isAdminOrBlogger";
+
 export const Posts: CollectionConfig<"posts"> = {
   slug: "posts",
 
   labels: { singular: { en: "Post", pl: "Post" }, plural: { en: "Posts", pl: "Posty" } },
   admin: { defaultColumns: ["title", "authors", "publishedAt"], useAsTitle: "title", hideAPIURL: true },
   defaultPopulate: { slug: true, title: true, categories: true },
+
+  access: {
+    // Only admins and bloggers can create, update, and delete posts (everyone can read)
+    create: isAdminOrBlogger,
+    update: isAdminOrBlogger,
+    delete: isAdminOrBlogger,
+  },
 
   fields: [
     { ...slug("title") },

@@ -1,9 +1,14 @@
+// payload and db access
 import type { CollectionConfig } from "payload";
 
+// fields
 import slug from "./fields/slug";
 import enableDoc from "./fields/enableDoc";
 import text from "./fields/text";
 import textArea from "./fields/textArea";
+
+// access control functions
+import { isAdmin } from "@/access/isAdmin";
 
 export const Courses: CollectionConfig<"courses"> = {
   slug: "courses",
@@ -11,6 +16,13 @@ export const Courses: CollectionConfig<"courses"> = {
   labels: { singular: { en: "Course", pl: "Kurs" }, plural: { en: "Courses", pl: "Kursy" } },
   admin: { defaultColumns: ["name", "type"], useAsTitle: "name", hideAPIURL: true },
   defaultPopulate: { slug: true, name: true, type: true },
+
+  access: {
+    // Only admins can create, update, and delete courses (everyone can read)
+    create: isAdmin,
+    update: isAdmin,
+    delete: isAdmin,
+  },
 
   fields: [
     { ...slug() },

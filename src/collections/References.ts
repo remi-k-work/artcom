@@ -1,8 +1,13 @@
+// payload and db access
 import type { CollectionConfig } from "payload";
 
+// fields
 import text from "./fields/text";
 import urlAddress from "./fields/urlAddress";
 import textArea from "./fields/textArea";
+
+// access control functions
+import { isAdmin } from "@/access/isAdmin";
 
 export const References: CollectionConfig<"references"> = {
   slug: "references",
@@ -10,6 +15,13 @@ export const References: CollectionConfig<"references"> = {
   labels: { singular: { en: "Reference", pl: "Referencja" }, plural: { en: "References", pl: "Referencje" } },
   admin: { defaultColumns: ["customerName", "theirLocation"], useAsTitle: "customerName", hideAPIURL: true },
   defaultPopulate: { customerName: true, theirLocation: true },
+
+  access: {
+    // Only admins can create, update, and delete references (everyone can read)
+    create: isAdmin,
+    update: isAdmin,
+    delete: isAdmin,
+  },
 
   fields: [
     {
