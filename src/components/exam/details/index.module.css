@@ -14,6 +14,24 @@
   & h2 {
     font-family: var(--font-1);
     font-size: var(--font-size-4);
+    color: hsl(var(--text-1));
+  }
+
+  & p {
+    color: hsl(var(--text-2));
+  }
+
+  & strong {
+    color: hsl(var(--text-2));
+    font-weight: bold;
+  }
+
+  & li {
+    color: hsl(var(--text-2));
+  }
+
+  & a {
+    color: hsl(var(--text-1));
   }
 
   & > article + article {
