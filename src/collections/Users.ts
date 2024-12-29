@@ -4,6 +4,8 @@ import type { CollectionConfig } from "payload";
 // fields
 import text from "./fields/text";
 
+import { adminDemoModeBeforeChange, adminDemoModeBeforeDelete } from "./hooks/adminDemoMode";
+
 // access control functions
 import { isAdmin, isAdminFieldLevel } from "@/access/isAdmin";
 import { isAdminOrSelf } from "@/access/isAdminOrSelf";
@@ -71,4 +73,10 @@ export const Users: CollectionConfig<"users"> = {
       },
     },
   ],
+
+  hooks: {
+    // Prevent any modifications to the documents in the admin panel from being saved if the user is in demo mode
+    beforeChange: [adminDemoModeBeforeChange],
+    beforeDelete: [adminDemoModeBeforeDelete],
+  },
 };

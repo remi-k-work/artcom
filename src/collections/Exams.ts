@@ -7,6 +7,8 @@ import enableDoc from "./fields/enableDoc";
 import text from "./fields/text";
 import textArea from "./fields/textArea";
 
+import { adminDemoModeBeforeChange, adminDemoModeBeforeDelete } from "./hooks/adminDemoMode";
+
 // access control functions
 import { isAdmin } from "@/access/isAdmin";
 
@@ -171,4 +173,10 @@ export const Exams: CollectionConfig<"exams"> = {
       ],
     },
   ],
+
+  hooks: {
+    // Prevent any modifications to the documents in the admin panel from being saved if the user is in demo mode
+    beforeChange: [adminDemoModeBeforeChange],
+    beforeDelete: [adminDemoModeBeforeDelete],
+  },
 };

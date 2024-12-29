@@ -8,6 +8,7 @@ import text from "./fields/text";
 import textArea from "./fields/textArea";
 
 import { populateAuthors } from "./hooks/populateAuthors";
+import { adminDemoModeBeforeChange, adminDemoModeBeforeDelete } from "./hooks/adminDemoMode";
 
 // access control functions
 import { isAdminOrBlogger } from "@/access/isAdminOrBlogger";
@@ -195,5 +196,11 @@ export const Posts: CollectionConfig<"posts"> = {
     },
   ],
 
-  hooks: { afterRead: [populateAuthors] },
+  hooks: {
+    // Prevent any modifications to the documents in the admin panel from being saved if the user is in demo mode
+    beforeChange: [adminDemoModeBeforeChange],
+    beforeDelete: [adminDemoModeBeforeDelete],
+
+    afterRead: [populateAuthors],
+  },
 };

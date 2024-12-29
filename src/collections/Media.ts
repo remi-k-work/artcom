@@ -8,6 +8,8 @@ import type { CollectionConfig } from "payload";
 // fields
 import text from "./fields/text";
 
+import { adminDemoModeBeforeChange, adminDemoModeBeforeDelete } from "./hooks/adminDemoMode";
+
 // access control functions
 import { isAdminOrBlogger } from "@/access/isAdminOrBlogger";
 
@@ -56,5 +58,11 @@ export const Media: CollectionConfig<"media"> = {
         width: 150,
       },
     ],
+  },
+
+  hooks: {
+    // Prevent any modifications to the documents in the admin panel from being saved if the user is in demo mode
+    beforeChange: [adminDemoModeBeforeChange],
+    beforeDelete: [adminDemoModeBeforeDelete],
   },
 };

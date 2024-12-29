@@ -36,6 +36,9 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+
+    // For demonstration reasons, forgo requiring the user to log in to access the admin panel and instead prefill the login form with the demo user credentials
+    autoLogin: process.env.NEXT_PUBLIC_ENABLE_AUTOLOGIN === "true" ? { username: "demo", email: "demo@demo.com", password: "demo", prefillOnly: true } : false,
   },
   collections: [Users, Media, Guarantees, References, Courses, Exams, PostCategories, Posts],
 
@@ -50,4 +53,24 @@ export default buildConfig({
   sharp,
   plugins: [vercelBlobStorage({ collections: { media: true }, token: process.env.BLOB_READ_WRITE_TOKEN || "" })],
   i18n: { ...customTranslations, supportedLanguages: { en, pl } },
+
+  async onInit(payload) {
+    // Check if the demo user exists
+    const { docs } = await payload.find({
+      collection: "users",
+      limit: 1,
+      pagination: false,
+      select: { username: true },
+      where: { username: { equals: "demo" } },
+    });
+
+    // If the demo user does not exist, create it
+    if (!docs.length) {
+      await payload.create({ collection: "users", data: { username: "demo", email: "demo@demo.com", password: "demo", role: "admin", name: "Demo User" } });
+    } else {
+      // If the demo user exists, recreate it to ensure it always has the correct role and the same password
+      await payload.delete({ collection: "users", id: docs[0].id });
+      await payload.create({ collection: "users", data: { username: "demo", email: "demo@demo.com", password: "demo", role: "admin", name: "Demo User" } });
+    }
+  },
 });
