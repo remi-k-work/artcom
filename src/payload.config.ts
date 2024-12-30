@@ -26,6 +26,8 @@ const dirname = path.dirname(filename);
 export default buildConfig({
   admin: {
     components: {
+      beforeNavLinks: ["@/components/payload/Logo", "@/components/payload/LineBreak"],
+
       graphics: {
         Icon: "@/components/payload/Icon",
         Logo: "@/components/payload/Logo",
