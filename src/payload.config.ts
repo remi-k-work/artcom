@@ -68,9 +68,8 @@ export default buildConfig({
     if (!docs.length) {
       await payload.create({ collection: "users", data: { username: "demo", email: "demo@demo.com", password: "demo", role: "admin", name: "Demo User" } });
     } else {
-      // If the demo user exists, recreate it to ensure it always has the correct role and the same password
-      await payload.delete({ collection: "users", id: docs[0].id });
-      await payload.create({ collection: "users", data: { username: "demo", email: "demo@demo.com", password: "demo", role: "admin", name: "Demo User" } });
+      // If the demo user exists, ensure it always has the correct role and the same password
+      await payload.update({ collection: "users", id: docs[0].id, data: { password: "demo", role: "admin", name: "Demo User" } });
     }
   },
 });
