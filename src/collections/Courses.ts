@@ -16,7 +16,7 @@ export const Courses: CollectionConfig<"courses"> = {
   slug: "courses",
 
   labels: { singular: { en: "Course", pl: "Kurs" }, plural: { en: "Courses", pl: "Kursy" } },
-  admin: { defaultColumns: ["name", "type"], useAsTitle: "name", hideAPIURL: true },
+  admin: { defaultColumns: ["name", "type"], useAsTitle: "name", hideAPIURL: true, listSearchableFields: ["name", "type", "intro"] },
   defaultPopulate: { slug: true, name: true, type: true },
 
   access: {

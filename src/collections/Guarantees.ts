@@ -13,7 +13,7 @@ export const Guarantees: CollectionConfig<"guarantees"> = {
   slug: "guarantees",
 
   labels: { singular: { en: "Guarantee", pl: "Gwarancja Jakości" }, plural: { en: "Guarantees", pl: "Gwarancje Jakości" } },
-  admin: { defaultColumns: ["guarantee"], hideAPIURL: true },
+  admin: { defaultColumns: ["guarantee"], hideAPIURL: true, listSearchableFields: ["guarantee"] },
 
   access: {
     // Only admins can create, update, and delete guarantees (everyone can read)

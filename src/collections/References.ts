@@ -15,7 +15,12 @@ export const References: CollectionConfig<"references"> = {
   slug: "references",
 
   labels: { singular: { en: "Reference", pl: "Referencja" }, plural: { en: "References", pl: "Referencje" } },
-  admin: { defaultColumns: ["customerName", "theirLocation"], useAsTitle: "customerName", hideAPIURL: true },
+  admin: {
+    defaultColumns: ["customerName", "theirLocation"],
+    useAsTitle: "customerName",
+    hideAPIURL: true,
+    listSearchableFields: ["customerName", "theirLocation"],
+  },
   defaultPopulate: { customerName: true, theirLocation: true },
 
   access: {

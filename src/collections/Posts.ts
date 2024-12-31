@@ -17,7 +17,7 @@ export const Posts: CollectionConfig<"posts"> = {
   slug: "posts",
 
   labels: { singular: { en: "Post", pl: "Post" }, plural: { en: "Posts", pl: "Posty" } },
-  admin: { defaultColumns: ["title", "authors", "publishedAt"], useAsTitle: "title", hideAPIURL: true },
+  admin: { defaultColumns: ["title", "authors", "publishedAt"], useAsTitle: "title", hideAPIURL: true, listSearchableFields: ["title", "intro"] },
   defaultPopulate: { slug: true, title: true, categories: true },
 
   access: {

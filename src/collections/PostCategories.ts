@@ -13,7 +13,7 @@ export const PostCategories: CollectionConfig<"post-categories"> = {
   slug: "post-categories",
 
   labels: { singular: { en: "Post Category", pl: "Kategoria Postu" }, plural: { en: "Post Categories", pl: "Kategorie Postów" } },
-  admin: { defaultColumns: ["name"], useAsTitle: "name", hideAPIURL: true },
+  admin: { defaultColumns: ["name"], useAsTitle: "name", hideAPIURL: true, listSearchableFields: ["name"] },
 
   access: {
     // Only admins can create, update, and delete post categories (everyone can read)

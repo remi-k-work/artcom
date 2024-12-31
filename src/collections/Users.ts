@@ -14,14 +14,19 @@ export const Users: CollectionConfig<"users"> = {
   slug: "users",
 
   labels: { singular: { en: "User", pl: "Użytkownik" }, plural: { en: "Users", pl: "Użytkownicy" } },
-  admin: { defaultColumns: ["username", "name", "email", "role"], useAsTitle: "username", hideAPIURL: true },
+  admin: {
+    defaultColumns: ["username", "name", "email", "role"],
+    useAsTitle: "username",
+    hideAPIURL: true,
+    listSearchableFields: ["username", "name", "email"],
+  },
 
   access: {
     // Only admins can create users
     create: isAdmin,
 
     // Admins can read all, but any other logged-in user can only read themselves
-    // read: isAdminOrSelf,
+    read: isAdminOrSelf,
 
     // Admins can update all, but any other logged-in user can only update themselves
     update: isAdminOrSelf,
