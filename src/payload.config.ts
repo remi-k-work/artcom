@@ -32,6 +32,8 @@ export default buildConfig({
         Icon: "@/components/payload/Icon",
         Logo: "@/components/payload/Logo",
       },
+
+      actions: ["@/components/payload/DemoMode"],
     },
 
     user: Users.slug,
@@ -41,7 +43,11 @@ export default buildConfig({
 
     // For demonstration reasons, forgo requiring the user to log in to access the admin panel and instead prefill the login form with the demo user credentials
     autoLogin: process.env.NEXT_PUBLIC_ENABLE_AUTOLOGIN === "true" ? { username: "demo", email: "demo@demo.com", password: "demo", prefillOnly: true } : false,
+
+    // Enforce dark mode for the admin panel
+    theme: "dark",
   },
+
   collections: [Users, Media, Guarantees, References, Courses, Exams, PostCategories, Posts],
 
   // This config helps us configure global or default features that the other editors can inherit

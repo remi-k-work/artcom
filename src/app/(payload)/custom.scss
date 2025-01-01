@@ -1,12 +1,13 @@
 @import "~@payloadcms/ui/scss";
 
+@tailwind components;
+@tailwind utilities;
+
 /* the props */
 @import "open-props/style";
 
 /* optional imports that use the props */
 @import "open-props/colors-hsl";
-@import "open-props/masks/edges";
-@import "open-props/masks/corner-cuts";
 
 html {
   --theme-elevation-0: rgb(24, 20, 48);
@@ -32,8 +33,13 @@ html {
 
   --theme-bg: unset;
 
+  /* gradients (dark) */
   --gradient-1: linear-gradient(45deg, var(--gray-12) 57%, hsl(var(--gray-10-hsl) / 83%) 69%, var(--teal-7) 100%);
   --gradient-2: linear-gradient(45deg, var(--gray-12) 57%, hsl(var(--gray-10-hsl) / 83%) 69%, var(--indigo-7) 100%);
+
+  /* shadcn/ui (dark) */
+  --accent: var(--yellow-6-hsl);
+  --accent-foreground: var(--yellow-12-hsl);
 }
 
 body {
@@ -43,6 +49,11 @@ body {
     auto 200vh,
     auto 200vh;
   background-repeat: no-repeat;
+}
+
+// Adding tailwind breaks the admin tables (*manual fix here)
+.table {
+  inline-size: 100%;
 }
 
 // body,

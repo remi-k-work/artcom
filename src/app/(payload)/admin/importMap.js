@@ -17,6 +17,7 @@ import { BoldFeatureClient as BoldFeatureClient_e70f5e05f09f93e00b997edb1ef0c864
 import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { default as default_6f14b747d7d9d385f91171711bbf7132 } from '@/components/payload/Icon'
 import { default as default_e34c28bdc97e3fecf976b23b26d64cc9 } from '@/components/payload/Logo'
+import { default as default_7da034ebbbd2c5d743db5ace5475afc0 } from '@/components/payload/DemoMode'
 import { default as default_53fa867caced6aab1fa18aaf13cfaa01 } from '@/components/payload/LineBreak'
 
 export const importMap = {
@@ -39,5 +40,6 @@ export const importMap = {
   "@payloadcms/richtext-lexical/client#ItalicFeatureClient": ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@/components/payload/Icon#default": default_6f14b747d7d9d385f91171711bbf7132,
   "@/components/payload/Logo#default": default_e34c28bdc97e3fecf976b23b26d64cc9,
+  "@/components/payload/DemoMode#default": default_7da034ebbbd2c5d743db5ace5475afc0,
   "@/components/payload/LineBreak#default": default_53fa867caced6aab1fa18aaf13cfaa01
 }
