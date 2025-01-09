@@ -1,4 +1,7 @@
 .check-our-banners {
+  max-inline-size: calc(var(--size-content-3) * 3);
+
+  margin-inline: auto;
   margin-block-end: var(--size-9);
 
   display: flex;
