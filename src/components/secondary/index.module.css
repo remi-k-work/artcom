@@ -30,12 +30,15 @@
   }
 
   & > article {
+    inline-size: 75%;
+    margin-inline: auto;
+
     display: grid;
     gap: var(--size-3);
 
     place-items: stretch center;
 
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--size-content-3)), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--size-content-2)), 1fr));
 
     & > h2 {
       grid-column: 1 / -1;
