@@ -7,7 +7,7 @@ import { ComponentPropsWithoutRef } from "react";
 import Link from "next/link";
 
 // other libraries
-import { motion, MotionProps, Variants } from "framer-motion";
+import { motion, MotionProps, Variants } from "motion/react";
 import { useUserSettingsStore } from "@/stores/userSettingsProvider";
 
 // components

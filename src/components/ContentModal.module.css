@@ -25,6 +25,10 @@
   opacity: 0;
 }
 
+.content-modal:focus-visible {
+  outline: none;
+}
+
 .content-modal::backdrop {
   backdrop-filter: blur(25px);
   transition: backdrop-filter 1s ease;
