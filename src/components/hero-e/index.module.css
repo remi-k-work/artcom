@@ -1,6 +1,9 @@
 .hero {
-  margin-inline: var(--size-10) var(--size-6);
+  max-inline-size: calc(var(--size-content-3) * 3);
+
+  margin-inline: auto;
   margin-block: var(--size-10) var(--size-9);
+  padding-inline: var(--size-10) var(--size-6);
 
   display: grid;
 
@@ -15,7 +18,7 @@
 
   /* Small to medium screens */
   @media screen and (max-width: 1024px) {
-    margin-inline: var(--size-6);
+    padding-inline: var(--size-3);
 
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;

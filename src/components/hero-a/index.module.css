@@ -1,7 +1,7 @@
 .hero {
   max-inline-size: calc(var(--size-content-3) * 3);
 
-  margin-inline: var(--size-6);
+  padding-inline: var(--size-3);
   margin-block: var(--size-10) var(--size-9);
 
   display: grid;

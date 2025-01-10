@@ -25,6 +25,7 @@
 
     font-family: var(--font-1);
     font-size: var(--font-size-4);
+    text-transform: uppercase;
 
     /* Small to medium screens */
     @media screen and (max-width: 1024px) {

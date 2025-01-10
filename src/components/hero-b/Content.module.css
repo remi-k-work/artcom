@@ -1,14 +1,13 @@
 .content {
   grid-area: cnt;
-  place-self: start center;
+  place-self: start start;
 
   inline-size: 100%;
   max-inline-size: var(--size-content-3);
 
   /* Small to medium screens */
   @media screen and (max-width: 1024px) {
-    margin-inline: var(--size-6);
-    margin-block: var(--size-4);
+    place-self: start center;
 
     z-index: var(--layer-2);
   }
