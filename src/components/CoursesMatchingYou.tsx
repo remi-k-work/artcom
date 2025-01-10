@@ -16,7 +16,7 @@ export default function CoursesMatchingYou() {
       <h2>
         Szkolenia idealnie dopasowane
         <br />
-        <small className="text-text-2">do Twoich planów!</small>
+        <small>do Twoich planów!</small>
       </h2>
     </article>
   );

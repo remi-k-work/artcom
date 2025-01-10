@@ -7,7 +7,7 @@ export default function ArtcomExperienceSmall() {
       <h2>
         ARTCOM 1994-2025
         <br />
-        <small className="text-text-2">skorzystaj z naszego doświadczenia</small>
+        <small>skorzystaj z naszego doświadczenia</small>
       </h2>
     </article>
   );

@@ -3,11 +3,11 @@
 
   margin-inline: auto;
   margin-block: var(--size-10) var(--size-9);
-  padding-inline: var(--size-10) var(--size-6);
+  padding-inline: var(--size-3);
 
   display: grid;
 
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   grid-template-rows: auto 1fr auto;
   gap: var(--size-6);
 
@@ -18,8 +18,6 @@
 
   /* Small to medium screens */
   @media screen and (max-width: 1024px) {
-    padding-inline: var(--size-3);
-
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
 

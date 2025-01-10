@@ -14,9 +14,9 @@ export default function ArtcomExperience() {
   return (
     <article className={cn(styles["artcom-experience"], enableAnim && styles["artcom-experience--anim"])}>
       <h2>
-        ARTCOM 1994-2024
+        ARTCOM 1994-2025
         <br />
-        <small className="text-text-2">skorzystaj z naszego doświadczenia</small>
+        <small>skorzystaj z naszego doświadczenia</small>
       </h2>
     </article>
   );

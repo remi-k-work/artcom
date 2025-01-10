@@ -17,6 +17,7 @@
     font-family: var(--font-1);
     font-size: var(--font-size-5);
     font-weight: var(--font-weight-6);
+    text-transform: uppercase;
 
     color: hsl(var(--surface-1));
 
@@ -30,9 +31,6 @@
   }
 
   & > article {
-    inline-size: 75%;
-    margin-inline: auto;
-
     display: grid;
     gap: var(--size-3);
 
@@ -59,6 +57,17 @@
       color: hsl(var(--popover-foreground));
 
       text-align: center;
+
+      /* Large screens */
+      @media screen and (min-width: 1024px) {
+        place-self: stretch start;
+      }
+    }
+
+    /* Large screens */
+    @media screen and (min-width: 1024px) {
+      inline-size: 95%;
+      margin-inline: auto;
     }
   }
 }
