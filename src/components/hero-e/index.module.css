@@ -1,5 +1,5 @@
 .hero {
-  max-inline-size: calc(var(--size-content-3) * 3);
+  max-inline-size: calc(var(--size-content-3) * 2);
 
   margin-inline: auto;
   margin-block: var(--size-10) var(--size-9);
