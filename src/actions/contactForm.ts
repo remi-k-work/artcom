@@ -3,23 +3,24 @@
 // next
 import { revalidatePath } from "next/cache";
 
+// payload and db access
+import { newContactRequest } from "@/db/contactRequests";
+
 // other libraries
 import { actionClient } from "@/lib/safeAction";
 import { contactFormSchema } from "@/schemas/contactForm";
 import { ContactFormActionResult } from "@/schemas/types";
 import { handleValidationErrorsShape } from "@/schemas/consts";
 
-import { waait } from "@/lib/helpers";
-
 export const newContact = actionClient
   .schema(contactFormSchema, { handleValidationErrorsShape })
   .action(async ({ parsedInput }): Promise<ContactFormActionResult> => {
     // Collect and prepare validated data
-    const { name } = parsedInput;
+    const { name, email, telno, message } = parsedInput;
 
     try {
-      // Submit the contact form with validated data
-      await waait();
+      // Create a new contact request
+      await newContactRequest(name, email, telno, message);
     } catch (error) {
       // If any error occurs, rethrow, which means action simply "failed"
       throw error;

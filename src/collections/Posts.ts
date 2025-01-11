@@ -23,6 +23,7 @@ export const Posts: CollectionConfig<"posts"> = {
   access: {
     // Only admins and bloggers can create, update, and delete posts (everyone can read)
     create: isAdminOrBlogger,
+    read: () => true,
     update: isAdminOrBlogger,
     delete: isAdminOrBlogger,
   },

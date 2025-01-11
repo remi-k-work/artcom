@@ -22,6 +22,7 @@ export const Exams: CollectionConfig<"exams"> = {
   access: {
     // Only admins can create, update, and delete courses (everyone can read)
     create: isAdmin,
+    read: () => true,
     update: isAdmin,
     delete: isAdmin,
   },

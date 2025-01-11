@@ -19,6 +19,7 @@ export interface Config {
     exams: Exam;
     'post-categories': PostCategory;
     posts: Post;
+    'contact-requests': ContactRequest;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -33,6 +34,7 @@ export interface Config {
     exams: ExamsSelect<false> | ExamsSelect<true>;
     'post-categories': PostCategoriesSelect<false> | PostCategoriesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
+    'contact-requests': ContactRequestsSelect<false> | ContactRequestsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -357,6 +359,19 @@ export interface Post {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-requests".
+ */
+export interface ContactRequest {
+  id: number;
+  name: string;
+  email: string;
+  telno: string;
+  message: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -393,6 +408,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'posts';
         value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'contact-requests';
+        value: number | ContactRequest;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -576,6 +595,18 @@ export interface PostsSelect<T extends boolean = true> {
         id?: T;
         name?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-requests_select".
+ */
+export interface ContactRequestsSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  telno?: T;
+  message?: T;
   updatedAt?: T;
   createdAt?: T;
 }

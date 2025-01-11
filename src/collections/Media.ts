@@ -26,6 +26,7 @@ export const Media: CollectionConfig<"media"> = {
   access: {
     // Only admins and bloggers can create, update, and delete media (everyone can read)
     create: isAdminOrBlogger,
+    read: () => true,
     update: isAdminOrBlogger,
     delete: isAdminOrBlogger,
   },

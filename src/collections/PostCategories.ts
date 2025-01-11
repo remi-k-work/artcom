@@ -18,6 +18,7 @@ export const PostCategories: CollectionConfig<"post-categories"> = {
   access: {
     // Only admins can create, update, and delete post categories (everyone can read)
     create: isAdmin,
+    read: () => true,
     update: isAdmin,
     delete: isAdmin,
   },

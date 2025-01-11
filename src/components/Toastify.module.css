@@ -1,5 +1,5 @@
 .toast {
-  min-inline-size: max-content;
+  min-inline-size: var(--size-content-2);
 
   padding-inline: var(--size-3);
   padding-block: var(--size-3);

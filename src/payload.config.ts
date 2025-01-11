@@ -15,6 +15,7 @@ import { Courses } from "./collections/Courses";
 import { Exams } from "./collections/Exams";
 import { PostCategories } from "./collections/PostCategories";
 import { Posts } from "./collections/Posts";
+import { ContactRequests } from "./collections/ContactRequests";
 
 import { customTranslations } from "./custom-translations";
 import { defaultLexical } from "./collections/fields/defaultLexical";
@@ -48,7 +49,7 @@ export default buildConfig({
     theme: "dark",
   },
 
-  collections: [Users, Media, Guarantees, References, Courses, Exams, PostCategories, Posts],
+  collections: [Users, Media, Guarantees, References, Courses, Exams, PostCategories, Posts, ContactRequests],
 
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,

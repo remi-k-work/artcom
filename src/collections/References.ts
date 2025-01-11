@@ -26,6 +26,7 @@ export const References: CollectionConfig<"references"> = {
   access: {
     // Only admins can create, update, and delete references (everyone can read)
     create: isAdmin,
+    read: () => true,
     update: isAdmin,
     delete: isAdmin,
   },

@@ -35,9 +35,9 @@ export default function useContactActionFeedback() {
       setFeedback(
         <Toastify type={"success"} onTimedOut={() => setFeedback(undefined)}>
           <CheckBadgeIcon width={64} height={64} className="m-auto" />
-          <p className="text-center font-geistSans text-xl">Dziękujemy!</p>
-          <p>Twoja wiadomość została wysłana!</p>
-          <div className="max-w-72 overflow-x-auto">
+          <p className="text-center font-font-1 text-xl">Dziękujemy!</p>
+          <p className="text-center">Twoja wiadomość została wysłana!</p>
+          <div className="m-auto max-w-72 overflow-x-auto">
             <table className="m-auto border-separate border border-accent-foreground text-center">
               <tbody>
                 <tr>
@@ -67,16 +67,16 @@ export default function useContactActionFeedback() {
       setFeedback(
         <Toastify onTimedOut={() => setFeedback(undefined)}>
           <ClipboardDocumentCheckIcon width={64} height={64} className="m-auto" />
-          <p className="text-center font-geistSans text-xl">Brakujące pola!</p>
-          <p>Popraw pola formularza kontaktowego i spróbuj ponownie.</p>
+          <p className="text-center font-font-1 text-xl">Brakujące pola!</p>
+          <p className="text-center">Popraw pola formularza kontaktowego i spróbuj ponownie.</p>
         </Toastify>,
       );
     } else if (actionStatus === "failed") {
       setFeedback(
         <Toastify type={"warning"} onTimedOut={() => setFeedback(undefined)}>
           <CircleStackIcon width={64} height={64} className="m-auto" />
-          <p className="text-center font-geistSans text-xl">Błąd serwera!</p>
-          <p>Wiadomość nie została pomyślnie wysłana; Spróbuj ponownie później.</p>
+          <p className="text-center font-font-1 text-xl">Błąd serwera!</p>
+          <p className="text-center">Wiadomość nie została pomyślnie wysłana; Spróbuj ponownie później.</p>
         </Toastify>,
       );
     }
