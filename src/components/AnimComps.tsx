@@ -115,6 +115,7 @@ export function MotionUnList({ initial, whileInView, transition, variants, ...pr
         whileInView={whileInView}
         transition={transition}
         variants={variants}
+        viewport={{ once: true }}
         {...(props as ComponentPropsWithoutRef<typeof Motion_UnList>)}
       />
     );
@@ -132,6 +133,7 @@ export function MotionListItem({ initial, whileInView, transition, variants, ...
         whileInView={whileInView}
         transition={transition}
         variants={variants}
+        viewport={{ once: true }}
         {...(props as ComponentPropsWithoutRef<typeof Motion_ListItem>)}
       />
     );
@@ -149,6 +151,7 @@ export function MotionAccordion({ initial, whileInView, transition, variants, ..
         whileInView={whileInView}
         transition={transition}
         variants={variants}
+        viewport={{ once: true }}
         {...(props as ComponentPropsWithoutRef<typeof Motion_Accordion>)}
       />
     );
@@ -166,6 +169,7 @@ export function MotionAccordionItem({ initial, whileInView, transition, variants
         whileInView={whileInView}
         transition={transition}
         variants={variants}
+        viewport={{ once: true }}
         {...(props as ComponentPropsWithoutRef<typeof Motion_AccordionItem>)}
       />
     );
@@ -183,6 +187,7 @@ export function MotionLink({ initial, whileInView, transition, variants, ...prop
         whileInView={whileInView}
         transition={transition}
         variants={variants}
+        viewport={{ once: true }}
         {...(props as ComponentPropsWithoutRef<typeof Motion_Link>)}
       />
     );
@@ -200,6 +205,7 @@ export function MotionArticle({ initial, whileInView, transition, variants, ...p
         whileInView={whileInView}
         transition={transition}
         variants={variants}
+        viewport={{ once: true }}
         {...(props as ComponentPropsWithoutRef<typeof Motion_Article>)}
       />
     );
@@ -210,7 +216,8 @@ export function MotionSvg({ initial, whileInView, ...props }: MotionSvgProps) {
   // Are the animations enabled or disabled by the user?
   const enableAnim = useUserSettingsStore((state) => state.enableAnim);
 
-  if (enableAnim) return <Motion_Svg initial={initial} whileInView={whileInView} {...(props as ComponentPropsWithoutRef<typeof Motion_Svg>)} />;
+  if (enableAnim)
+    return <Motion_Svg initial={initial} whileInView={whileInView} viewport={{ once: true }} {...(props as ComponentPropsWithoutRef<typeof Motion_Svg>)} />;
   return <svg {...props} />;
 }
 
