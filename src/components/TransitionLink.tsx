@@ -1,7 +1,7 @@
 "use client";
 
 // react
-import { MouseEvent, ReactNode, useTransition } from "react";
+import { MouseEvent, ReactNode, useEffect, useTransition } from "react";
 
 // next
 import Link, { LinkProps } from "next/link";
@@ -22,8 +22,16 @@ export default function TransitionLink({ href, children, className, onClick, ...
   // Are the animations enabled or disabled by the user?
   const enableAnim = useUserSettingsStore((state) => state.enableAnim);
 
+  const [isPending, startTransition] = useTransition();
+
   const router = useRouter();
-  const [, startTransition] = useTransition();
+
+  useEffect(() => {
+    const main = document.querySelector("main");
+    if (main?.classList.contains("page-transition") && !isPending) {
+      main?.classList.remove("page-transition");
+    }
+  }, [isPending]);
 
   const handleTransition = (e: MouseEvent<HTMLAnchorElement>) => {
     if (!enableAnim) {
@@ -32,17 +40,14 @@ export default function TransitionLink({ href, children, className, onClick, ...
     }
 
     e.preventDefault();
-    onClick?.(e);
 
-    const main = document.querySelector("main");
-    startTransition(async function () {
+    startTransition(async () => {
+      const main = document.querySelector("main");
       main?.classList.add("page-transition");
 
       await delay(500);
       router.push(href);
       await delay(500);
-
-      main?.classList.remove("page-transition");
     });
   };
 
