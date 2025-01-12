@@ -71,11 +71,8 @@ export default function useFormActionWithVal<S extends Schema, BAS extends reado
       ev.preventDefault();
 
       // Show the "invalid" feedback when react's hook form validation fails
-      const {
-        formState: { isValid },
-        handleSubmit,
-      } = useFormMethods;
-      if (!isValid) showFeedback("invalid");
+      const { trigger, handleSubmit } = useFormMethods;
+      trigger().then((isValid) => !isValid && showFeedback("invalid"));
 
       // Validate the data on the client-side using react's hook form, then run our server action, which validates again
       handleSubmit(onSubmitRHF)(ev);
