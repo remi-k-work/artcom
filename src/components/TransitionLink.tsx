@@ -40,6 +40,7 @@ export default function TransitionLink({ href, children, className, onClick, ...
     }
 
     e.preventDefault();
+    onClick?.(e);
 
     startTransition(async () => {
       const main = document.querySelector("main");
