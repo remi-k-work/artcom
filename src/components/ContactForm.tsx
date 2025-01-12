@@ -4,7 +4,7 @@
 import styles from "./ContactForm.module.css";
 
 // react
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 // server actions and mutations
 import { newContact } from "@/actions/contactForm";
@@ -33,9 +33,11 @@ export default function ContactForm() {
   // Resetting a form with a key: you can force a subtree to reset its state by giving it a different key
   const [formResetKey, setFormResetKey] = useState("ContactForm");
 
+  const handleResetClicked = useCallback(() => setFormResetKey(`ContactForm${Date.now()}`), []);
+
   return (
     <ContactFormStoreProvider key={formResetKey}>
-      <TheFormWrapped onResetClicked={() => setFormResetKey(`ContactForm${Date.now()}`)} />
+      <TheFormWrapped onResetClicked={handleResetClicked} />
     </ContactFormStoreProvider>
   );
 }
@@ -52,7 +54,7 @@ function TheFormWrapped({ onResetClicked }: TheFormWrappedProps) {
   const telnoChanged = useContactFormStore((state) => state.telnoChanged);
 
   // To provide feedback to the user
-  const { feedback, showFeedback } = useContactActionFeedback();
+  const { feedback, showFeedback } = useContactActionFeedback({ onResetClicked });
 
   const { useFormMethods, onSubmit, allFieldErrors, isExecuting } = useFormActionWithVal<typeof contactFormSchema, readonly [], ContactFormActionResult>({
     safeActionFunc: newContact,
