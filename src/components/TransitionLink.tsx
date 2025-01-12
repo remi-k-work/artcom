@@ -5,7 +5,7 @@ import { MouseEvent, ReactNode, useEffect, useTransition } from "react";
 
 // next
 import Link, { LinkProps } from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 // other libraries
 import { delay } from "@/lib/helpers";
@@ -25,13 +25,14 @@ export default function TransitionLink({ href, children, className, onClick, ...
   const [isPending, startTransition] = useTransition();
 
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const main = document.querySelector("main");
     if (main?.classList.contains("page-transition") && !isPending) {
       main?.classList.remove("page-transition");
     }
-  }, [isPending]);
+  }, [pathname, isPending]);
 
   const handleTransition = (e: MouseEvent<HTMLAnchorElement>) => {
     if (!enableAnim) {
