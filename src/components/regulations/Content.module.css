@@ -1,0 +1,13 @@
+.content1,
+.content2 {
+  place-self: stretch center;
+  padding-inline: var(--size-6);
+}
+
+.content1 {
+  grid-area: ct1;
+}
+
+.content2 {
+  grid-area: ct2;
+}

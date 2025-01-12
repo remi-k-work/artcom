@@ -6,6 +6,9 @@ import styles from "./ContactForm.module.css";
 // react
 import { useCallback, useState } from "react";
 
+// next
+import Link from "next/link";
+
 // server actions and mutations
 import { newContact } from "@/actions/contactForm";
 
@@ -121,8 +124,12 @@ function TheFormWrapped({ onResetClicked }: TheFormWrappedProps) {
             />
             <FormCheckField fieldName={"regulations"} defaultChecked={regulations}>
               <p className="text-end leading-5">
-                W Regulaminie szkoleń zapoznałem się z polityką prywatności i zostałem/am poinformowany, kto jest administratorem danych, w jakim celu będą one
-                przetwarzane oraz jakie prawa mi przysługują.
+                W&nbsp;
+                <Link href="/regulations" className="text-text-1 underline">
+                  Regulaminie Szkoleń
+                </Link>
+                &nbsp;zapoznałem się z polityką prywatności i zostałem/am poinformowany, kto jest administratorem danych, w jakim celu będą one przetwarzane
+                oraz jakie prawa mi przysługują.
               </p>
             </FormCheckField>
             <FormSubmit isExecuting={isExecuting} onResetClicked={onResetClicked} />

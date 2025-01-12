@@ -1,6 +1,9 @@
 // component css styles
 import styles from "./Courses.module.css";
 
+// next
+import Link from "next/link";
+
 // components
 import TransitionLink from "@/components/TransitionLink";
 
@@ -19,7 +22,7 @@ export default function Courses() {
           <TransitionLink href="/courses#courses3">HR i Inne</TransitionLink>
         </li>
         <li>
-          <TransitionLink href="#">Regulamin Szkoleń</TransitionLink>
+          <Link href="/regulations">Regulamin Szkoleń</Link>
         </li>
       </ul>
     </section>
