@@ -7,7 +7,7 @@ import CheckOurBanners from "@/components/CheckOurBanners";
 import Secondary from "@/components/secondary";
 import GuaranteesFetcher from "@/components/GuaranteesFetcher";
 import ReferencesFetcher from "@/components/ReferencesFetcher";
-import { ACCORDION_ITEM_VAR_L, ACCORDION_LIST_VAR, DRAW, MotionAccordion, MotionAccordionItem, MotionPath, MotionSvg } from "@/components/AnimComps";
+import { ACCORDION_ITEM_VAR_L, ACCORDION_LIST_VAR, MotionAccordion, MotionAccordionItem } from "@/components/AnimComps";
 
 export default function Page() {
   return (
