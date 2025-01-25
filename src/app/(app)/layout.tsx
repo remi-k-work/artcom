@@ -17,6 +17,9 @@ import { ReactNode } from "react";
 // next
 import type { Metadata } from "next";
 
+// other libraries
+import { Analytics } from "@vercel/analytics/next";
+
 // components
 import { UserSettingsStoreProvider } from "@/stores/userSettingsProvider";
 import Header from "@/components/header";
@@ -57,6 +60,7 @@ export default function Layout({ contentModal, children }: LayoutProps) {
             <Footer />
           </UserSettingsStoreProvider>
         </article>
+        <Analytics debug={false} />
       </body>
     </html>
   );
