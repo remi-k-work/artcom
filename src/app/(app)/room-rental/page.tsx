@@ -62,30 +62,30 @@ export default function Page() {
       <Secondary header="Nasze sale zapewniają">
         <MotionUnList className="mt-[--size-6] text-center text-xl" initial="hidden" whileInView="visible" variants={ACCORDION_LIST_VAR}>
           <MotionListItem className="bg-surface-3 p-6" variants={ACCORDION_ITEM_VAR_L}>
-            <p className="m-auto text-text-2">Dogodną Lokalizację</p>
-            <p className="m-auto text-base text-text-1">Znane centrum handlowo-biurowe RESPAN w Rzeszowie</p>
+            <p className="m-auto text-surface-4">Dogodną Lokalizację</p>
+            <p className="m-auto text-base text-surface-1">Znane centrum handlowo-biurowe RESPAN w Rzeszowie</p>
           </MotionListItem>
-          <MotionListItem className="p-6" variants={ACCORDION_ITEM_VAR_R}>
-            <p className="m-auto text-surface-1">Dostępne (również bezpłatne) parkingi przy budynku</p>
-          </MotionListItem>
-          <MotionListItem className="bg-surface-3 p-6" variants={ACCORDION_ITEM_VAR_L}>
-            <p className="m-auto text-text-2">Winda oraz brak barier dla osób niepełnosprawnych</p>
-          </MotionListItem>
-          <MotionListItem className="p-6" variants={ACCORDION_ITEM_VAR_R}>
-            <p className="m-auto text-surface-1">Opcjonalny wynajem sprzętu komputerowego (laptopy), ksero itp.</p>
+          <MotionListItem className="bg-surface-1 p-6" variants={ACCORDION_ITEM_VAR_R}>
+            <p className="m-auto text-surface-4">Dostępne (również bezpłatne) parkingi przy budynku</p>
           </MotionListItem>
           <MotionListItem className="bg-surface-3 p-6" variants={ACCORDION_ITEM_VAR_L}>
-            <p className="m-auto text-text-2">Możliwość organizacji cateringu (obiad, przerwy kawowe)</p>
+            <p className="m-auto text-surface-4">Winda oraz brak barier dla osób niepełnosprawnych</p>
           </MotionListItem>
-          <MotionListItem className="p-6" variants={ACCORDION_ITEM_VAR_R}>
-            <p className="m-auto text-surface-1">Sala Informatyczna</p>
-            <p className="m-auto text-base text-surface-2">od 30 zł netto/godzina lub od 200 zł netto/dzień</p>
+          <MotionListItem className="bg-surface-1 p-6" variants={ACCORDION_ITEM_VAR_R}>
+            <p className="m-auto text-surface-4">Opcjonalny wynajem sprzętu komputerowego (laptopy), ksero itp.</p>
           </MotionListItem>
           <MotionListItem className="bg-surface-3 p-6" variants={ACCORDION_ITEM_VAR_L}>
-            <p className="m-auto text-text-2">Sala Multimedialna</p>
-            <p className="m-auto text-base text-text-1">od 25 zł netto/godzina lub od 180 zł netto/dzień</p>
+            <p className="m-auto text-surface-4">Możliwość organizacji cateringu (obiad, przerwy kawowe)</p>
           </MotionListItem>
-          <MotionListItem className="p-6" variants={ACCORDION_ITEM_VAR_R}>
+          <MotionListItem className="bg-surface-1 p-6" variants={ACCORDION_ITEM_VAR_R}>
+            <p className="m-auto text-surface-4">Sala Informatyczna</p>
+            <p className="m-auto text-base text-surface-4">od 30 zł netto/godzina lub od 200 zł netto/dzień</p>
+          </MotionListItem>
+          <MotionListItem className="bg-surface-3 p-6" variants={ACCORDION_ITEM_VAR_L}>
+            <p className="m-auto text-surface-4">Sala Multimedialna</p>
+            <p className="m-auto text-base text-surface-1">od 25 zł netto/godzina lub od 180 zł netto/dzień</p>
+          </MotionListItem>
+          <MotionListItem className="bg-surface-4 p-6" variants={ACCORDION_ITEM_VAR_R}>
             <p className="m-auto text-base text-surface-1">
               * Ceny uzgadniane są w zależności od liczby osób na szkoleniu, dodatkowego wyposażenia, liczby godzin/dni wynajmu sal.
             </p>

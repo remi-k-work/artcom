@@ -67,15 +67,15 @@ export default function Page() {
             <MotionAccordionItem value="item6" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>PZI ARTCOM posiada</AccordionTrigger>
               <AccordionContent>
-                <ul className="border border-surface-1 text-center">
-                  <li className="bg-surface-1 p-2">
+                <ul className="border border-background text-center">
+                  <li className="bg-background p-2">
                     Status Akademii Edukacyjnej VCC (Vacational Competence Certificate) - Certyfikat nr AE-001-364 oraz autoryzowanego Partnera Egzaminacyjnego
                     VCC Examinations.
                   </li>
                   <li className="p-2">
                     Akredytację Polskiego Towarzystwa Informatycznego dla Certyfikowanego Laboratorium ECDL (PL-LAB1582) - przeprowadza egzaminy ECDL.
                   </li>
-                  <li className="bg-surface-1 p-2">Akredytację producentów (Asseco, Sage) dla szkoleń finansowo-księgowych.</li>
+                  <li className="bg-background p-2">Akredytację producentów (Asseco, Sage) dla szkoleń finansowo-księgowych.</li>
                   <li className="p-2">
                     Współpracujemy z Centrum Egzaminacyjnym TELC - (The Eurpean Language Certyficates) - międzynarodowe standaryzowane testy 10 języków
                     europejskich.
@@ -86,8 +86,8 @@ export default function Page() {
             <MotionAccordionItem value="item7" variants={ACCORDION_ITEM_VAR_L}>
               <AccordionTrigger>W ostatnich latach prowadziliśmy również szkolenia</AccordionTrigger>
               <AccordionContent>
-                <ul className="border border-surface-1 text-center">
-                  <li className="bg-surface-1 p-2">
+                <ul className="border border-background text-center">
+                  <li className="bg-background p-2">
                     <p className="m-auto text-text-2">„Szkolenie - Staż - etat - edycja III”</p>
                     <p className="m-auto text-sm text-text-1">(2022 - 2023 r.)</p>
                   </li>
@@ -95,7 +95,7 @@ export default function Page() {
                     <p className="m-auto text-text-2">„WORK-ON. Program kompleksowej aktywizacji zawodowej osób z niepełnosprawnościami”</p>
                     <p className="m-auto text-sm text-text-1">(2023 r.)</p>
                   </li>
-                  <li className="bg-surface-1 p-2">
+                  <li className="bg-background p-2">
                     <p className="m-auto text-text-2">„Kwalifikacje cyfrowe szansą na lepszą przyszłość w społeczeństwie informacyjnym”</p>
                     <p className="m-auto text-sm text-text-1">(2022 r.)</p>
                   </li>
@@ -103,7 +103,7 @@ export default function Page() {
                     <p className="m-auto text-text-2">„Młodzi na start”</p>
                     <p className="m-auto text-sm text-text-1">(2017 r.)</p>
                   </li>
-                  <li className="bg-surface-1 p-2">
+                  <li className="bg-background p-2">
                     <p className="m-auto text-text-2">„Kompetencje cyfrowe dla Wszystkich”</p>
                     <p className="m-auto text-sm text-text-1">(2017 - 2018 r.)</p>
                   </li>
@@ -111,7 +111,7 @@ export default function Page() {
                     <p className="m-auto text-text-2">„Praca - to się opłaca”</p>
                     <p className="m-auto text-sm text-text-1">(2017 - 2018 r.)</p>
                   </li>
-                  <li className="bg-surface-1 p-2">
+                  <li className="bg-background p-2">
                     <p className="m-auto text-text-2">„POWER do pracy - edycja II”</p>
                     <p className="m-auto text-sm text-text-1">(2018 r.)</p>
                   </li>
@@ -119,7 +119,7 @@ export default function Page() {
                     <p className="m-auto text-text-2">„Szkolenie - staż - etat”</p>
                     <p className="m-auto text-sm text-text-1">(2017 r.)</p>
                   </li>
-                  <li className="bg-surface-1 p-2">
+                  <li className="bg-background p-2">
                     <p className="m-auto text-text-2">„Szkolenia Komputerowe Twoją szansą”</p>
                     <p className="m-auto text-sm text-text-1">(2017 - 2018 r.)</p>
                   </li>
@@ -127,7 +127,7 @@ export default function Page() {
                     <p className="m-auto text-text-2">„Kompetencje na miarę XXI wieku”</p>
                     <p className="m-auto text-sm text-text-1">(2017 - 2018 r.)</p>
                   </li>
-                  <li className="bg-surface-1 p-2">
+                  <li className="bg-background p-2">
                     <p className="m-auto text-text-2">„Gwarancje dla młodzieży”</p>
                     <p className="m-auto text-sm text-text-1">(2016 r.)</p>
                   </li>

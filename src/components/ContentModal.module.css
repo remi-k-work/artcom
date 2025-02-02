@@ -1,5 +1,5 @@
 .content-modal {
-  background: var(--gradient-back);
+  background: hsl(var(--background));
 
   max-inline-size: 95vw;
   max-block-size: min(95vh, 100%);
@@ -43,7 +43,7 @@
 }
 
 .content-modal > form > header {
-  background-image: var(--gradient-2), var(--noise-4);
+  background-image: var(--gradient-2), var(--noise-5);
   background-size: cover;
 
   padding-inline: var(--size-1);

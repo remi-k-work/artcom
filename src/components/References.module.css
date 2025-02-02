@@ -2,7 +2,7 @@
   inline-size: 100%;
   max-inline-size: var(--size-content-3);
 
-  background-image: var(--gradient-2), var(--noise-4);
+  background-image: var(--gradient-2), var(--noise-5);
   background-size: cover;
 
   margin-block: var(--size-6) 0;
@@ -25,6 +25,7 @@
 
     font-family: var(--font-1);
     font-size: var(--font-size-4);
+    color: hsl(var(--surface-4));
     text-transform: uppercase;
 
     /* Small to medium screens */

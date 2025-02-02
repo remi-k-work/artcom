@@ -17,7 +17,7 @@ export default function ComputerRoom() {
     <MotionArticle className={styles["computer-room"]} {...FADE_IN}>
       <h3>Sala Informatyczna</h3>
       <Image src={headerImg} alt="" sizes="33vw" className="object-contain" />
-      <article className="prose">
+      <article className="prose dark:prose-invert">
         <ul>
           <li>40 m2</li>
           <li>12+1 stanowisk komputerowych</li>

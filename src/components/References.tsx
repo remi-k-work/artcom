@@ -53,7 +53,7 @@ export default function References({ references: { docs } }: ReferencesProps) {
             {docs.map(({ id, customerName, theirLocation, theirWebsite, reference }) => (
               <CarouselItem key={id}>
                 <div className={styles["reference"]}>
-                  <span className="flex items-center justify-center gap-1">
+                  <span className="flex items-center justify-center gap-1 text-secondary">
                     <StarIcon width={36} height={36} />
                     <StarIcon width={36} height={36} />
                     <StarIcon width={36} height={36} />
@@ -63,13 +63,13 @@ export default function References({ references: { docs } }: ReferencesProps) {
                   <br />
                   <p className="text-center">{reference}</p>
                   <br />
-                  <p className="text-center">
+                  <p className="text-center text-secondary">
                     <b>{customerName}</b>
                     <br />
                     <small>
                       {theirLocation}
                       <br />
-                      <Link href={theirWebsite} target="_blank">
+                      <Link href={theirWebsite} target="_blank" className="underline">
                         {new URL(theirWebsite).hostname}
                       </Link>
                     </small>
@@ -78,8 +78,8 @@ export default function References({ references: { docs } }: ReferencesProps) {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious variant="default" />
+          <CarouselNext variant="default" />
         </Carousel>
       </article>
     </MotionArticle>

@@ -44,14 +44,14 @@ export default function Guarantees({ guarantees: { docs } }: GuaranteesProps) {
             {docs.map(({ id, guarantee }, index) => (
               <CarouselItem key={id}>
                 <div className={styles["guarantee"]}>
-                  <span>{index + 1}</span>
                   <p className="text-center">{guarantee}</p>
+                  <div>{index + 1}</div>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious variant="default" />
+          <CarouselNext variant="default" />
         </Carousel>
       </article>
     </MotionArticle>

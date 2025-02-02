@@ -6,7 +6,7 @@
   pointer-events: none;
 
   background-image: url("/images/artcom-experience.webp");
-  background-size: contain;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 
@@ -21,9 +21,9 @@
     display: none;
 
     grid-area: stack;
-    place-self: start center;
+    place-self: end center;
 
-    background-color: hsl(var(--stone-12-hsl) / 0.4);
+    background-color: hsl(var(--background) / 0.6);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
@@ -32,15 +32,17 @@
 
     font-family: var(--font-1);
     font-size: var(--font-size-4);
-    color: hsl(var(--text-1));
+    color: hsl(var(--foreground));
 
     text-align: center;
   }
 
   /* Large screens */
   @media screen and (min-width: 1024px) {
-    max-inline-size: var(--size-content-3);
+    inline-size: auto;
+    block-size: var(--size-content-3);
 
+    background-size: contain;
     background-position: unset;
 
     & > h2 {

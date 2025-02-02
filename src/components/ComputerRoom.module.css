@@ -2,7 +2,7 @@
   inline-size: 100%;
   max-inline-size: var(--size-content-3);
 
-  background-image: var(--gradient-1), var(--noise-4);
+  background-image: var(--gradient-1), var(--noise-5);
   background-size: cover;
 
   margin-block: var(--size-6) 0;

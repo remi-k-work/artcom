@@ -2,7 +2,7 @@
   inline-size: 100%;
   max-inline-size: var(--size-content-3);
 
-  background-image: var(--gradient-1), var(--noise-4);
+  background-image: var(--gradient-1), var(--noise-5);
   background-size: cover;
 
   margin-block: var(--size-6) 0;
@@ -25,6 +25,7 @@
 
     font-family: var(--font-1);
     font-size: var(--font-size-4);
+    color: hsl(var(--surface-4));
     text-transform: uppercase;
 
     /* Small to medium screens */
@@ -96,13 +97,19 @@
     z-index: var(--layer-2);
   }
 
-  & > span {
+  & > div {
     grid-area: stack;
     place-self: center center;
 
-    font-size: var(--size-relative-14);
+    background: hsl(var(--secondary));
+    color: hsl(var(--popover));
 
-    opacity: 0.25;
+    inline-size: var(--size-relative-7);
+
+    font-size: var(--size-relative-13);
+    border-radius: var(--radius-round);
+
+    text-align: center;
 
     z-index: var(--layer-1);
   }

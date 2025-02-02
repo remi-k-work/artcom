@@ -31,24 +31,9 @@ html {
   --theme-elevation-950: rgb(255, 255, 255);
   --theme-elevation-1000: rgb(255, 255, 255);
 
-  --theme-bg: unset;
-
-  /* gradients (dark) */
-  --gradient-1: linear-gradient(45deg, var(--gray-12) 57%, hsl(var(--gray-10-hsl) / 83%) 69%, var(--teal-7) 100%);
-  --gradient-2: linear-gradient(45deg, var(--gray-12) 57%, hsl(var(--gray-10-hsl) / 83%) 69%, var(--indigo-7) 100%);
-
   /* shadcn/ui (dark) */
-  --accent: var(--yellow-6-hsl);
-  --accent-foreground: var(--yellow-12-hsl);
-}
-
-body {
-  background-color: var(--gray-12);
-  background-image: var(--gradient-2), var(--noise-4);
-  background-size:
-    auto 200vh,
-    auto 200vh;
-  background-repeat: no-repeat;
+  --accent: 42 96% 50%;
+  --accent-foreground: 31 100% 20%;
 }
 
 // Adding tailwind breaks the admin tables (*manual fix here)

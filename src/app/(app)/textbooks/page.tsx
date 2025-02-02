@@ -66,8 +66,8 @@ export default function Page() {
           <MotionAccordionItem value="item2" variants={ACCORDION_ITEM_VAR_R}>
             <AccordionTrigger>W książce zostały opisane następujące moduły</AccordionTrigger>
             <AccordionContent>
-              <ul className="border border-surface-1 text-center">
-                <li className="bg-surface-1 p-2">
+              <ul className="border border-background text-center">
+                <li className="bg-background p-2">
                   <p className="m-auto text-text-2">Podstawy pracy z komputerem</p>
                   <p className="m-auto text-sm text-text-1">MODUŁ B1</p>
                 </li>
@@ -75,7 +75,7 @@ export default function Page() {
                   <p className="m-auto text-text-2">Podstawy pracy w sieci</p>
                   <p className="m-auto text-sm text-text-1">MODUŁ B2</p>
                 </li>
-                <li className="bg-surface-1 p-2">
+                <li className="bg-background p-2">
                   <p className="m-auto text-text-2">Przetwarzanie tekstów</p>
                   <p className="m-auto text-sm text-text-1">MODUŁ B3</p>
                 </li>
@@ -83,7 +83,7 @@ export default function Page() {
                   <p className="m-auto text-text-2">Arkusze kalkulacyjne</p>
                   <p className="m-auto text-sm text-text-1">MODUŁ B4</p>
                 </li>
-                <li className="bg-surface-1 p-2">
+                <li className="bg-background p-2">
                   <p className="m-auto text-text-2">IT Security</p>
                   <p className="m-auto text-sm text-text-1">MODUŁ S3</p>
                 </li>
@@ -106,12 +106,12 @@ export default function Page() {
           </Button>
         </Hero.Footer1>
         <Hero.Footer2>
-          <table className="border-separate border border-surface-1 text-center">
+          <table className="border-separate border border-background text-center">
             <thead>
               <tr>
-                <td className="bg-surface-1 p-2 text-text-2">Wydawca</td>
-                <td className="bg-surface-1 p-2 text-text-2">Rok wydania</td>
-                <td className="bg-surface-1 p-2 text-text-2">Liczba stron</td>
+                <td className="bg-background p-2 text-text-2">Wydawca</td>
+                <td className="bg-background p-2 text-text-2">Rok wydania</td>
+                <td className="bg-background p-2 text-text-2">Liczba stron</td>
               </tr>
             </thead>
             <tbody>

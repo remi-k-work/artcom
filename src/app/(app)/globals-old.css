@@ -5,36 +5,36 @@
 @layer base {
   :root {
     /* light */
-    --text-1-light: 210 40% 2%;
-    --text-2-light: 210 9% 31%;
-    --surface-1-light: 60 6% 7%;
-    --surface-2-light: 60 6% 14%;
-    --surface-3-light: 60 3% 22%;
-    --surface-4-light: 200 27% 98%;
+    --text-1-light: var(--gray-12-hsl);
+    --text-2-light: var(--gray-7-hsl);
+    --surface-1-light: var(--gray-0-hsl);
+    --surface-2-light: var(--gray-2-hsl);
+    --surface-3-light: var(--gray-3-hsl);
+    --surface-4-light: var(--gray-4-hsl);
     /* gradients */
-    --gradient-1-light: linear-gradient(45deg, hsl(0 0% 100% / 93%) 9%, hsl(210 82% 84% / 73%), hsl(162 87% 35% / 83%) 100%);
-    --gradient-2-light: linear-gradient(45deg, hsl(0 0% 100% / 93%) 9%, hsl(209 71% 85% / 73%), hsl(228 81% 59% / 83%) 100%);
+    --gradient-1-light: linear-gradient(45deg, var(--gray-5) 57%, hsl(var(--gray-0-hsl) / 83%) 69%, var(--teal-7) 100%);
+    --gradient-2-light: linear-gradient(45deg, var(--gray-5) 57%, hsl(var(--gray-0-hsl) / 83%) 69%, var(--indigo-7) 100%);
 
     /* shadcn/ui (light) */
-    --background-light: 0 0% 100%;
-    --foreground-light: 214 14% 10%;
-    --card-light: 210 17% 98%;
-    --card-foreground-light: 214 14% 10%;
-    --popover-light: 210 17% 98%;
-    --popover-foreground-light: 214 14% 10%;
-    --primary-light: 162 87% 35%;
-    --primary-foreground-light: 163 89% 11%;
-    --secondary-light: 184 87% 35%;
-    --secondary-foreground-light: 184 89% 11%;
-    --muted-light: 210 17% 95%;
-    --muted-foreground-light: 210 7% 56%;
-    --accent-light: 42 96% 50%;
-    --accent-foreground-light: 31 100% 20%;
-    --destructive-light: 0 86% 59%;
-    --destructive-foreground-light: 210 16% 93%;
-    --border-light: 210 14% 83%;
-    --input-light: 210 14% 83%;
-    --ring-light: 214 14% 10%;
+    --background-light: var(--gray-0-hsl);
+    --foreground-light: var(--gray-10-hsl);
+    --card-light: var(--gray-0-hsl);
+    --card-foreground-light: var(--gray-10-hsl);
+    --popover-light: var(--gray-0-hsl);
+    --popover-foreground-light: var(--gray-10-hsl);
+    --primary-light: var(--gray-9-hsl);
+    --primary-foreground-light: var(--gray-2-hsl);
+    --secondary-light: var(--gray-1-hsl);
+    --secondary-foreground-light: var(--gray-9-hsl);
+    --muted-light: var(--gray-1-hsl);
+    --muted-foreground-light: var(--gray-6-hsl);
+    --accent-light: var(--gray-1-hsl);
+    --accent-foreground-light: var(--gray-9-hsl);
+    --destructive-light: var(--red-7-hsl);
+    --destructive-foreground-light: var(--gray-2-hsl);
+    --border-light: var(--gray-4-hsl);
+    --input-light: var(--gray-4-hsl);
+    --ring-light: var(--gray-10-hsl);
     --chart-1-light: var(--choco-6-hsl);
     --chart-2-light: var(--teal-6-hsl);
     --chart-3-light: var(--cyan-11-hsl);
@@ -46,36 +46,36 @@
     /***************************************************************/
 
     /* dark */
-    --text-1-dark: 210 17% 98%;
-    --text-2-dark: 210 11% 71%;
-    --surface-1-dark: 60 6% 7%;
-    --surface-2-dark: 60 6% 14%;
-    --surface-3-dark: 60 3% 22%;
-    --surface-4-dark: 60 6% 66%;
+    --text-1-dark: var(--gray-0-hsl);
+    --text-2-dark: var(--gray-5-hsl);
+    --surface-1-dark: var(--stone-12-hsl);
+    --surface-2-dark: var(--stone-11-hsl);
+    --surface-3-dark: var(--stone-10-hsl);
+    --surface-4-dark: var(--stone-0-hsl);
     /* gradients */
-    --gradient-1-dark: linear-gradient(45deg, hsl(0 0% 0% / 93%) 9%, hsl(214 14% 10% / 73%), hsl(162 87% 35% / 83%) 100%);
-    --gradient-2-dark: linear-gradient(45deg, hsl(0 0% 0% / 93%) 9%, hsl(214 14% 10% / 73%), hsl(228 81% 59% / 83%) 100%);
+    --gradient-1-dark: linear-gradient(45deg, var(--gray-12) 57%, hsl(var(--gray-10-hsl) / 83%) 69%, var(--teal-7) 100%);
+    --gradient-2-dark: linear-gradient(45deg, var(--gray-12) 57%, hsl(var(--gray-10-hsl) / 83%) 69%, var(--indigo-7) 100%);
 
     /* shadcn/ui (dark) */
-    --background-dark: 0 0% 0%;
-    --foreground-dark: 200 17% 98%;
-    --card-dark: 214 14% 10%;
-    --card-foreground-dark: 210 17% 98%;
-    --popover-dark: 214 14% 10%;
-    --popover-foreground-dark: 210 17% 98%;
-    --primary-dark: 162 87% 35%;
-    --primary-foreground-dark: 163 89% 11%;
-    --secondary-dark: 184 87% 35%;
-    --secondary-foreground-dark: 184 89% 11%;
-    --muted-dark: 210 10% 23%;
-    --muted-foreground-dark: 210 11% 71%;
-    --accent-dark: 42 96% 50%;
-    --accent-foreground-dark: 31 100% 20%;
-    --destructive-dark: 0 65% 48%;
-    --destructive-foreground-dark: 210 17% 98%;
-    --border-dark: 210 10% 23%;
-    --input-dark: 210 10% 23%;
-    --ring-dark: 210 14% 89%;
+    --background-dark: var(--gray-10-hsl);
+    --foreground-dark: var(--gray-0-hsl);
+    --card-dark: var(--gray-10-hsl);
+    --card-foreground-dark: var(--gray-0-hsl);
+    --popover-dark: var(--gray-10-hsl);
+    --popover-foreground-dark: var(--gray-0-hsl);
+    --primary-dark: var(--teal-7-hsl);
+    --primary-foreground-dark: var(--teal-12-hsl);
+    --secondary-dark: var(--gray-8-hsl);
+    --secondary-foreground-dark: var(--gray-0-hsl);
+    --muted-dark: var(--gray-8-hsl);
+    --muted-foreground-dark: var(--gray-5-hsl);
+    --accent-dark: var(--yellow-6-hsl);
+    --accent-foreground-dark: var(--yellow-12-hsl);
+    --destructive-dark: var(--red-9-hsl);
+    --destructive-foreground-dark: var(--gray-0-hsl);
+    --border-dark: var(--gray-8-hsl);
+    --input-dark: var(--gray-8-hsl);
+    --ring-dark: var(--gray-3-hsl);
     --chart-1-dark: var(--blue-8-hsl);
     --chart-2-dark: var(--teal-6-hsl);
     --chart-3-dark: var(--orange-5-hsl);
@@ -254,9 +254,14 @@
     padding-inline: 0;
     padding-block: 0;
 
-    background-color: hsl(var(--background));
+    background: hsl(var(--background));
     color: hsl(var(--foreground));
-    background-image: var(--gradient-1), var(--noise-5);
+
+    /* Large screens */
+    @media screen and (min-width: 1024px) {
+      padding-inline: var(--size-6);
+      padding-block: var(--size-6);
+    }
   }
 
   .page-transition {

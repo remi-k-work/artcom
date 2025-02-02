@@ -12,7 +12,7 @@ export default function Address() {
     <section className={styles["address"]}>
       <h4 className="max-w-none text-center md:text-start">Adres i Siedziba</h4>
       <ul className="flex flex-col text-center md:flex-row md:text-start">
-        <li className="flex-none bg-surface-1 p-2">
+        <li className="flex-none p-2">
           <Image src={logo} alt="ARTCOM" title="ARTCOM" className="mx-auto md:mx-0" />
         </li>
         <li className="flex-1 p-2">

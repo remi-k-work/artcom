@@ -25,7 +25,7 @@
     grid-area: stack;
     place-self: center center;
 
-    background-color: hsl(var(--stone-12-hsl) / 0.4);
+    background-color: hsl(var(--background) / 0.6);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
@@ -34,7 +34,7 @@
 
     font-family: var(--font-1);
     font-size: var(--font-size-5);
-    color: hsl(var(--text-1));
+    color: hsl(var(--foreground));
 
     text-align: center;
   }

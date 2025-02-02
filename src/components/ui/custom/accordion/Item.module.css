@@ -1,7 +1,7 @@
 .item {
   overflow: clip;
 
-  border-block-end: var(--border-size-1) dotted hsl(var(--surface-1));
+  border-block-end: var(--border-size-1) dotted hsl(var(--text-1));
 
   &:focus-within {
     position: relative;

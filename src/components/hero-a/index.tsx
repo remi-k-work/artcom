@@ -4,9 +4,6 @@ import styles from "./index.module.css";
 // react
 import { ReactNode } from "react";
 
-// components
-import RenderModel from "@/components/RenderModel";
-
 // types
 interface HeroProps {
   model?: ReactNode;

@@ -28,8 +28,8 @@ export default function Slides() {
           <Image src={slideImgC} alt="" sizes="(max-width: 1024px) 100vw, 50vw" className="h-full w-full object-cover" />
         </CarouselItem>
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious variant="default" />
+      <CarouselNext variant="default" />
     </Carousel>
   );
 }

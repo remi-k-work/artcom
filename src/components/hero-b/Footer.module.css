@@ -1,7 +1,7 @@
 .footer {
   grid-area: ftr;
 
-  background-image: var(--gradient-2), var(--noise-4);
+  background-image: var(--gradient-2), var(--noise-5);
   background-size: cover;
 
   padding-block: var(--size-4);

@@ -47,8 +47,8 @@ export default function Page() {
         />
         <Hero.Image imageSrc={heroImg} />
         <Hero.Content>
-          <ul className="border border-surface-1 text-center">
-            <li className="bg-surface-1 p-2">
+          <ul className="border border-background text-center">
+            <li className="bg-background p-2">
               <p className="m-auto text-text-2">Przedsiębiorstwo Zastosowań Informatyki &quot;ARTCOM&quot;</p>
               <p className="m-auto text-sm text-text-1">Roman Bocheński</p>
             </li>
