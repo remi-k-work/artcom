@@ -26,7 +26,7 @@ export default function Header({ contentImage1, contentImage2, children }: Heade
   return areBothImagesProvided ? (
     <header className={styles["header"]}>
       <Image
-        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage1.filename}
+        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage1._key}
         width={contentImage1.width!}
         height={contentImage1.height!}
         alt=""
@@ -35,7 +35,7 @@ export default function Header({ contentImage1, contentImage2, children }: Heade
         priority
       />
       <Image
-        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage2.filename}
+        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage2._key}
         width={contentImage2.width!}
         height={contentImage2.height!}
         alt=""
@@ -49,7 +49,7 @@ export default function Header({ contentImage1, contentImage2, children }: Heade
     <header className={cn(styles["header"], styles["header--one-img"])}>
       {contentImage1 && (
         <Image
-          src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage1.filename}
+          src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage1._key}
           width={contentImage1.width!}
           height={contentImage1.height!}
           alt=""
@@ -60,7 +60,7 @@ export default function Header({ contentImage1, contentImage2, children }: Heade
       )}
       {contentImage2 && (
         <Image
-          src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage2.filename}
+          src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + contentImage2._key}
           width={contentImage2.width!}
           height={contentImage2.height!}
           alt=""

@@ -16,11 +16,11 @@ interface ContentProps {
   children: ReactNode;
 }
 
-export default function Content({ contentImage: { filename, width, height }, children }: ContentProps) {
+export default function Content({ contentImage: { _key, width, height }, children }: ContentProps) {
   return (
     <article className={styles["content"]}>
       <Image
-        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + filename}
+        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + _key}
         width={width!}
         height={height!}
         alt=""

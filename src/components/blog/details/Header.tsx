@@ -19,11 +19,11 @@ interface HeaderProps {
   children: ReactNode;
 }
 
-export default function Header({ headerImage: { filename, width, height }, children }: HeaderProps) {
+export default function Header({ headerImage: { _key, width, height }, children }: HeaderProps) {
   return (
     <header className={styles["header"]}>
       <Image
-        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + filename}
+        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + _key}
         width={width!}
         height={height!}
         alt=""

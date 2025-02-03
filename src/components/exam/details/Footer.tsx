@@ -24,7 +24,7 @@ export default function Footer({ footerImage1, footerImage2, footerContent }: Fo
   return areBothImagesProvided ? (
     <footer className={styles["footer"]}>
       <Image
-        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + footerImage1.filename}
+        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + footerImage1._key}
         width={footerImage1.width!}
         height={footerImage1.height!}
         alt=""
@@ -32,7 +32,7 @@ export default function Footer({ footerImage1, footerImage2, footerContent }: Fo
         className={cn(styles["footer__image1"], "object-cover")}
       />
       <Image
-        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + footerImage2.filename}
+        src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + footerImage2._key}
         width={footerImage2.width!}
         height={footerImage2.height!}
         alt=""
@@ -45,7 +45,7 @@ export default function Footer({ footerImage1, footerImage2, footerContent }: Fo
     <footer className={cn(styles["footer"], styles["footer--one-img"])}>
       {footerImage1 && (
         <Image
-          src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + footerImage1.filename}
+          src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + footerImage1._key}
           width={footerImage1.width!}
           height={footerImage1.height!}
           alt=""
@@ -55,7 +55,7 @@ export default function Footer({ footerImage1, footerImage2, footerContent }: Fo
       )}
       {footerImage2 && (
         <Image
-          src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + footerImage2.filename}
+          src={process.env.NEXT_PUBLIC_BLOB_BASE_URL + "/" + footerImage2._key}
           width={footerImage2.width!}
           height={footerImage2.height!}
           alt=""

@@ -1,4 +1,4 @@
-import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
+import { uploadthingStorage } from "@payloadcms/storage-uploadthing";
 import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
 import path from "path";
 import { buildConfig } from "payload";
@@ -62,7 +62,7 @@ export default buildConfig({
   },
   db: vercelPostgresAdapter({ pool: { connectionString: process.env.POSTGRES_URL || "" } }),
   sharp,
-  plugins: [vercelBlobStorage({ collections: { media: true }, token: process.env.BLOB_READ_WRITE_TOKEN || "" })],
+  plugins: [uploadthingStorage({ collections: { media: true }, options: { token: process.env.UPLOADTHING_TOKEN, acl: "public-read" } })],
   i18n: { ...customTranslations, supportedLanguages: { en, pl } },
 
   async onInit(payload) {
