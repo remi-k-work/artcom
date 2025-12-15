@@ -36,7 +36,7 @@
     "graphql": "^16.10.0",
     "lucide-react": "^0.447.0",
     "motion": "^11.18.2",
-    "next": "^15.1.6",
+    "next": "15.1.9",
     "next-safe-action": "^7.10.3",
     "open-props": "^1.7.12",
     "payload": "^3.20.0",
