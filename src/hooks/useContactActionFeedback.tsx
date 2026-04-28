@@ -2,7 +2,7 @@
 import { ReactNode, useCallback, useState, useRef, useEffect } from "react";
 
 // other libraries
-import { FormActionResult } from "@/lib/formActionTypes";
+import type { FormActionResult } from "@/lib/formActionTypes";
 import { useContactFormStore } from "@/stores/contactFormProvider";
 
 // components

@@ -1,7 +1,7 @@
 // other libraries
 import { z } from "zod";
 import { contactFormSchema } from "./contactForm";
-import { FormActionResult } from "@/lib/formActionTypes";
+import type { FormActionResult } from "@/lib/formActionTypes";
 
 // types
 export interface ContactFormActionResult extends FormActionResult {}
